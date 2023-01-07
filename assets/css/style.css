@@ -229,6 +229,9 @@ h6 {
   width: 100%;
   height: 100vh;
   background: url("../img/Animation.gif") top center;
+  /*--------------------------------------------------------------
+  Subir la imagen en otro sitio
+--------------------------------------------------------------*/
   background-size: cover;
 }
 
