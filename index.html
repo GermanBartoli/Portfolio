@@ -249,8 +249,8 @@
                             >
                                 <img
                                     src="https://media3.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif?cid=790b7611146e83b3b49c21c0adfc89bb21a1b72eafe73727&rid=giphy.gif&ct=g"
-                                    height="350"
-                                    width="350"
+                                    height="340"
+                                    width="340"
                                     alt=""
                                 />
                             </a>
@@ -963,10 +963,10 @@
 </html>
 
 <script>
+    var audio = document.getElementById("miaudio");
+    audio.volume = 0.05;
     document.addEventListener('click', musicPlay);
     function musicPlay() {
-        var audio = document.getElementById("miaudio");
-        audio.volume = 0.05;
         audio.play();
         document.removeEventListener('click', musicPlay);
     }
