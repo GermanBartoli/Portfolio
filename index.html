@@ -84,112 +84,87 @@
         <header id="header">
             <div class="d-flex flex-column">
                 <div class="profile">
-                    <img
-                        src="assets/img/profile-img.jpg"
-                        alt=""
-                        class="img-fluid rounded-circle"
-                        style="
+                    <img src="assets/img/profile-img.jpg"
+                         alt=""
+                         class="img-fluid rounded-circle"
+                         style="
                         height: 266px;
-                        width: 266px;"
-                    />
+                        width: 266px;" />
                     <h1 class="text-light"><a href="index.html">German Bartoli</a></h1>
                     <div class="social-links mt-3 text-center">
-                        <a
-                            href="https://github.com/bartoligerman497"
-                            class="linkedin"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
+                        <a href="https://github.com/bartoligerman497"
+                           class="linkedin"
+                           target="_blank"
+                           rel="noreferrer">
                             <i class="bx bxl-github"></i>
                         </a>
-                        <a
-                            href="https://www.linkedin.com/in/bartoligerman497/"
-                            class="linkedin"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
+                        <a href="https://www.linkedin.com/in/bartoligerman497/"
+                           class="linkedin"
+                           target="_blank"
+                           rel="noreferrer">
                             <i class="bx bxl-linkedin"></i>
                         </a>
-                        <a
-                            href="https://platzi.com/p/bartoligerman497/"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
+                        <a href="https://platzi.com/p/bartoligerman497/"
+                           target="_blank"
+                           rel="noreferrer">
                             <iconify-icon icon="simple-icons:platzi"></iconify-icon>
                         </a>
-                        <a
-                            href="https://wakatime.com/@bartoligerman497"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
+                        <a href="https://wakatime.com/@bartoligerman497"
+                           target="_blank"
+                           rel="noreferrer">
                             <iconify-icon icon="simple-icons:wakatime"></iconify-icon>
                         </a>
-                        <!-- 
-                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> 
-                        -->
+                        <!--
+                    <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                    <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                    <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                -->
                     </div>
                 </div>
 
-                <nav
-                    id="navbar"
-                    class="nav-menu navbar"
-                >
+                <nav id="navbar"
+                     class="nav-menu navbar">
                     <ul>
                         <li>
-                            <a
-                                href="#hero"
-                                class="nav-link scrollto active"
-                            >
+                            <a href="#hero"
+                               class="nav-link scrollto active">
                                 <i class="bx bx-home"></i> <span>Home</span>
                             </a>
                         </li>
                         <li>
-                            <a
-                                href="#about"
-                                class="nav-link scrollto"
-                            >
+                            <a href="#about"
+                               class="nav-link scrollto">
                                 <i class="bx bx-user"></i> <span>About</span>
                             </a>
                         </li>
                         <li>
-                            <a
-                                href="#resume"
-                                class="nav-link scrollto"
-                            >
+                            <a href="#resume"
+                               class="nav-link scrollto">
                                 <i class="bx bx-file-blank"></i> <span>Resume</span>
                             </a>
                         </li>
                         <li>
-                            <a
-                                href="#skills"
-                                class="nav-link scrollto"
-                            >
+                            <a href="#skills"
+                               class="nav-link scrollto">
                                 <i class="bx bx-dumbbell"></i> <span>Skills</span>
                             </a>
                         </li>
                         <li>
-                            <a
-                                href="#portfolio"
-                                class="nav-link scrollto"
-                            >
+                            <a href="#portfolio"
+                               class="nav-link scrollto">
                                 <i class="bx bx-book-content"></i> <span>Portfolio</span>
                             </a>
                         </li>
                         <!-- <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li> -->
                         <li>
-                            <a
-                                href="#contact"
-                                class="nav-link scrollto"
-                            >
+                            <a href="#contact"
+                               class="nav-link scrollto">
                                 <i class="bx bx-envelope"></i> <span>Contact</span>
                             </a>
                         </li>
                         <li>
-                            <audio 
-                                   id="miaudio" 
-                                   controls autoplay loop 
+                            <audio id="miaudio"
+                                   controls autoplay loop
                                    style=" width: 250px; display: block; border-radius: 20px; margin: 0 auto; ">
                                 <source src="assets/mp3/Sweden.mp3" type="audio/mp3">
                             </audio>
@@ -197,6 +172,23 @@
                     </ul>
                 </nav>
                 <!-- .nav-menu -->
+            </div>
+            <div>
+                <a id="reproducirPausar" style="color: aliceblue; cursor: pointer" title="Reproducir">
+                    <img id="imagenRepoducirPausar" src="https://cdn-icons-png.flaticon.com/512/8104/8104431.png" alt="Icono personalizado" style="width: 2.5em; margin-top: 10px;">
+                </a>
+                <a id="bajarVolumen" style="color: aliceblue; cursor: pointer" title="Bajar Volumen">
+                    <img src="https://cdn-icons-png.flaticon.com/512/8103/8103898.png" alt="Icono personalizado" style="width: 2.5em; margin-top: 10px;">
+                </a>
+                <a id="subirVolumen" style="color: aliceblue; cursor: pointer" title="Subir Volumen">
+                    <!--<iconify-icon icon="../ico/volume_down-512.png" style="font-size: 2.5em !important; margin-top: 10px !important;"></iconify-icon>-->
+                    <img src="https://cdn-icons-png.flaticon.com/512/8104/8104599.png" alt="Icono personalizado" style="width: 2.5em; margin-top: 10px;">
+                </a>
+                <a id="silenciar" style="color: aliceblue; cursor: pointer" title="Silenciar">
+                    <!--<iconify-icon icon="../ico/volume_down-512.png" style="font-size: 2.5em !important; margin-top: 10px !important;"></iconify-icon>-->
+                    <img src="https://cdn-icons-png.flaticon.com/512/8104/8104505.png" alt="Icono personalizado" style="width: 2.5em; margin-top: 10px;">
+                    <!--https://www.freepik.com/icon/right-arrow_8104431#fromView=resource_detail&position=16-->
+                </a>
             </div>
         </header>
         <!-- End Header -->
@@ -873,6 +865,7 @@
                                             name="name"
                                             class="form-control"
                                             id="name"
+                                            autocomplete="username"
                                             required
                                         />
                                     </div>
@@ -883,6 +876,7 @@
                                             class="form-control"
                                             name="email"
                                             id="email"
+                                            autocomplete="email"
                                             required
                                         />
                                     </div>
@@ -963,12 +957,95 @@
 </html>
 
 <script>
+    // Vars
+    var aReproducirPausar = document.getElementById('reproducirPausar')
+    var imgReproducirPausar = document.getElementById('imagenRepoducirPausar')
+
     document.addEventListener('DOMContentLoaded', function () {
         var audio = document.getElementById("miaudio");
         audio.volume = 0.05;
+
+        if (audio.paused) {
+            aReproducirPausar.title = "Reproducir"
+            imgReproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104431.png"
+        } else {
+            aReproducirPausar.title = "Pausar"
+            imgReproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
+        }
+
         document.addEventListener('click', musicPlay);
+
         function musicPlay() {
             audio.play();
+            document.removeEventListener('click', musicPlay);
+
+            aReproducirPausar.title = "Pausar"
+            imgReproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
+
+        }
+
+        audio.addEventListener('pause', function () {
+            aReproducirPausar.title = "Reproducir"
+            imgReproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104431.png"
+        });
+
+        audio.addEventListener('play', function () {
+            aReproducirPausar.title = "Pausar"
+            imgReproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
+        });
+
+        aReproducirPausar.addEventListener('click', function () {
+            if (audio.paused) {
+                audio.play();
+                aReproducirPausar.title = "Pausar"
+                imgReproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
+            } else {
+                audio.pause();
+                aReproducirPausar.title = "Reproducir"
+                imgReproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104431.png"
+            }
+        });
+
+        document.getElementById('subirVolumen').addEventListener('click', function () {
+            subirVolumen(audio);
+        });
+
+        document.getElementById('bajarVolumen').addEventListener('click', function () {
+            bajarVolumen(audio);
+        });
+
+        function subirVolumen(audioElement) {
+            if (!audio.muted) {
+                if (audioElement.volume < 1.0 && audioElement.volume <= 0.90) {
+                    audioElement.volume += 0.10;
+                } else {
+                    audioElement.volume = 1;
+                }
+            }
+        }
+
+        function bajarVolumen(audioElement) {
+            if (!audio.muted) {
+                if (0.0 < audioElement.volume && audioElement.volume >= 0.10) {
+                    audioElement.volume -= 0.10;
+                } else {
+                    audioElement.volume = 0;
+                }
+            }
+        }
+
+        document.getElementById('silenciar').addEventListener('click', function () {
+            silenciar(audio);
+        });
+
+        function silenciar(audioElement) {
+            if (audio.muted) {
+                // Si el audio está silenciado, desmutea
+                audio.muted = false;
+            } else {
+                // Si el audio no está silenciado, mutea
+                audio.muted = true;
+            }
         }
     });
 </script>
