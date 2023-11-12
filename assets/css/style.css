@@ -13,6 +13,23 @@ body {
   color: #272829;
 }
 
+ /*General Scrollbar styling used on this site:*/
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0);
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    background: rgb(54, 49, 49);
+}  
+
 a {
   color: #149ddd;
   text-decoration: none;
