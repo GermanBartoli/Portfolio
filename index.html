@@ -186,6 +186,14 @@
                                 <i class="bx bx-envelope"></i> <span>Contact</span>
                             </a>
                         </li>
+                        <li>
+                            <audio 
+                                   id="miaudio" 
+                                   controls autoplay loop 
+                                   style=" width: 250px; display: block; border-radius: 20px; margin: 0 auto; ">
+                                <source src="assets/mp3/Sweden.mp3" type="audio/mp3">
+                            </audio>
+                        </li>
                     </ul>
                 </nav>
                 <!-- .nav-menu -->
@@ -953,3 +961,13 @@
         <script src="assets/js/main.js"></script>
     </body>
 </html>
+
+<script>
+    document.addEventListener('click', musicPlay);
+    function musicPlay() {
+        var audio = document.getElementById("miaudio");
+        audio.volume = 0.05;
+        audio.play();
+        document.removeEventListener('click', musicPlay);
+    }
+</script>
