@@ -960,6 +960,7 @@
     // Vars
     var aReproducirPausar = document.getElementById('reproducirPausar')
     var imgReproducirPausar = document.getElementById('imagenRepoducirPausar')
+    var audioPausado = false;
 
     document.addEventListener('DOMContentLoaded', function () {
         var audio = document.getElementById("miaudio");
@@ -976,12 +977,13 @@
         document.addEventListener('click', musicPlay);
 
         function musicPlay() {
-            audio.play();
-            document.removeEventListener('click', musicPlay);
+            if (!audioPausado) {
+                audio.play();
+                document.removeEventListener('click', musicPlay);
 
-            aReproducirPausar.title = "Pausar"
-            imgReproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
-
+                aReproducirPausar.title = "Pausar"
+                imgReproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
+            }
         }
 
         audio.addEventListener('pause', function () {
@@ -999,10 +1001,12 @@
                 audio.play();
                 aReproducirPausar.title = "Pausar"
                 imgReproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
+                audioPausado = false;
             } else {
                 audio.pause();
                 aReproducirPausar.title = "Reproducir"
                 imgReproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104431.png"
+                audioPausado = true;
             }
         });
 
