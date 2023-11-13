@@ -189,6 +189,11 @@
                     <img id="silenciar" src="https://cdn-icons-png.flaticon.com/512/8104/8104493.png" alt="Silenciar" title="Silenciar" style="width: 2.5em; margin-top: 10px;">
                     <!--https://www.freepik.com/icon/right-arrow_8104431#fromView=resource_detail&position=16-->
                 </a>
+                <a id="" style="color: aliceblue; cursor: pointer">
+                    <!--<iconify-icon icon="../ico/volume_down-512.png" style="font-size: 2.5em !important; margin-top: 10px !important;"></iconify-icon>-->
+                    <img id="reiniciar" src="https://cdn-icons-png.flaticon.com/512/8104/8104406.png" alt="Reiniciar" title="Reiniciar" style="width: 2.5em; margin-top: 10px;">
+                    <!--https://www.freepik.com/icon/right-arrow_8104431#fromView=resource_detail&position=16-->
+                </a>
             </div>
         </header>
         <!-- End Header -->
@@ -336,7 +341,7 @@
                             </a>
                             <a
                                 href="https://www.frc.utn.edu.ar/secretarias/academica/tecnicaturas/programacion/"
-                                title="Platzi"
+                                title="TUP UTN"
                                 target="_blank"
                                 rel="noopener"
                             >
@@ -963,6 +968,7 @@
     const bajarVolumen = document.getElementById('bajarVolumen');
     const subirVolumen = document.getElementById('subirVolumen');
     const silenciar = document.getElementById('silenciar');
+    const reiniciar = document.getElementById('reiniciar');
 
     var audioPausado = false;
 
@@ -998,6 +1004,10 @@
                 }
                 if (event.target.alt === silenciar.alt) {
                     // No hacer nada si el clic fue en el botón de silenciar
+                    return;
+                }
+                if (event.target.alt === reiniciar.alt) {
+                    // No hacer nada si el clic fue en el botón de reiniciar
                     return;
                 }
 
@@ -1067,10 +1077,21 @@
             if (audio.muted) {
                 // Si el audio está silenciado, desmutea
                 audio.muted = false;
+                silenciar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104493.png"
             } else {
                 // Si el audio no está silenciado, mutea
                 audio.muted = true;
+                silenciar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104282.png"
             }
         }
+
+        document.getElementById('reiniciar').addEventListener('click', function () {
+            Reiniciar(audio);
+        });
+
+        function Reiniciar(audioElement) {
+            audioElement.currentTime = 0; // Esto establece la posición de reproducción en 0 segundos
+        }
+
     });
 </script>
