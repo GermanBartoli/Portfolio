@@ -166,7 +166,7 @@
                             <audio id="miaudio"
                                    controls autoplay loop
                                    style=" width: 250px; display: block; border-radius: 20px; margin: 0 auto; ">
-                                <source src="assets/mp3/Sweden.mp3" type="audio/mp3">
+                                <source src="assets/mp3/Gymnopedie.mp3" type="audio/mp3">
                             </audio>
                         </li>
                     </ul>
@@ -195,6 +195,16 @@
                     <!--https://www.freepik.com/icon/right-arrow_8104431#fromView=resource_detail&position=16-->
                 </a>
             </div>
+            <div>
+                <a id="" style="color: aliceblue; cursor: pointer">
+                    <img id="cancionAnterior" src="https://cdn-icons-png.flaticon.com/512/8104/8104392.png" alt="Anterior" title="Anterior" style="width: 2.5em; margin-top: 10px;">
+                </a>
+                <a id="" style="color: aliceblue; cursor: pointer">
+                    <img id="cancionSiguiente" src="https://cdn-icons-png.flaticon.com/512/8104/8104296.png" alt="Siguiente" title="Siguiente" style="width: 2.5em; margin-top: 10px;">
+                </a>
+            </div>
+            <br />
+            <br />
         </header>
         <!-- End Header -->
 
@@ -976,7 +986,7 @@
 
     document.addEventListener('DOMContentLoaded', function () {
         var audio = document.getElementById("miaudio");
-        audio.volume = 0.05;
+        audio.volume = 0.20;
 
         if (audio.paused) {
             repoducirPausar.title = "Reproducir"
@@ -1092,6 +1102,39 @@
         function Reiniciar(audioElement) {
             audioElement.currentTime = 0; // Esto establece la posición de reproducción en 0 segundos
         }
+
+        // Cambiar de canción
+        // Lista de canciones
+        const canciones = [
+            "assets/mp3/Gymnopedie.mp3",
+            "assets/mp3/Sweden.mp3",
+            // Agrega más canciones según sea necesario
+        ];
+
+        let cancionActual = 0; // Índice de la canción actual
+
+        // Función para cambiar a la canción anterior
+        document.getElementById("cancionAnterior").addEventListener("click", function () {
+            cancionActual = (cancionActual - 1 + canciones.length) % canciones.length;
+            cambiarCancion();
+        });
+
+        // Función para cambiar a la canción siguiente
+        document.getElementById("cancionSiguiente").addEventListener("click", function () {
+            cancionActual = (cancionActual + 1) % canciones.length;
+            cambiarCancion();
+        });
+
+        // Función para cambiar la fuente de la canción actual
+        function cambiarCancion() {
+            const audio = document.getElementById("miaudio");
+            audio.src = canciones[cancionActual];
+            audio.load(); // Carga la nueva canción
+            audio.play(); // Reproduce la nueva canción automáticamente
+        }
+
+
+
 
     });
 </script>
