@@ -174,19 +174,19 @@
                 <!-- .nav-menu -->
             </div>
             <div>
-                <a id="reproducirPausar" style="color: aliceblue; cursor: pointer" title="Reproducir">
-                    <img id="imagenRepoducirPausar" src="https://cdn-icons-png.flaticon.com/512/8104/8104431.png" alt="Icono personalizado" style="width: 2.5em; margin-top: 10px;">
+                <a id="" style="color: aliceblue; cursor: pointer">
+                    <img id="repoducirPausar" src="https://cdn-icons-png.flaticon.com/512/8104/8104431.png" alt="Reproducir" title="Reproducir" style="width: 2.5em; margin-top: 10px;">
                 </a>
-                <a id="bajarVolumen" style="color: aliceblue; cursor: pointer" title="Bajar Volumen">
-                    <img src="https://cdn-icons-png.flaticon.com/512/8103/8103898.png" alt="Icono personalizado" style="width: 2.5em; margin-top: 10px;">
+                <a id="" style="color: aliceblue; cursor: pointer">
+                    <img id="bajarVolumen" src="https://cdn-icons-png.flaticon.com/512/8103/8103898.png" alt="Bajar Volumen" title="Bajar Volumen" style="width: 2.5em; margin-top: 10px;">
                 </a>
-                <a id="subirVolumen" style="color: aliceblue; cursor: pointer" title="Subir Volumen">
+                <a id="" style="color: aliceblue; cursor: pointer">
                     <!--<iconify-icon icon="../ico/volume_down-512.png" style="font-size: 2.5em !important; margin-top: 10px !important;"></iconify-icon>-->
-                    <img src="https://cdn-icons-png.flaticon.com/512/8104/8104599.png" alt="Icono personalizado" style="width: 2.5em; margin-top: 10px;">
+                    <img id="subirVolumen" src="https://cdn-icons-png.flaticon.com/512/8104/8104599.png" alt="Subir Volumen" title="Subir Volumen" style="width: 2.5em; margin-top: 10px;">
                 </a>
-                <a id="silenciar" style="color: aliceblue; cursor: pointer" title="Silenciar">
+                <a id="" style="color: aliceblue; cursor: pointer">
                     <!--<iconify-icon icon="../ico/volume_down-512.png" style="font-size: 2.5em !important; margin-top: 10px !important;"></iconify-icon>-->
-                    <img src="https://cdn-icons-png.flaticon.com/512/8104/8104505.png" alt="Icono personalizado" style="width: 2.5em; margin-top: 10px;">
+                    <img id="silenciar" src="https://cdn-icons-png.flaticon.com/512/8104/8104493.png" alt="Silenciar" title="Silenciar" style="width: 2.5em; margin-top: 10px;">
                     <!--https://www.freepik.com/icon/right-arrow_8104431#fromView=resource_detail&position=16-->
                 </a>
             </div>
@@ -958,67 +958,88 @@
 
 <script>
     // Vars
-    var aReproducirPausar = document.getElementById('reproducirPausar')
-    var imgReproducirPausar = document.getElementById('imagenRepoducirPausar')
+
+    const repoducirPausar = document.getElementById('repoducirPausar');
+    const bajarVolumen = document.getElementById('bajarVolumen');
+    const subirVolumen = document.getElementById('subirVolumen');
+    const silenciar = document.getElementById('silenciar');
+
     var audioPausado = false;
+
+
 
     document.addEventListener('DOMContentLoaded', function () {
         var audio = document.getElementById("miaudio");
         audio.volume = 0.05;
 
         if (audio.paused) {
-            aReproducirPausar.title = "Reproducir"
-            imgReproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104431.png"
+            repoducirPausar.title = "Reproducir"
+            repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104431.png"
         } else {
             aReproducirPausar.title = "Pausar"
-            imgReproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
+            repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
         }
 
         document.addEventListener('click', musicPlay);
 
-        function musicPlay() {
-            if (!audioPausado) {
-                audio.play();
-                document.removeEventListener('click', musicPlay);
+        function musicPlay(event) {
+            if (audio.paused) {
+                if (event.target.alt === repoducirPausar.alt) {
+                    // No hacer nada si el clic fue en el botón de repoducirPausar
+                    return;
+                }
+                if (event.target.alt === bajarVolumen.alt) {
+                    // No hacer nada si el clic fue en el botón de bajarVolumen
+                    return;
+                }
+                if (event.target.alt === subirVolumen.alt) {
+                    // No hacer nada si el clic fue en el botón de subir volumen
+                    return;
+                }
+                if (event.target.alt === silenciar.alt) {
+                    // No hacer nada si el clic fue en el botón de silenciar
+                    return;
+                }
 
-                aReproducirPausar.title = "Pausar"
-                imgReproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
+                audio.play();
+                repoducirPausar.title = "Pausar"
+                repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
+                document.removeEventListener('click', musicPlay);
             }
         }
 
         audio.addEventListener('pause', function () {
-            aReproducirPausar.title = "Reproducir"
-            imgReproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104431.png"
+            repoducirPausar.title = "Reproducir"
+            repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104431.png"
         });
 
         audio.addEventListener('play', function () {
-            aReproducirPausar.title = "Pausar"
-            imgReproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
+            repoducirPausar.title = "Pausar"
+            repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
         });
 
-        aReproducirPausar.addEventListener('click', function () {
+        repoducirPausar.addEventListener('click', function () {
             if (audio.paused) {
                 audio.play();
-                aReproducirPausar.title = "Pausar"
-                imgReproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
-                audioPausado = false;
+                repoducirPausar.title = "Pausar"
+                repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
             } else {
                 audio.pause();
-                aReproducirPausar.title = "Reproducir"
-                imgReproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104431.png"
+                repoducirPausar.title = "Reproducir"
+                repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104431.png"
                 audioPausado = true;
             }
         });
 
         document.getElementById('subirVolumen').addEventListener('click', function () {
-            subirVolumen(audio);
+            SubirVolumen(audio);
         });
 
         document.getElementById('bajarVolumen').addEventListener('click', function () {
-            bajarVolumen(audio);
+            BajarVolumen(audio);
         });
 
-        function subirVolumen(audioElement) {
+        function SubirVolumen(audioElement) {
             if (!audio.muted) {
                 if (audioElement.volume < 1.0 && audioElement.volume <= 0.90) {
                     audioElement.volume += 0.10;
@@ -1028,7 +1049,7 @@
             }
         }
 
-        function bajarVolumen(audioElement) {
+        function BajarVolumen(audioElement) {
             if (!audio.muted) {
                 if (0.0 < audioElement.volume && audioElement.volume >= 0.10) {
                     audioElement.volume -= 0.10;
@@ -1039,10 +1060,10 @@
         }
 
         document.getElementById('silenciar').addEventListener('click', function () {
-            silenciar(audio);
+            Silenciar(audio);
         });
 
-        function silenciar(audioElement) {
+        function Silenciar(audioElement) {
             if (audio.muted) {
                 // Si el audio está silenciado, desmutea
                 audio.muted = false;
