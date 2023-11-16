@@ -1,3 +1,3 @@
 # Portafolio
- 
-![Screenshot (4)](https://user-images.githubusercontent.com/53313625/205536609-b67be40b-c95f-4390-8f97-92ab3eb26bd5.png)
+![Portfolio](https://github.com/bartoligerman497/Portfolio/assets/53313625/9e3b9567-8ba1-4253-bf87-b36523d64f7d)
+
