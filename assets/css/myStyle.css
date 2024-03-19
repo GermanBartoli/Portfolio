@@ -1,6 +1,6 @@
 #audio-player {
-    transition: opacity 0.5s ease; /* Transiciï¿½n de opacidad durante 0.5 segundos */
-    opacity: 0; /* Comienza con opacidad 0 para que estï¿½ oculto */
+    transition: opacity 0.5s ease; /* Transición de opacidad durante 0.5 segundos */
+    opacity: 0; /* Comienza con opacidad 0 para que esté oculto */
 }
 
     #audio-player.show {
