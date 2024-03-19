@@ -20,7 +20,8 @@
 
         <!-- Favicons -->
         <link
-            href="assets/img/favicon.png"
+            href="assets/ico/favicon.ico"
+            type="image/x-icon"
             rel="icon"
         />
         <!--<link
@@ -65,6 +66,7 @@
             href="assets/css/style.css"
             rel="stylesheet"
         />
+        <link href="assets/css/myStyle.css" rel="stylesheet" />
 
         <!-- 
             =======================================================
@@ -166,46 +168,30 @@
                                 <i class="bx bx-envelope"></i> <span>Contact</span>
                             </a>
                         </li>
-                        <li>
-                            <audio id="miaudio"
-                                   controls autoplay loop
-                                   style=" width: 250px; display: block; border-radius: 20px; margin: 0 auto; ">
-                                <source src="assets/mp3/Gymnopedie.mp3" type="audio/mp3">
-                            </audio>
+                        <li id="music-li">
+                            <a href="#music"
+                               class="nav-link scrollto">
+                                <i class="bx bx-music"></i> <span>Music</span>
+                            </a>
                         </li>
                     </ul>
                 </nav>
                 <!-- .nav-menu -->
             </div>
-            <div>
-                <a id="" style="color: aliceblue; cursor: pointer">
-                    <img id="repoducirPausar" src="https://cdn-icons-png.flaticon.com/512/8104/8104431.png" alt="Reproducir" title="Reproducir" style="width: 2.5em; margin-top: 10px;">
-                </a>
-                <a id="" style="color: aliceblue; cursor: pointer">
-                    <img id="bajarVolumen" src="https://cdn-icons-png.flaticon.com/512/8103/8103898.png" alt="Bajar Volumen" title="Bajar Volumen" style="width: 2.5em; margin-top: 10px;">
-                </a>
-                <a id="" style="color: aliceblue; cursor: pointer">
-                    <!--<iconify-icon icon="../ico/volume_down-512.png" style="font-size: 2.5em !important; margin-top: 10px !important;"></iconify-icon>-->
-                    <img id="subirVolumen" src="https://cdn-icons-png.flaticon.com/512/8104/8104599.png" alt="Subir Volumen" title="Subir Volumen" style="width: 2.5em; margin-top: 10px;">
-                </a>
-                <a id="" style="color: aliceblue; cursor: pointer">
-                    <!--<iconify-icon icon="../ico/volume_down-512.png" style="font-size: 2.5em !important; margin-top: 10px !important;"></iconify-icon>-->
-                    <img id="silenciar" src="https://cdn-icons-png.flaticon.com/512/8104/8104493.png" alt="Silenciar" title="Silenciar" style="width: 2.5em; margin-top: 10px;">
-                    <!--https://www.freepik.com/icon/right-arrow_8104431#fromView=resource_detail&position=16-->
-                </a>
-                <a id="" style="color: aliceblue; cursor: pointer">
-                    <!--<iconify-icon icon="../ico/volume_down-512.png" style="font-size: 2.5em !important; margin-top: 10px !important;"></iconify-icon>-->
-                    <img id="reiniciar" src="https://cdn-icons-png.flaticon.com/512/8104/8104406.png" alt="Reiniciar" title="Reiniciar" style="width: 2.5em; margin-top: 10px;">
-                    <!--https://www.freepik.com/icon/right-arrow_8104431#fromView=resource_detail&position=16-->
-                </a>
-            </div>
-            <div>
-                <a id="" style="color: aliceblue; cursor: pointer">
-                    <img id="cancionAnterior" src="https://cdn-icons-png.flaticon.com/512/8104/8104392.png" alt="Anterior" title="Anterior" style="width: 2.5em; margin-top: 10px;">
-                </a>
-                <a id="" style="color: aliceblue; cursor: pointer">
-                    <img id="cancionSiguiente" src="https://cdn-icons-png.flaticon.com/512/8104/8104296.png" alt="Siguiente" title="Siguiente" style="width: 2.5em; margin-top: 10px;">
-                </a>
+
+            <div id="audio-player">
+                <audio id="miaudio"
+                       controls autoplay loop
+                       style=" width: 250px; display: block; border-radius: 20px; margin: 0 auto; margin-top: 10px;">
+                    <source src="assets/mp3/Gymnopedie.mp3" type="audio/mp3">
+                </audio>
+                <span id="repoducirPausar" class='bx bx-play' style='font-size: 24px; color: #6f7180; margin-top: 10px; margin-left: 32px; cursor: pointer' alt="Reproducir" title="Reproducir"></span>
+                <span id="bajarVolumen" class='bx bx-volume-low' style='font-size: 24px; color: #6f7180; margin-top: 10px; cursor:pointer' alt="Bajar Volumen" title="Bajar Volumen"></span>
+                <span id="subirVolumen" class='bx bx-volume-full' style="font-size: 24px; color: #6f7180; margin-top: 10px; cursor: pointer " alt="Subir Volumen" title="Subir Volumen"></span>
+                <span id="silenciar" class='bx bx-volume-mute' style="font-size: 24px; color: #6f7180; margin-top: 10px; cursor: pointer " alt="Silenciar" title="Silenciar"></span>
+                <span id="reiniciar" class='bx bx-repeat' style="font-size: 24px; color: #6f7180; margin-top: 10px; cursor: pointer " alt="Reiniciar" title="Reiniciar"></span>
+                <span id="cancionAnterior" class='bx bx-skip-previous' style="font-size: 26px; color: #6f7180; margin-top: 10px; cursor: pointer " alt="Cancion Anterior" title="Cancion Anterior"></span>
+                <span id="cancionSiguiente" class='bx bx-skip-next' style="font-size: 26px; color: #6f7180; margin-top: 10px; cursor: pointer " alt="Cancion Siguiente" title="Cancion Siguiente"></span>
             </div>
             <br />
             <br />
@@ -229,7 +215,6 @@
                         class="typed"
                         data-typed-items="Software Developer, Full Stack Developer, Technician University, Platzi Student, English Student, Programmer"
                     ></span>
-                    <!--  PC Gamer, Gym Enthusiast, Volleyball Player, Chess Player-->
                 </p>
             </div>
         </section>
@@ -990,45 +975,62 @@
     var audioPausado = false;
 
     document.addEventListener('DOMContentLoaded', function () {
+        var audioPlayer = document.getElementById('audio-player');
+        //audioPlayer.style.display = 'none'; // Ocultar el reproductor de audio al cargar el DOM
+
+        var elementosHijos = audioPlayer.querySelectorAll('*'); // Seleccionar todos los elementos hijos
+
+        elementosHijos.forEach(function (elemento) {
+            elemento.style.pointerEvents = 'none'; // Deshabilitar elementos hijos
+        });
+
         var audio = document.getElementById("miaudio");
-        audio.volume = 0.20;
+
+        audio.volume = 0.40;
 
         if (audio.paused) {
             repoducirPausar.title = "Reproducir"
-            repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104431.png"
+            //repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104431.png"
+            repoducirPausar.classList.remove('bx-pause')
+            repoducirPausar.classList.add('bx-play')
         } else {
             repoducirPausar.title = "Pausar"
-            repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
+            //repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
+            repoducirPausar.classList.add('bx-pause')
+            repoducirPausar.classList.remove('bx-play')
         }
 
         document.addEventListener('click', musicPlay);
 
         function musicPlay(event) {
             if (audio.paused) {
-                if (event.target.alt === repoducirPausar.alt) {
+                if (event.target.id === 'reproducirPausar') {
                     // No hacer nada si el clic fue en el botón de repoducirPausar
                     return;
                 }
-                if (event.target.alt === bajarVolumen.alt) {
+                if (event.target.id === 'bajarVolumen') {
                     // No hacer nada si el clic fue en el botón de bajarVolumen
                     return;
                 }
-                if (event.target.alt === subirVolumen.alt) {
+                if (event.target.id === 'subirVolumen') {
                     // No hacer nada si el clic fue en el botón de subir volumen
                     return;
                 }
-                if (event.target.alt === silenciar.alt) {
+                if (event.target.id === 'silenciar') {
                     // No hacer nada si el clic fue en el botón de silenciar
                     return;
                 }
-                if (event.target.alt === reiniciar.alt) {
+                if (event.target.id === 'reiniciar') {
                     // No hacer nada si el clic fue en el botón de reiniciar
                     return;
                 }
 
                 audio.play();
                 repoducirPausar.title = "Pausar"
-                repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
+                //repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
+                repoducirPausar.classList.add('bx-pause')
+                repoducirPausar.classList.remove('bx-play')
+
                 document.removeEventListener('click', musicPlay);
             }
         }
@@ -1047,11 +1049,15 @@
             if (audio.paused) {
                 audio.play();
                 repoducirPausar.title = "Pausar"
-                repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
+                //repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
+                repoducirPausar.classList.add('bx-pause')
+                repoducirPausar.classList.remove('bx-play')
             } else {
                 audio.pause();
                 repoducirPausar.title = "Reproducir"
-                repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104431.png"
+                //repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104431.png"
+                repoducirPausar.classList.remove('bx-pause')
+                repoducirPausar.classList.add('bx-play')
                 audioPausado = true;
             }
         });
@@ -1092,11 +1098,17 @@
             if (audio.muted) {
                 // Si el audio está silenciado, desmutea
                 audio.muted = false;
-                silenciar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104493.png"
+                //silenciar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104493.png"
+                silenciar.classList.remove("bxs-volume-mute");
+                silenciar.classList.add("bx-volume-mute");
+
             } else {
                 // Si el audio no está silenciado, mutea
                 audio.muted = true;
-                silenciar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104282.png"
+                //silenciar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104282.png"
+                silenciar.classList.remove("bx-volume-mute");
+                silenciar.classList.add("bxs-volume-mute");
+
             }
         }
 
@@ -1137,9 +1149,24 @@
             audio.load(); // Carga la nueva canción
             audio.play(); // Reproduce la nueva canción automáticamente
         }
+    });
 
+    document.getElementById('music-li').addEventListener('click', function (event) {
+        event.preventDefault(); // Evita que el enlace se comporte normalmente
 
+        var audioPlayer = document.getElementById('audio-player');
+        var elementosHijos = audioPlayer.querySelectorAll('*'); // Seleccionar todos los elementos hijos
 
-
+        if (audioPlayer.classList.contains('show')) {
+            audioPlayer.classList.remove('show'); // Si está visible, lo oculta
+            elementosHijos.forEach(function (elemento) {
+                elemento.style.pointerEvents = 'none'; // Deshabilitar elementos hijos
+            });
+        } else {
+            audioPlayer.classList.add('show'); // Si está oculto, lo muestra
+            elementosHijos.forEach(function (elemento) {
+                elemento.style.pointerEvents = 'auto'; // Habilitar elementos hijos
+            });
+        }
     });
 </script>
