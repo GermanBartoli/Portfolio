@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\German\\Documents\\GitHub\\Portfolio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\German\\Documents\\GitHub\\Portfolio\\assets\\css\\myStyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\css\\myStyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\German\\Documents\\GitHub\\Portfolio\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\German\\Documents\\GitHub\\Portfolio\\assets\\css\\myStyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\css\\myStyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\German\\Documents\\GitHub\\Portfolio\\assets\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,16 +34,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "myStyle.css",
               "DocumentMoniker": "C:\\Users\\German\\Documents\\GitHub\\Portfolio\\assets\\css\\myStyle.css",
               "RelativeDocumentMoniker": "assets\\css\\myStyle.css",
               "ToolTip": "C:\\Users\\German\\Documents\\GitHub\\Portfolio\\assets\\css\\myStyle.css",
               "RelativeToolTip": "assets\\css\\myStyle.css",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-03-18T02:56:59.013Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-18T02:56:59.013Z"
             },
             {
               "$type": "Document",
@@ -55,18 +54,17 @@
               "RelativeToolTip": "assets\\css\\style.css",
               "ViewState": "AQIAALUDAAAAAAAAAAAewAABAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2023-11-13T02:32:28.629Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-11-13T02:32:28.629Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "index.html",
               "DocumentMoniker": "C:\\Users\\German\\Documents\\GitHub\\Portfolio\\index.html",
               "RelativeDocumentMoniker": "index.html",
               "ToolTip": "C:\\Users\\German\\Documents\\GitHub\\Portfolio\\index.html",
               "RelativeToolTip": "index.html",
-              "ViewState": "AQIAAGgEAAAAAAAAAAAqwH4EAAAJAAAA",
+              "ViewState": "AQIAAAgEAAAAAAAAAAAawBEEAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2023-11-12T21:15:29.087Z",
               "EditorCaption": ""
