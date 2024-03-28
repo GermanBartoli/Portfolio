@@ -57,6 +57,11 @@
     <!-- ======= Mobile nav toggle button ======= -->
     <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
+    <div id="mensaje">
+        <p>Haz click en Aceptar para continuar</p>
+        <button id="aceptarBtnBienvenida">Aceptar</button>
+    </div>
+
     <!-- ======= Header ======= -->
     <header id="header">
         <div class="d-flex flex-column">
@@ -113,39 +118,45 @@
                  class="nav-menu navbar">
                 <ul>
                     <li>
-                        <a href="#hero"
-                           class="nav-link scrollto active">
+                        <a id="aHome"
+                           href="#hero"
+                           class="nav-link scrollto active disabled-link">
                             <i class="bx bx-home"></i> <span>Home</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#about"
-                           class="nav-link scrollto">
+                        <a id="aAbout"
+                           href="#about"
+                           class="nav-link scrollto disabled-link">
                             <i class="bx bx-user"></i> <span>About</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#resume"
-                           class="nav-link scrollto">
+                        <a id="aResume"
+                           href="#resume"
+                           class="nav-link scrollto disabled-link">
                             <i class="bx bx-file-blank"></i> <span>Resume</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#skills"
-                           class="nav-link scrollto">
+                        <a id="aSkills"
+                           href="#skills"
+                           class="nav-link scrollto disabled-link">
                             <i class="bx bx-dumbbell"></i> <span>Skills</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#portfolio"
-                           class="nav-link scrollto">
+                        <a id="aPortfolio"
+                           href="#portfolio"
+                           class="nav-link scrollto disabled-link">
                             <i class="bx bx-book-content"></i> <span>Portfolio</span>
                         </a>
                     </li>
                     <!-- <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li> -->
                     <li>
-                        <a href="#contact"
-                           class="nav-link scrollto">
+                        <a id="aContact"
+                           href="#contact"
+                           class="nav-link scrollto disabled-link">
                             <i class="bx bx-envelope"></i> <span>Contact</span>
                         </a>
                     </li>
@@ -166,7 +177,7 @@
                    style=" width: 250px; display: block; border-radius: 20px; margin: 0 auto; margin-top: 10px;">
                 <source src="assets/mp3/Gymnopedie.mp3" type="audio/mp3">
             </audio>
-            <span id="repoducirPausar" class='bx bx-play' style='font-size: 24px; color: #6f7180; margin-top: 10px; margin-left: 32px; cursor: pointer' alt="Reproducir" title="Reproducir"></span>
+            <span id="reproducirPausar" class='bx bx-play' style='font-size: 24px; color: #6f7180; margin-top: 10px; margin-left: 32px; cursor: pointer' alt="Reproducir" title="Reproducir"></span>
             <span id="bajarVolumen" class='bx bx-volume-low' style='font-size: 24px; color: #6f7180; margin-top: 10px; cursor:pointer' alt="Bajar Volumen" title="Bajar Volumen"></span>
             <span id="subirVolumen" class='bx bx-volume-full' style="font-size: 24px; color: #6f7180; margin-top: 10px; cursor: pointer " alt="Subir Volumen" title="Subir Volumen"></span>
             <span id="silenciar" class='bx bx-volume-mute' style="font-size: 24px; color: #6f7180; margin-top: 10px; cursor: pointer " alt="Silenciar" title="Silenciar"></span>
@@ -181,6 +192,7 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero"
              class="d-flex flex-column justify-content-center align-items-center">
+        <!--<section id="hero" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">-->
         <div class="hero-container"
              data-aos="fade-in"
              style="padding-bottom: 500px;">
@@ -190,6 +202,7 @@
                 <span class="typed"
                       data-typed-items="Software Developer, Full Stack Developer, Technician University, Platzi Student, English Student, Programmer"></span>
             </p>
+
         </div>
     </section>
     <!-- End Hero -->
@@ -806,13 +819,28 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script defer src="assets/js/welcome-message.js"></script>
+
 </body>
 </html>
 
 <script>
+    function disableScroll() {
+        document.body.classList.add("remove-scrolling");
+    }
+
+    function enableScroll() {
+        document.body.classList.remove("remove-scrolling");
+    }
+
+    var mensaje = document.getElementById('mensaje');
+
+    // Mostrar el mensaje cambiando su estilo de display
+    mensaje.style.display = 'block';
+
     // Vars
 
-    const repoducirPausar = document.getElementById('repoducirPausar');
+    const reproducirPausar = document.getElementById('reproducirPausar');
     const bajarVolumen = document.getElementById('bajarVolumen');
     const subirVolumen = document.getElementById('subirVolumen');
     const silenciar = document.getElementById('silenciar');
@@ -821,6 +849,9 @@
     var audioPausado = false;
 
     document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById("aceptarBtnBienvenida").addEventListener('click', aceptarBtnBienvenida);
+        disableScroll();
+
         var audioPlayer = document.getElementById('audio-player');
         //audioPlayer.style.display = 'none'; // Ocultar el reproductor de audio al cargar el DOM
 
@@ -835,15 +866,15 @@
         audio.volume = 0.30;
 
         if (audio.paused) {
-            repoducirPausar.title = "Reproducir"
-            //repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104431.png"
-            repoducirPausar.classList.remove('bx-pause')
-            repoducirPausar.classList.add('bx-play')
+            reproducirPausar.title = "Reproducir"
+            //reproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104431.png"
+            reproducirPausar.classList.remove('bx-pause')
+            reproducirPausar.classList.add('bx-play')
         } else {
-            repoducirPausar.title = "Pausar"
-            //repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
-            repoducirPausar.classList.add('bx-pause')
-            repoducirPausar.classList.remove('bx-play')
+            reproducirPausar.title = "Pausar"
+            //reproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
+            reproducirPausar.classList.add('bx-pause')
+            reproducirPausar.classList.remove('bx-play')
         }
 
         document.addEventListener('click', musicPlay);
@@ -851,7 +882,7 @@
         function musicPlay(event) {
             if (audio.paused) {
                 if (event.target.id === 'reproducirPausar') {
-                    // No hacer nada si el clic fue en el botón de repoducirPausar
+                    // No hacer nada si el clic fue en el botón de reproducirPausar
                     return;
                 }
                 if (event.target.id === 'bajarVolumen') {
@@ -872,42 +903,42 @@
                 }
 
                 audio.play();
-                repoducirPausar.title = "Pausar"
-                //repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
-                repoducirPausar.classList.add('bx-pause')
-                repoducirPausar.classList.remove('bx-play')
+                reproducirPausar.title = "Pausar"
+                //reproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
+                reproducirPausar.classList.add('bx-pause')
+                reproducirPausar.classList.remove('bx-play')
 
                 document.removeEventListener('click', musicPlay);
             }
         }
 
         audio.addEventListener('pause', function () {
-            repoducirPausar.title = "Reproducir"
-            //repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104431.png"
-            repoducirPausar.classList.remove('bx-pause')
-            repoducirPausar.classList.add('bx-play')
+            reproducirPausar.title = "Reproducir"
+            //reproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104431.png"
+            reproducirPausar.classList.remove('bx-pause')
+            reproducirPausar.classList.add('bx-play')
         });
 
         audio.addEventListener('play', function () {
-            repoducirPausar.title = "Pausar"
-            //repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
-            repoducirPausar.classList.add('bx-pause')
-            repoducirPausar.classList.remove('bx-play')
+            reproducirPausar.title = "Pausar"
+            //reproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
+            reproducirPausar.classList.add('bx-pause')
+            reproducirPausar.classList.remove('bx-play')
         });
 
-        repoducirPausar.addEventListener('click', function () {
+        reproducirPausar.addEventListener('click', function () {
             if (audio.paused) {
                 audio.play();
-                repoducirPausar.title = "Pausar"
-                //repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
-                repoducirPausar.classList.add('bx-pause')
-                repoducirPausar.classList.remove('bx-play')
+                reproducirPausar.title = "Pausar"
+                //reproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104379.png"
+                reproducirPausar.classList.add('bx-pause')
+                reproducirPausar.classList.remove('bx-play')
             } else {
                 audio.pause();
-                repoducirPausar.title = "Reproducir"
-                //repoducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104431.png"
-                repoducirPausar.classList.remove('bx-pause')
-                repoducirPausar.classList.add('bx-play')
+                reproducirPausar.title = "Reproducir"
+                //reproducirPausar.src = "https://cdn-icons-png.flaticon.com/512/8104/8104431.png"
+                reproducirPausar.classList.remove('bx-pause')
+                reproducirPausar.classList.add('bx-play')
                 audioPausado = true;
             }
         });

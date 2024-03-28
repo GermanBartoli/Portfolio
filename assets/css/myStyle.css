@@ -10,3 +10,57 @@
 span {
     user-select: none;
 }
+
+#mensaje {
+    position: fixed;
+    top: 10%; /* Margen superior como un porcentaje de la altura de la ventana */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px 20px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 9999; /* Ajusta el valor de z-index según sea necesario */
+}
+#mensaje p {
+    /* Estilos para el párrafo dentro del mensaje */
+    color: inherit; /* Hereda el color del texto del elemento padre */
+    margin-bottom: inherit; /* Hereda el margen del elemento padre */
+    font-size: inherit; /* Hereda el tamaño de fuente del elemento padre */
+    font-family: inherit; /* Hereda la familia de fuentes del elemento padre */
+}
+    #mensaje button {
+        background-color: #28a745;
+        color: #fff;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+#mensaje {
+    transition: opacity 0.5s ease-in-out; /* Agrega una transición de opacidad para suavizar la animación */
+}
+
+.oculto {
+    opacity: 0; /* Establece la opacidad a 0 para ocultar el div */
+}
+
+/* Clase para bloquear el desplazamiento */
+.body-fixed {
+    overflow: hidden;
+}
+
+.remove-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
+
+.disabled-link {
+    pointer-events: none; /* Deshabilita los eventos de puntero */
+    opacity: 0.6; /* Cambia la opacidad para indicar que está deshabilitado (opcional) */
+    cursor: not-allowed; /* Cambia el cursor para indicar que está deshabilitado (opcional) */
+}
