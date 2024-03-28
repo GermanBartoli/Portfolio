@@ -13,7 +13,7 @@ span {
 
 #mensaje {
     position: fixed;
-    top: 10%; /* Margen superior como un porcentaje de la altura de la ventana */
+    top: 50%; /* Margen superior como un porcentaje de la altura de la ventana */
     left: 50%;
     transform: translateX(-50%);
     background-color: #f8d7da;
