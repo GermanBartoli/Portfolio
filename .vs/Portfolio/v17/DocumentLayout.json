@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\German\\Documents\\GitHub\\Portfolio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\German\\Documents\\GitHub\\Portfolio\\assets\\js\\welcome-message.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\js\\welcome-message.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\German\\Documents\\GitHub\\Portfolio\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\German\\Documents\\GitHub\\Portfolio\\assets\\css\\myStyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\css\\myStyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\German\\Documents\\GitHub\\Portfolio\\assets\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\German\\Documents\\GitHub\\Portfolio\\assets\\js\\welcome-message.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\js\\welcome-message.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\German\\Documents\\GitHub\\Portfolio\\assets\\css\\myStyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\css\\myStyle.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\German\\Documents\\GitHub\\Portfolio\\assets\\js\\main.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -30,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -41,17 +41,20 @@
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "welcome-message.js",
               "DocumentMoniker": "C:\\Users\\German\\Documents\\GitHub\\Portfolio\\assets\\js\\welcome-message.js",
               "RelativeDocumentMoniker": "assets\\js\\welcome-message.js",
               "ToolTip": "C:\\Users\\German\\Documents\\GitHub\\Portfolio\\assets\\js\\welcome-message.js",
               "RelativeToolTip": "assets\\js\\welcome-message.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAqAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwA0AAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-03-28T02:50:49.542Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-28T02:50:49.542Z"
             },
             {
               "$type": "Document",
@@ -67,7 +70,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "myStyle.css",
               "DocumentMoniker": "C:\\Users\\German\\Documents\\GitHub\\Portfolio\\assets\\css\\myStyle.css",
               "RelativeDocumentMoniker": "assets\\css\\myStyle.css",
@@ -79,25 +82,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "style.css",
               "DocumentMoniker": "C:\\Users\\German\\Documents\\GitHub\\Portfolio\\assets\\css\\style.css",
               "RelativeDocumentMoniker": "assets\\css\\style.css",
               "ToolTip": "C:\\Users\\German\\Documents\\GitHub\\Portfolio\\assets\\css\\style.css",
               "RelativeToolTip": "assets\\css\\style.css",
-              "ViewState": "AQIAAPAAAAAAAAAAAAAewPYAAAAGAAAA",
+              "ViewState": "AQIAAHwDAAAAAAAAAAAewAEBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2023-11-13T02:32:28.629Z"
+              "WhenOpened": "2023-11-13T02:32:28.629Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "index.html",
               "DocumentMoniker": "C:\\Users\\German\\Documents\\GitHub\\Portfolio\\index.html",
               "RelativeDocumentMoniker": "index.html",
               "ToolTip": "C:\\Users\\German\\Documents\\GitHub\\Portfolio\\index.html",
               "RelativeToolTip": "index.html",
-              "ViewState": "AQIAAAEEAAAAAAAAAAAawAkEAAAAAAAA",
+              "ViewState": "AQIAAFADAAAAAAAAAAAawGEDAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2023-11-12T21:15:29.087Z",
               "EditorCaption": ""
