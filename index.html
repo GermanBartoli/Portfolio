@@ -900,16 +900,19 @@
 
     var audio;
 
-    window.addEventListener("beforeunload", function (event) {
-        event.preventDefault();
-        event.returnValue = ''; // Mensaje personalizado no funciona en todos los navegadores.
-    });
+    //window.addEventListener("beforeunload", function (event) {
+    //    event.preventDefault();
+    //    event.returnValue = ''; // Mensaje personalizado no funciona en todos los navegadores.
+    //    setTimeout(() => {
+    //        console.log("Han pasado 2 segundos.");
+    //    }, 2000);
+    //});
 
-    document.addEventListener("visibilitychange", function () {
-        if (document.visibilityState === 'hidden') {
-            alert("¿Seguro que quieres salir?");
-        }
-    });
+    //document.addEventListener("visibilitychange", function () {
+    //    if (document.visibilityState === 'hidden') {
+    //        alert("¿Seguro que quieres salir?");
+    //    }
+    //});
 
     window.addEventListener('pageshow', function(event) {
         if (event.persisted) {
