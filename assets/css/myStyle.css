@@ -1,6 +1,6 @@
 #audio-player {
-    transition: opacity 0.5s ease; /* Transición de opacidad durante 0.5 segundos */
-    opacity: 0; /* Comienza con opacidad 0 para que esté oculto */
+    transition: opacity 0.5s ease; /* Transiciï¿½n de opacidad durante 0.5 segundos */
+    opacity: 0; /* Comienza con opacidad 0 para que estï¿½ oculto */
 }
 
     #audio-player.show {
@@ -13,37 +13,35 @@ span {
 
 #mensaje {
     position: fixed;
-    top: 50%; /* Margen superior como un porcentaje de la altura de la ventana */
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    background-color: #f8d7da;
-    color: #721c24;
+    transform: translate(-50%, -50%);
+    background-color: #f5b5b7; /* Color de fondo mÃ¡s oscuro */
+    color: #5e0b0d; /* Color de texto mÃ¡s oscuro */
     padding: 10px 20px;
-    border: 1px solid #f5c6cb;
+    border: 1px solid #f08080;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: none;
-    z-index: 9999; /* Ajusta el valor de z-index según sea necesario */
+    z-index: 9999;
+    transition: opacity 0.5s ease-in-out;
 }
 #mensaje p {
-    /* Estilos para el párrafo dentro del mensaje */
-    color: inherit; /* Hereda el color del texto del elemento padre */
-    margin-bottom: inherit; /* Hereda el margen del elemento padre */
-    font-size: inherit; /* Hereda el tamaño de fuente del elemento padre */
-    font-family: inherit; /* Hereda la familia de fuentes del elemento padre */
+    color: inherit;
+    margin-bottom: inherit;
+    font-size: inherit;
+    font-family: inherit;
 }
-    #mensaje button {
-        background-color: #28a745;
-        color: #fff;
-        padding: 5px 10px;
-        border: none;
-        border-radius: 3px;
-        cursor: pointer;
-    }
+#mensaje button {
+    background-color: #218838;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
 
-#mensaje {
-    transition: opacity 0.5s ease-in-out; /* Agrega una transición de opacidad para suavizar la animación */
-}
+
 
 .oculto {
     opacity: 0; /* Establece la opacidad a 0 para ocultar el div */
@@ -61,6 +59,6 @@ span {
 
 .disabled-link {
     pointer-events: none; /* Deshabilita los eventos de puntero */
-    opacity: 0.6; /* Cambia la opacidad para indicar que está deshabilitado (opcional) */
-    cursor: not-allowed; /* Cambia el cursor para indicar que está deshabilitado (opcional) */
+    opacity: 0.6; /* Cambia la opacidad para indicar que estï¿½ deshabilitado (opcional) */
+    cursor: not-allowed; /* Cambia el cursor para indicar que estï¿½ deshabilitado (opcional) */
 }
