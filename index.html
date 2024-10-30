@@ -896,6 +896,18 @@
 
     var audioPausado = false;
 
+    var audio;
+
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            // La página se cargó desde la caché
+            audio.play(); // o el estado que necesites
+            //messageElement.textContent = "Mensaje principal";
+        }
+        audio.play(); // o el estado que necesites
+
+    });
+
     document.addEventListener('DOMContentLoaded', function () {
         document.getElementById("aceptarBtnBienvenida").addEventListener('click', aceptarBtnBienvenida);
         disableScroll();
@@ -909,7 +921,7 @@
             elemento.style.pointerEvents = 'none'; // Deshabilitar elementos hijos
         });
 
-        var audio = document.getElementById("miaudio");
+        audio = document.getElementById("miaudio");
 
         audio.volume = 0.60;
 
