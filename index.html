@@ -900,6 +900,17 @@
 
     var audio;
 
+    window.addEventListener("beforeunload", function (event) {
+        event.preventDefault();
+        event.returnValue = ''; // Mensaje personalizado no funciona en todos los navegadores.
+    });
+
+    document.addEventListener("visibilitychange", function () {
+        if (document.visibilityState === 'hidden') {
+            alert("¿Seguro que quieres salir?");
+        }
+    });
+
     window.addEventListener('pageshow', function(event) {
         if (event.persisted) {
             // La página se cargó desde la caché
