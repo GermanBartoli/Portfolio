@@ -51,6 +51,10 @@
         * License: https://bootstrapmade.com/license/
         ========================================================
     -->
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js" defer></script>
+    <script defer src="assets/js/welcome-message.js" defer></script>
 </head>
 
 <body>
@@ -769,6 +773,7 @@
 
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54553.44793491027!2d-64.34926431035522!3d-31.287420620377866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94329d056aa66e5f%3A0x2cd58396ed99410e!2sVilla%20Allende%2C%20Cordoba%2C%20Argentina!5e0!3m2!1sen!2sus!4v1670172479688!5m2!1sen!2sus" 
                                     frameborder="0" 
+                                    id="iframeGoogleMaps"
                                     style="border: 0; width: 100%; height: 290px" 
                                     loading="lazy" 
                                     referrerpolicy="no-referrer-when-downgrade" 
@@ -851,7 +856,9 @@
     <!-- End  Footer -->
 
     <a href="#"
-       class="back-to-top d-flex align-items-center justify-content-center">
+       class="back-to-top d-flex align-items-center justify-content-center"
+       title="Volver al inicio"
+       aria-label="Volver al inicio">
         <i class="bi bi-arrow-up-short"></i>
     </a>
 
@@ -868,9 +875,7 @@
 
     <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
 
-    <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
-    <script defer src="assets/js/welcome-message.js"></script>
+
 </body>
 </html>
 
@@ -924,9 +929,34 @@
 
     });
 
+    function scrollToTop() {
+        return new Promise((resolve) => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Desplazamiento suave
+            });
+
+            // Establecer un timeout para esperar el tiempo aproximado del desplazamiento
+            setTimeout(() => {
+                resolve(); // Resuelve la promesa cuando el scroll se espera que haya terminado
+            }, 1000); // Ajusta el tiempo si es necesario
+        });
+    }
+
+    window.onload = function () {
+        window.scrollTo(0, 0);
+    };
+
     document.addEventListener('DOMContentLoaded', function () {
+        scrollToTop().then(() => {
+            disableScroll();
+            //disableFocus(); // Deshabilitar el foco al cargar la página
+        });
+
+
+        //document.getElementById("aceptarBtnBienvenida").focus();
+
         document.getElementById("aceptarBtnBienvenida").addEventListener('click', aceptarBtnBienvenida);
-        disableScroll();
 
         var audioPlayer = document.getElementById('audio-player');
         //audioPlayer.style.display = 'none'; // Ocultar el reproductor de audio al cargar el DOM
@@ -1130,4 +1160,6 @@
     // Tareas
     // Hacer solo focus el boton aceptar, no dejar navegar el resto
     // Empresa ficticia sa
+    // no puedo desplazarme con el menu abnierto
+    //Estilos de foco y hover https://platzi.com/home/clases/1802-accesibilidad-web/26084-estilos-de-foco-y-hover/
 </script>
