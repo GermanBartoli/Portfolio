@@ -1,0 +1,12 @@
+<form id="contact-form" class="contact-form" action="https://formsubmit.co/3ccb3c1697fe531ad8cb04e1e7c07886" method="post">
+  <input type="hidden" name="_subject" value="Nuevo contacto desde el portfolio de German Bartoli" />
+  <input type="hidden" name="_template" value="table" />
+  <div class="form-row"><label>01 / Tu nombre<input name="nombre" autocomplete="name" required maxlength="100" placeholder="¿Cómo te llamás?" /></label><label>02 / Tu email<input name="email" type="email" autocomplete="email" required maxlength="200" placeholder="Para poder responderte" /></label></div>
+  <label>03 / ¿Qué tenés en mente?<select name="servicio" required><option value="" disabled selected>Elegí una opción</option><option>Un proyecto web</option><option>Desarrollo de software</option><option>Una colaboración</option><option>Otra idea</option></select></label>
+  <label>04 / Contame tu idea<textarea name="mensaje" required minlength="10" maxlength="3000" rows="4" placeholder="El primer paso es una conversación…"></textarea></label>
+  <div class="honeypot" aria-hidden="true"><label>No completar<input name="_honey" tabindex="-1" autocomplete="off" /></label></div>
+  <button class="button button-primary magnetic" type="submit">Enviar mensaje <span>↗</span></button>
+  <p class="form-note">Tus datos se usan solamente para responder tu consulta. El envío se procesa con FormSubmit.</p>
+  <p id="form-status" role="status" aria-live="polite"></p>
+</form>
+<script>import '../scripts/contact';</script>
