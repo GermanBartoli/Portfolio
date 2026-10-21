@@ -10,7 +10,7 @@ Astro genera páginas HTML rápidas y optimizadas; TypeScript organiza los datos
 
 ## Desarrollo
 
-Requisitos: Node.js 22.12 o posterior y npm.
+Requisitos: Node.js 24 LTS y npm. La validación automática usa la misma versión principal.
 
 ```powershell
 npm ci
