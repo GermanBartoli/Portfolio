@@ -1,0 +1,17 @@
+---
+import { profile } from '../data/profile';
+---
+<div class="discord-frame" data-discord-id={profile.discordId}>
+  <div class="discord-ornament" aria-hidden="true">✧ <span>✦</span> ✧</div>
+  <div class="discord-banner"><span>EN MI ÓRBITA</span><i aria-hidden="true">✧</i></div>
+  <div class="discord-body">
+    <div class="avatar-wrap"><div class="discord-avatar" id="discord-avatar">gb</div><img id="discord-decoration" alt="" hidden /><span class="status-dot" id="discord-dot"></span></div>
+    <div class="discord-heading"><h3 id="discord-name">German</h3><span class="live-label">↻ EN VIVO</span></div>
+    <p class="discord-handle" id="discord-handle">killerbiss</p>
+    <p id="discord-status" role="status">Conectando con Discord…</p>
+    <div id="discord-custom" hidden></div>
+    <div id="discord-activities"><p class="presence-empty">Consultando mi actividad actual.</p></div>
+    <div class="discord-footer"><span>Discord × Lanyard</span><a href={`https://discord.com/users/${profile.discordId}`} target="_blank" rel="noreferrer">Ver perfil ↗</a></div>
+  </div>
+</div>
+<script>import '../scripts/presence';</script>

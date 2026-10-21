@@ -1,0 +1,7 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "germanbartoli",
+  "pages_build_output_dir": "dist",
+  "compatibility_date": "2026-10-21",
+  "kv_namespaces": [{ "binding": "CONTACT_LIMITS", "id": "77ad6c88e80b4843b290bcdb9ec5a753" }]
+}
