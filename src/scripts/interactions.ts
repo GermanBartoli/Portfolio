@@ -6,6 +6,42 @@ function setup() {
   const { signal } = controller;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = matchMedia('(pointer: fine)').matches;
+  const navigation = document.querySelector<HTMLElement>('.section-nav');
+  const overflow = document.querySelector<HTMLDetailsElement>('.nav-overflow');
+  const inlineLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-section-link]'));
+  const menuLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-overflow-link]'));
+  const arrangeNavigation = () => {
+    if (!navigation || !overflow) return;
+    const mobile = matchMedia('(max-width: 700px)').matches;
+    overflow.hidden = false;
+    inlineLinks.forEach(link => { link.hidden = mobile; });
+    const available = navigation.clientWidth - overflow.offsetWidth - 24;
+    const row = navigation.querySelector<HTMLElement>('.nav-inline');
+    for (let index = inlineLinks.length - 1; !mobile && row && row.scrollWidth > available && index >= 0; index--) {
+      inlineLinks[index].hidden = true;
+    }
+    menuLinks.forEach((link, index) => { link.hidden = !inlineLinks[index].hidden; });
+    overflow.hidden = !inlineLinks.some(link => link.hidden);
+    const label = overflow.querySelector('.nav-more-label');
+    if (label) label.textContent = mobile ? 'Secciones' : 'Más';
+  };
+  const navigationResize = new ResizeObserver(arrangeNavigation);
+  if (navigation) navigationResize.observe(navigation);
+  arrangeNavigation();
+  document.fonts.ready.then(() => { if (!signal.aborted) arrangeNavigation(); });
+  navigation?.addEventListener('click', (event) => {
+    if ((event.target as Element).closest('a') && overflow) overflow.open = false;
+  }, { signal });
+  document.addEventListener('click', (event) => {
+    if (overflow && !overflow.contains(event.target as Node)) overflow.open = false;
+  }, { signal });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && overflow?.open) {
+      overflow.open = false;
+      overflow.querySelector('summary')?.focus();
+    }
+  }, { signal });
+  const backToTop = document.querySelector<HTMLElement>('.back-to-top');
   const story = document.querySelector<HTMLElement>('.story-text');
   if (story && !reduced) {
     const walker = document.createTreeWalker(story, NodeFilter.SHOW_TEXT);
@@ -46,6 +82,7 @@ function setup() {
   let frame = 0;
   const updateScroll = () => {
     frame = 0;
+    backToTop?.classList.toggle('is-visible', scrollY > innerHeight * 0.6);
     const distance = document.documentElement.scrollHeight - innerHeight;
     const progress = document.querySelector<HTMLElement>('.reading-progress');
     if (progress)
@@ -225,6 +262,7 @@ function setup() {
   cleanup = () => {
     controller.abort();
     observer.disconnect();
+    navigationResize.disconnect();
     clearInterval(clockTimer);
     cancelAnimationFrame(frame);
     document.documentElement.classList.remove('motion-ready');
