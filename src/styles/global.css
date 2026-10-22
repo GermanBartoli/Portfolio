@@ -1407,9 +1407,6 @@ dialog > p {
     gap: 14px;
     font-size: 10px;
   }
-  .site-header nav a:nth-child(3) {
-    display: none;
-  }
   .header-contact {
     font-size: 10px;
     padding: 7px 12px;
@@ -1725,4 +1722,27 @@ dialog > p {
   .coding-music { grid-template-columns: 1fr; }
   .location-map iframe { height: 320px; }
   .map-caption { align-items: flex-start; flex-direction: column; }
+}
+
+/* Navegación adaptable: enlaces visibles y excedente en un menú discreto. */
+.site-header { position: sticky; top: 0; gap: 36px; background: #111311f2; backdrop-filter: blur(16px); }
+.site-header .wordmark { flex-shrink: 0; }
+.site-header .section-nav { flex: 1; min-width: 0; justify-content: flex-end; align-items: center; gap: 24px; }
+.nav-inline { display: flex; gap: 24px; align-items: center; white-space: nowrap; min-width: 0; }
+.section-nav [hidden] { display: none !important; }
+.nav-overflow { position: relative; flex-shrink: 0; }
+.nav-overflow summary { list-style: none; cursor: pointer; border: 1px solid var(--line); border-radius: 24px; padding: 9px 16px; white-space: nowrap; }
+.nav-overflow summary::-webkit-details-marker { display: none; }
+.nav-overflow summary:hover, .nav-overflow[open] summary { color: var(--accent); border-color: #687149; }
+.nav-dropdown { position: absolute; right: 0; top: calc(100% + 14px); width: 220px; max-height: min(70vh, 520px); overflow-y: auto; padding: 8px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 20px 50px #0006; }
+.nav-dropdown a { display: flex; align-items: center; justify-content: space-between; padding: 11px 13px; border-radius: 8px; font-size: 13px; }
+.nav-dropdown a:hover { background: #d7f18d0a; }
+.nav-dropdown a span { color: var(--muted); }
+.back-to-top { position: fixed; right: 28px; bottom: 28px; z-index: 9; display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 50%; background: #1a1d19e8; color: var(--muted); opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .2s, transform .2s, visibility .2s; }
+.back-to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
+.back-to-top:hover { color: var(--accent); border-color: var(--accent); }
+@media (max-width: 700px) {
+  .nav-inline { display: none; }
+  .site-header .section-nav { font-size: 12px; }
+  .back-to-top { display: none; }
 }
