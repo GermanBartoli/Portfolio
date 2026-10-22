@@ -1,5 +1,12 @@
 # Historial de cambios
 
+## 2026-10-22
+
+- Sección de Spotify con la playlist personal para programar.
+- Mapa general de Villa Allende recuperado del portfolio anterior.
+- Corrección del texto recortado del selector de contacto en escritorio.
+- Publicación automática en Cloudflare tras validar cada push a main.
+
 ## 1.0.0 — 2026-10-21
 
 - Nuevo portfolio con Astro y TypeScript.

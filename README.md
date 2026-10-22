@@ -39,7 +39,7 @@ public/
 tests/              Pruebas del formulario
 docs/               Arquitectura, contenido y verificación
 scripts/            Utilidades de publicación
-.github/workflows/  Validación continua
+.github/workflows/  Validación y publicación continua
 ```
 
 ## Agregar contenido
@@ -74,7 +74,15 @@ npx wrangler login
 npm run deploy
 ```
 
-Configurar `CONTACT_RECIPIENT` como secreto y conservar el binding `CONTACT_LIMITS`. La publicación inicial usa carga directa: la integración Git de Cloudflare no estaba operativa. Hacer push a GitHub ejecuta validaciones; **no publica automáticamente en Cloudflare**.
+Cada push a `main` ejecuta las pruebas, genera el sitio y publica en Cloudflare Pages mediante GitHub Actions. Los pull requests y las demás ramas ejecutan las validaciones sin modificar producción. También se puede iniciar el workflow manualmente desde Actions.
+
+El repositorio requiere el secreto de Actions `CLOUDFLARE_API_TOKEN`, con permiso **Account → Cloudflare Pages → Edit**, limitado a la cuenta del proyecto. Nunca guardarlo en el código. Si falta, el workflow falla con un mensaje explícito y conserva el sitio publicado. Configurar `CONTACT_RECIPIENT` como secreto de Cloudflare y conservar el binding `CONTACT_LIMITS` de la API alternativa.
+
+La implementación sigue la [guía oficial de publicación continua con carga directa](https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/).
+
+## Música y ubicación
+
+`CodingMusic.astro` contiene la playlist que uso para programar, con reproductor de Spotify sin reproducción automática. `Location.astro` muestra el mapa general de Villa Allende recuperado del portfolio anterior, sin dirección particular. Ambos embeds cargan de forma diferida y ofrecen enlaces para abrir el servicio directamente.
 
 ## Documentación
 
