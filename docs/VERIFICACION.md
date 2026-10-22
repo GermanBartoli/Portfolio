@@ -1,5 +1,13 @@
 # Verificación
 
+## Resultado del 22 de octubre de 2026
+
+- 15 pruebas aprobadas; Astro y TypeScript sin errores ni advertencias.
+- Navegador integrado a 1440 px: selector de contacto legible y selección de una opción comprobada.
+- Spotify carga la playlist indicada; Google Maps muestra el área de Villa Allende.
+- Vista móvil de 390 px sin desbordamiento horizontal; reproductor y mapa adaptados al ancho.
+- Workflow de publicación en main después de pruebas y build; credencial almacenada como secreto de Actions.
+
 ## Resultado del 21 de octubre de 2026
 
 - Compilación de Astro y TypeScript sin errores ni advertencias.

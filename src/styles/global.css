@@ -1104,6 +1104,15 @@ p {
   outline-offset: 4px;
   letter-spacing: 0;
 }
+.contact-form select {
+  appearance: none;
+  min-height: 52px;
+  line-height: normal;
+  padding: 14px 32px 14px 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23f0f0e5' stroke-width='1.5'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}
 .contact-form select option {
   background: var(--panel);
 }
@@ -1691,4 +1700,29 @@ dialog > p {
   .tool-rail {
     scroll-snap-type: none;
   }
+}
+
+/* Música y ubicación: un cierre personal para el recorrido. */
+.coding-music, .location { padding-block: clamp(64px, 7vw, 110px); }
+.location h2 { margin-top: 24px; }
+.coding-music { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 90px); align-items: center; border-top: 1px solid var(--line); }
+.music-copy, .music-player { min-width: 0; }
+.music-copy h2, .location h2 { font-size: clamp(36px, 4vw, 62px); line-height: 1.12; }
+.music-copy p { color: var(--muted); max-width: 420px; margin: 24px 0; }
+.music-caption { display: block; color: var(--muted); font-size: 9px; letter-spacing: .12em; margin-top: 36px; }
+.music-signal { color: var(--accent); font-size: 28px; margin: 28px 0; letter-spacing: 3px; }
+.music-player { padding: clamp(16px, 2vw, 28px); border: 1px solid var(--line); border-radius: 20px; background: radial-gradient(ellipse at top right, #d7f18d12, transparent 65%), var(--panel); }
+.player-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 9px; letter-spacing: .1em; margin-bottom: 22px; color: var(--accent); }
+.player-heading span:last-child { font-size: 24px; }
+.music-player iframe { display: block; border: 0; border-radius: 12px; }
+.music-player p { font-size: 11px; color: var(--muted); margin-top: 18px; }
+.location { border-top: 1px solid var(--line); }
+.location-map { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: var(--panel); }
+.location-map iframe { display: block; border: 0; }
+.map-caption { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-top: 20px; }
+.map-caption > span { color: var(--muted); font-size: 9px; letter-spacing: .08em; }
+@media (max-width: 760px) {
+  .coding-music { grid-template-columns: 1fr; }
+  .location-map iframe { height: 320px; }
+  .map-caption { align-items: flex-start; flex-direction: column; }
 }
