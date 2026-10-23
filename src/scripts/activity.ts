@@ -31,6 +31,14 @@ function renderHeatmap(grid: HTMLElement, months: HTMLElement | null, detail: HT
   grid.replaceChildren(fragment);
   grid.classList.toggle('heatmap-blue', blue);
   grid.style.setProperty('--weeks', String(Math.ceil((days.length + offset) / 7)));
+  const scroll = grid.closest<HTMLElement>('.heatmap-scroll');
+  if (scroll && !scroll.dataset.initialPosition && matchMedia('(max-width: 700px)').matches) {
+    requestAnimationFrame(() => {
+      if (signal.aborted) return;
+      scroll.scrollLeft = scroll.scrollWidth;
+      scroll.dataset.initialPosition = 'latest';
+    });
+  }
   if (months) {
     months.replaceChildren();
     let previous = '';
