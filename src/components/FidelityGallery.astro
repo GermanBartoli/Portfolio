@@ -1,0 +1,24 @@
+---
+const photos = [
+  'Compartiendo conocimientos con el equipo', 'Equipo Fidelitytools', 'Un encuentro con el equipo',
+  'Trabajando juntos en la oficina', 'Una jornada en Fidelitytools', 'Momentos compartidos',
+  'Encuentro del equipo', 'Cierre de año en Fidelitytools',
+];
+---
+<div class="fidelity-media">
+  <div class="fidelity-links">
+    <a href="https://fidelia.lat/" target="_blank" rel="noreferrer"><img src="/images/fidelity/fidelia.jpg" alt="FidelIA, atención y ventas con inteligencia artificial" loading="lazy" width="160" height="90" /><span>FidelIA <b>↗</b></span></a>
+    <a href="https://fidelitytools.com/" target="_blank" rel="noreferrer"><img src="/images/fidelity/fidelitytools.jpg" alt="Gestor Comercial de Fidelitytools" loading="lazy" width="160" height="90" /><span>Fidelitytools <b>↗</b></span></a>
+    <button type="button" data-video="k8HpLVpY_Qc" aria-label="Reproducir Un gran equipo, por un gran año"><img src="https://i.ytimg.com/vi/k8HpLVpY_Qc/hqdefault.jpg" alt="Un gran equipo, por un gran año" loading="lazy" width="480" height="360" /><span>Un gran equipo <b>▶</b></span></button>
+  </div>
+  <div class="fidelity-photos" aria-label="Fotos de mi experiencia en Fidelitytools">
+    {photos.map((alt, index) => <button type="button" data-photo={`/images/fidelity/equipo-${index + 1}.jpg`} data-caption={alt} aria-label={`Ampliar foto: ${alt}`}><img src={`/images/fidelity/equipo-${index + 1}.jpg`} alt={alt} loading="lazy" width="400" height="300" /><span aria-hidden="true">↗</span></button>)}
+  </div>
+  <p class="gallery-hint">El software también se construye en equipo. Tocá una foto para verla completa.</p>
+  <a class="text-link" href="https://www.youtube.com/watch?v=k8HpLVpY_Qc" target="_blank" rel="noreferrer">Ver el video del equipo en YouTube ↗</a>
+</div>
+<dialog id="photo-dialog" aria-label="Galería de Fidelitytools">
+  <button type="button" class="dialog-close" data-close-photo>Cerrar ✕</button>
+  <img id="photo-expanded" alt="" />
+  <div class="photo-controls"><button type="button" data-photo-step="-1" aria-label="Foto anterior">←</button><p id="photo-caption"></p><button type="button" data-photo-step="1" aria-label="Foto siguiente">→</button></div>
+</dialog>

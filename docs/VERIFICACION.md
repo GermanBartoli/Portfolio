@@ -33,3 +33,12 @@ La entrega de correo solo se considera confirmada al observar el mensaje en el b
 ## Publicación
 
 Verificar respuesta HTTP del dominio, un proyecto individual, recursos estáticos, 404, `/api/contact`, autoría Git y coincidencia de HEAD local con remoto. El directorio de trabajo debe quedar limpio y los archivos de texto en CRLF.
+
+
+## Ampliación de historia y actividad — 22/10/2026
+
+- Build Astro sin errores, advertencias ni sugerencias. 19 pruebas aprobadas.
+- Pruebas de WakaTime: campos permitidos, visibilidad pública, fallo del proveedor y método de solo lectura.
+- Navegador integrado: perfil Codex, consumo del 7 de octubre (109,2 M), vista semanal, galería de ocho fotos, avance, cierre con Escape y recuperación del foco.
+- Pantalla móvil de 390 px: menú Secciones, enlaces nuevos y ausencia de desbordamiento horizontal del documento. Los calendarios se desplazan dentro de su contenedor.
+- WakaTime carga desde el Worker local con datos públicos actuales. Codex contiene una captura manual fechada, no una integración en tiempo real.

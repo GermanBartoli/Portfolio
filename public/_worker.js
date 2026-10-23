@@ -179,9 +179,55 @@ export async function onRequestPost({ request, env }) {
   return json({ ok: true });
 }
 
+// Solo datos públicos agregados: nunca se devuelven proyectos, archivos o cuentas.
+export async function getWakaActivity(request, context) {
+  if (request.method !== 'GET') return json({ error: 'Método no permitido.' }, 405);
+  const key = new Request(new URL('/api/activity/wakatime', request.url));
+  const cache = globalThis.caches?.default;
+  const cached = await cache?.match(key);
+  if (cached) return cached;
+  try {
+    const base = 'https://wakatime.com/api/v1/users/007a853f-0752-4493-a031-cf70b329845c';
+    const results = await Promise.all(['/stats/all_time', '/insights/days/public'].map(async path => {
+      const response = await fetch(base + path, { headers: { Accept: 'application/json' }, signal: AbortSignal.timeout(10000) });
+      if (response.status !== 200) throw new Error('Servicio no disponible');
+      const reader = response.body.getReader();
+      const chunks = [];
+      let size = 0;
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        size += value.byteLength;
+        if (size > 1000000) { await reader.cancel(); throw new Error('Respuesta demasiado grande'); }
+        chunks.push(value);
+      }
+      return (await new Response(new Blob(chunks)).json()).data;
+    }));
+    const [stats, activity] = results;
+    if (!stats || stats.status !== 'ok' || !stats.is_coding_activity_visible || !Array.isArray(activity?.days)) throw new Error('Datos no públicos');
+    const number = value => Number.isFinite(Number(value)) ? Math.max(0, Number(value)) : 0;
+    const groups = [
+      ['languages', 'Lenguajes', 'is_language_usage_visible'],
+      ['editors', 'Editores', 'is_editor_usage_visible'],
+      ['operating_systems', 'Sistemas operativos', 'is_os_usage_visible'],
+      ['categories', 'Categorías', 'is_category_usage_visible'],
+      ['ai_models', 'Modelos de IA', 'is_ai_model_usage_visible'],
+    ].map(([key, label, visibility]) => ({ key, label, items: stats[visibility] && Array.isArray(stats[key]) ? stats[key].slice(0, 150).map(item => ({ name: String(item.name).slice(0, 100), percent: Math.min(100, number(item.percent)), ...(item.total_seconds === undefined ? {} : { seconds: number(item.total_seconds) }) })) : [] }));
+    const response = new Response(JSON.stringify({
+      updatedAt: new Date().toISOString(), total: number(stats.total_seconds), average: number(stats.daily_average), groups,
+      days: activity.days.filter(day => /^\d{4}-\d{2}-\d{2}$/.test(day.date)).slice(-366).map(day => ({ date: day.date, total: number(day.total) })),
+    }), { headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=900', 'X-Content-Type-Options': 'nosniff' } });
+    if (cache && context) context.waitUntil(cache.put(key, response.clone()));
+    return response;
+  } catch {
+    return json({ error: 'No pudimos consultar WakaTime. Intentá más tarde.' }, 503);
+  }
+}
+
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, context) {
     const url = new URL(request.url);
+    if (url.pathname === '/api/activity/wakatime') return getWakaActivity(request, context);
     if (url.pathname === '/api/contact') {
       if (request.method !== 'POST')
         return json({ ok: false, error: 'Método no permitido.' }, 405);

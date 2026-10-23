@@ -13,15 +13,15 @@ export const experience = [
   {
     date: 'DIC 2022 — ACTUALIDAD',
     title: 'Fidelitytools',
-    role: 'Desarrollo de software',
-    text: 'Mi recorrido profesional continúa en Fidelitytools, construyendo soluciones y profundizando en el desarrollo full stack.',
+    role: 'Software Developer · Jornada completa · Remoto',
+    text: 'Me enfoco en el mantenimiento correctivo y evolutivo de aplicaciones existentes: corrijo bugs e implemento nuevas funcionalidades. Participo en planning, dailies, revisiones y retrospectivas, trabajando con Scrum, Kanban y Lean. Automatizo procesos mediante bots e integro pasarelas de pago como Payway, PayPal y MercadoPago.\n\nTambién contribuyo al desarrollo de productos de big data y sistemas comerciales, principalmente a través de las APIs que los hacen funcionar. Entre los proyectos más recientes está la zona de entrenamiento de agentes de inteligencia artificial que utilizan OpenAI y brindan atención al público por WhatsApp. Además, trabajo en integraciones externas mediante web services para conectar distintos sistemas y plataformas.',
     url: 'https://www.fidelitytools.com/',
   },
   {
-    date: 'ENE — ABR 2022',
+    date: 'ENE — MAR 2022',
     title: 'DevSpirit',
     role: 'Desarrollo de software',
-    text: 'Una etapa de experiencia profesional vinculada al desarrollo de aplicaciones y sistemas académicos.',
+    text: 'Como freelancer full-time, desarrollé desde cero un software a medida para un instituto educativo: gestión de profesores y alumnos, pagos, documentación, inscripción a materias y calificaciones. Modelé la base de datos, implementé el acceso a los datos y participé en la migración del sistema anterior. También colaboré en la interfaz de usuario y su integración con el backend.',
     url: 'https://sistemasisi.com/',
   },
 ];
@@ -54,6 +54,12 @@ export const education = [
 ];
 
 export const videos = [
+  {
+    id: 'k8HpLVpY_Qc',
+    title: 'Un gran equipo, por un gran año',
+    description: 'Un vistazo al equipo y los momentos compartidos que también forman parte de mi recorrido en Fidelitytools.',
+    category: 'FIDELITYTOOLS · EQUIPO',
+  },
   {
     id: 'N5lNz-4JgM0',
     title: 'SQLDataAdapter vs. SqlBulkCopy',
