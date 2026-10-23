@@ -1,0 +1,37 @@
+---
+import codex from '../data/codex.json';
+---
+<section id="codex" class="activity-section section-shell">
+  <div class="activity-profile">
+    <span class="eyebrow">MI PERFIL / CODEX</span>
+    <img class="codex-portrait" src="/images/profile/german-codex.jpeg" alt="Retrato de German Bartoli" width="140" height="175" loading="lazy" />
+    <h2>German Bartoli</h2>
+    <a href="https://chatgpt.com/u/bartoligerman497" target="_blank" rel="noreferrer">@bartoligerman497 ↗</a>
+    <p>Ideas, código y una nueva forma de construir.</p>
+  </div>
+  <div class="activity-panel codex-panel" data-codex={JSON.stringify(codex)}>
+    <dl class="activity-totals codex-totals">
+      {codex.stats.map(([label,value]) => <div><dd>{value}</dd><dt>{label}</dt></div>)}
+    </dl>
+    <div class="activity-chart-heading"><h3>Actividad de tokens</h3><div class="activity-modes" role="group" aria-label="Vista del consumo de Codex"><button type="button" data-mode="daily" aria-pressed="true">Diario</button><button type="button" data-mode="weekly" aria-pressed="false">Semanal</button><button type="button" data-mode="cumulative" aria-pressed="false">Acumulado</button></div></div>
+    <div class="heatmap-scroll"><div class="heatmap" data-codex-grid aria-label="Consumo de tokens por día"></div><div class="heatmap-months" data-codex-months></div></div>
+    <p class="activity-detail" data-codex-detail aria-live="polite">Pasá el mouse, tocá un día o usá las flechas para ver el consumo.</p>
+    <div class="codex-bottom"><div><h3>Complementos principales</h3><div class="plugin-pills"><span>Google Drive</span><span>GitHub</span><span>Gmail</span></div></div><div><h3>Estadísticas</h3><dl class="codex-facts"><div><dt>Modo rápido</dt><dd>Sin usar</dd></div><div><dt>Razonamiento más usado</dt><dd>Medio · 94%</dd></div><div><dt>Skills exploradas</dt><dd>23</dd></div><div><dt>Total de skills usadas</dt><dd>112</dd></div></dl></div></div>
+    <p class="activity-source">Datos del perfil consultados el 22/10/2026. Valores redondeados como en ChatGPT; actualización manual. <a href="https://chatgpt.com/u/bartoligerman497" target="_blank" rel="noreferrer">Ver perfil original ↗</a></p>
+  </div>
+</section>
+<section id="wakatime" class="activity-section waka-section section-shell">
+  <div class="section-heading"><div><span class="eyebrow">WAKATIME / EL TIEMPO DETRÁS DEL CÓDIGO</span><h2>La práctica<br />de <em>construir.</em></h2></div><p>Lenguajes, herramientas y horas.<br />Mi actividad real de programación.</p></div>
+  <div class="activity-panel" data-wakatime>
+    <p class="activity-source" data-waka-status role="status">Consultando mi actividad en WakaTime…</p>
+    <div data-waka-content hidden>
+      <dl class="activity-totals waka-totals"><div><dd data-waka-total></dd><dt>Tiempo programando desde julio de 2022</dt></div><div><dd data-waka-average></dd><dt>Promedio diario de programación</dt></div></dl>
+      <h3>Actividad del último año</h3>
+      <div class="heatmap-scroll"><div class="heatmap" data-waka-grid aria-label="Actividad diaria de programación"></div><div class="heatmap-months" data-waka-months></div></div>
+      <p class="activity-detail" data-waka-detail aria-live="polite">Explorá los días para ver tu actividad.</p>
+      <div class="waka-charts" data-waka-charts></div>
+    </div>
+    <a class="text-link" href="https://wakatime.com/@GermanBartoli" target="_blank" rel="noreferrer">Mi perfil en WakaTime ↗</a>
+  </div>
+</section>
+<script>import '../scripts/activity'; import '../scripts/gallery';</script>

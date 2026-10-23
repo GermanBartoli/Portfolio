@@ -2,6 +2,12 @@
 
 ## 2026-10-22
 
+- Historia de ancho completo, descripción profesional ampliada y galería de Fidelitytools.
+- Retrato y perfil de Codex con calendario diario, semanal y acumulado a partir de datos reales fechados.
+- Estadísticas públicas de WakaTime con actualización automática, caché y filtrado de privacidad.
+- Video del equipo en experiencia y en Ideas en movimiento; navegación para las nuevas secciones.
+
+
 - Sección de Spotify con la playlist personal para programar.
 - Mapa general de Villa Allende recuperado del portfolio anterior.
 - Corrección del texto recortado del selector de contacto en escritorio.
