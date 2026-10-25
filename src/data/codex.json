@@ -1,12 +1,12 @@
 {
   "source": "https://chatgpt.com/u/bartoligerman497",
-  "capturedAt": "2026-10-22",
+  "capturedAt": "2026-10-25",
   "start": "2025-10-26",
-  "count": 362,
+  "count": 365,
   "stats": [
     [
       "Tokens acumulados",
-      "1382,2 M"
+      "1582,2 M"
     ],
     [
       "Máximo de tokens",
@@ -18,11 +18,11 @@
     ],
     [
       "Racha más larga",
-      "18 días"
+      "22 días"
     ],
     [
       "Racha actual",
-      "18 días"
+      "22 días"
     ]
   ],
   "daily": [
@@ -208,7 +208,23 @@
     ],
     [
       360,
-      1.1
+      30.4
+    ],
+    [
+      361,
+      81.9
+    ],
+    [
+      362,
+      47.6
+    ],
+    [
+      363,
+      33
+    ],
+    [
+      364,
+      8.1
     ]
   ]
 }
