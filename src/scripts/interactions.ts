@@ -213,6 +213,51 @@ function setup() {
       );
     });
   }
+  const orbit = document.querySelector<HTMLElement>('.orbit-scene');
+  if (orbit) {
+    let rotationX = 0;
+    let rotationY = 0;
+    let pointer: number | undefined;
+    let lastX = 0;
+    let lastY = 0;
+    const rotate = (x: number, y: number) => {
+      rotationX = Math.max(-85, Math.min(85, x));
+      rotationY = y % 360;
+      orbit.style.setProperty('--orbit-x', rotationX + 'deg');
+      orbit.style.setProperty('--orbit-y', rotationY + 'deg');
+    };
+    orbit.addEventListener('pointerdown', (event) => {
+      if (!event.isPrimary || event.button !== 0 || pointer !== undefined) return;
+      pointer = event.pointerId;
+      lastX = event.clientX;
+      lastY = event.clientY;
+      orbit.setPointerCapture(pointer);
+      orbit.classList.add('is-dragging');
+      orbit.focus({ preventScroll: true });
+    }, { signal });
+    orbit.addEventListener('pointermove', (event) => {
+      if (event.pointerId !== pointer) return;
+      rotate(rotationX - (event.clientY - lastY) * 0.5, rotationY + (event.clientX - lastX) * 0.5);
+      lastX = event.clientX;
+      lastY = event.clientY;
+    }, { signal });
+    const finishDrag = (event: PointerEvent) => {
+      if (event.pointerId !== pointer) return;
+      pointer = undefined;
+      orbit.classList.remove('is-dragging');
+      if (orbit.hasPointerCapture(event.pointerId)) orbit.releasePointerCapture(event.pointerId);
+    };
+    orbit.addEventListener('pointerup', finishDrag, { signal });
+    orbit.addEventListener('pointercancel', finishDrag, { signal });
+    orbit.addEventListener('lostpointercapture', finishDrag, { signal });
+    orbit.addEventListener('keydown', (event) => {
+      if (!['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Home'].includes(event.key)) return;
+      event.preventDefault();
+      if (event.key === 'Home') rotate(0, 0);
+      else rotate(rotationX + (event.key === 'ArrowUp' ? -10 : event.key === 'ArrowDown' ? 10 : 0),
+        rotationY + (event.key === 'ArrowLeft' ? -10 : event.key === 'ArrowRight' ? 10 : 0));
+    }, { signal });
+  }
   const dialog = document.querySelector<HTMLDialogElement>('#video-dialog');
   const container = document.getElementById('video-container');
   let videoTrigger: HTMLElement | undefined;

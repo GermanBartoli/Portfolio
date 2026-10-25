@@ -1850,10 +1850,12 @@ dialog > p {
 .wordmark { display: block; width: 80px; line-height: 0; }
 .wordmark img { display: block; width: 100%; height: auto; border-radius: 8px; }
 .site-footer .wordmark { width: 112px; flex-shrink: 0; }
-.hero-brand { display: grid; place-items: center; min-height: 0; perspective: none; }
-.hero-brand img { display: block; width: 100%; max-width: 520px; height: auto; border-radius: 24px; }
 @media (max-width: 700px) {
   .site-header .wordmark { width: 64px; }
-  .hero-brand { min-height: 0; margin-top: 32px; }
-  .hero-brand img { max-width: 380px; }
 }
+
+/* Giro manual del objeto, independiente de su animación flotante. */
+.orbit-scene { cursor: grab; touch-action: none; user-select: none; }
+.orbit-scene.is-dragging { cursor: grabbing; animation-play-state: paused; }
+.orbit-scene:focus-visible { outline: 2px solid var(--accent); outline-offset: 8px; border-radius: 50%; }
+.orbit-object { width: 100%; height: 100%; transform-style: preserve-3d; transform: rotateX(var(--orbit-x, 0deg)) rotateY(var(--orbit-y, 0deg)); }
