@@ -37,6 +37,19 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: 'crecer-coach-laboral',
+    title: 'CRecer · Celeste Rivero',
+    category: 'Web',
+    year: 2026,
+    description:
+      'Un espacio de coaching laboral para conocer a Celeste, explorar sus servicios y descubrir sus publicaciones de Instagram y LinkedIn.',
+    stack: ['HTML', 'JavaScript', 'Cloudflare'],
+    image: '/images/crecer.png',
+    imageNote: 'Captura del sitio CRecer',
+    website: 'https://crecer-coach-laboral.pages.dev',
+    featured: true,
+  },
+  {
     slug: 'CupidoDigitttal',
     title: 'Cupido Digitttal',
     category: 'Web',
