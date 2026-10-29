@@ -14,19 +14,6 @@ export interface Project {
 // Orden editorial: proyectos recientes primero; el archivo conserva el recorrido anterior.
 export const projects: Project[] = [
   {
-    slug: 'forja-del-invocador',
-    title: 'Forja del Invocador',
-    category: 'Web',
-    year: 2026,
-    description:
-      'Una armería para aprender los objetos de League of Legends: catálogo en cuatro idiomas, filtros, recetas y minijuegos con progreso local.',
-    stack: ['HTML', 'JavaScript', 'Cloudflare'],
-    image: '/images/forja-del-invocador.png',
-    imageNote: 'Captura del sitio Forja del Invocador',
-    website: 'https://forja-del-invocador.pages.dev/',
-    featured: true,
-  },
-  {
     slug: 'rift-sanctum',
     title: 'Rift Sanctum',
     category: 'Web',
@@ -37,6 +24,19 @@ export const projects: Project[] = [
     image: '/images/rift-sanctum.png',
     imageNote: 'Captura del perfil personalizable de Rift Sanctum',
     website: 'https://rift-sanctum.pages.dev/',
+    featured: true,
+  },
+  {
+    slug: 'forja-del-invocador',
+    title: 'Forja del Invocador',
+    category: 'Web',
+    year: 2026,
+    description:
+      'Una armería para aprender los objetos de League of Legends: catálogo en cuatro idiomas, filtros, recetas y minijuegos con progreso local.',
+    stack: ['HTML', 'JavaScript', 'Cloudflare'],
+    image: '/images/forja-del-invocador.png',
+    imageNote: 'Captura del sitio Forja del Invocador',
+    website: 'https://forja-del-invocador.pages.dev/',
     featured: true,
   },
   {

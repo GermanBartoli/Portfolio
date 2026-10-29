@@ -502,6 +502,15 @@ p {
 .project-image:hover .project-open {
   transform: rotate(45deg);
 }
+.visual-forja-del-invocador {
+  background: #0c1511;
+}
+.visual-forja-del-invocador img {
+  object-fit: contain;
+}
+.visual-forja-del-invocador:hover img {
+  transform: none;
+}
 .visual-obs-recording-beep {
   background: #27302b;
   padding: 22px;
