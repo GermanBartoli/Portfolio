@@ -14,6 +14,32 @@ export interface Project {
 // Orden editorial: proyectos recientes primero; el archivo conserva el recorrido anterior.
 export const projects: Project[] = [
   {
+    slug: 'forja-del-invocador',
+    title: 'Forja del Invocador',
+    category: 'Web',
+    year: 2026,
+    description:
+      'Una armería para aprender los objetos de League of Legends: catálogo en cuatro idiomas, filtros, recetas y minijuegos con progreso local.',
+    stack: ['HTML', 'JavaScript', 'Cloudflare'],
+    image: '/images/forja-del-invocador.png',
+    imageNote: 'Captura del sitio Forja del Invocador',
+    website: 'https://forja-del-invocador.pages.dev/',
+    featured: true,
+  },
+  {
+    slug: 'rift-sanctum',
+    title: 'Rift Sanctum',
+    category: 'Web',
+    year: 2026,
+    description:
+      'Un santuario personal de League of Legends: perfil de invocador, logros y una colección de fondos, íconos y marcos para personalizar su apariencia en el navegador.',
+    stack: ['HTML', 'JavaScript', 'Cloudflare'],
+    image: '/images/rift-sanctum.png',
+    imageNote: 'Captura del perfil personalizable de Rift Sanctum',
+    website: 'https://rift-sanctum.pages.dev/',
+    featured: true,
+  },
+  {
     slug: 'obs-recording-beep',
     title: 'OBS Recording Beep',
     category: 'Software',
