@@ -227,7 +227,15 @@ export async function getWakaActivity(request, context) {
 export default {
   async fetch(request, env, context) {
     const url = new URL(request.url);
-    if (url.pathname === '/api/activity/wakatime') return getWakaActivity(request, context);
+    if (url.pathname === '/api/activity/wakatime') {
+      const original = await getWakaActivity(request, context);
+      const response = new Response(original.body, original);
+      if (request.headers.get('Origin') === 'https://germanbartoli.github.io') {
+        response.headers.set('Access-Control-Allow-Origin', 'https://germanbartoli.github.io');
+        response.headers.append('Vary', 'Origin');
+      }
+      return response;
+    }
     if (url.pathname === '/api/contact') {
       if (request.method !== 'POST')
         return json({ ok: false, error: 'Método no permitido.' }, 405);

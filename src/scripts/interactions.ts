@@ -89,8 +89,9 @@ function setup() {
       progress.style.transform = `scaleX(${distance > 0 ? scrollY / distance : 0})`;
     if (!reduced) {
       const art = document.querySelector<HTMLElement>('.hero-art');
-      if (art && scrollY < innerHeight)
-        art.style.translate = `0 ${scrollY * 0.09}px`;
+      if (art)
+        art.style.translate = finePointer && innerWidth > 700 && scrollY < innerHeight
+          ? `0 ${scrollY * 0.09}px` : '';
       if (story) {
         const ratio = Math.min(
           1,
@@ -233,6 +234,7 @@ function setup() {
       lastY = event.clientY;
       orbit.setPointerCapture(pointer);
       orbit.classList.add('is-dragging');
+      orbit.dataset.pointerFocus = 'true';
       orbit.focus({ preventScroll: true });
     }, { signal });
     orbit.addEventListener('pointermove', (event) => {
@@ -250,7 +252,9 @@ function setup() {
     orbit.addEventListener('pointerup', finishDrag, { signal });
     orbit.addEventListener('pointercancel', finishDrag, { signal });
     orbit.addEventListener('lostpointercapture', finishDrag, { signal });
+    orbit.addEventListener('blur', () => { delete orbit.dataset.pointerFocus; }, { signal });
     orbit.addEventListener('keydown', (event) => {
+      delete orbit.dataset.pointerFocus;
       if (!['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Home'].includes(event.key)) return;
       event.preventDefault();
       if (event.key === 'Home') rotate(0, 0);

@@ -1,3 +1,9 @@
+# Publicación en dos plataformas
+
+La configuración vigente se describe en [PUBLICACION.md](PUBLICACION.md). Cada push a main publica en Cloudflare y GitHub Pages después de las verificaciones.
+
+## Referencia anterior
+
 # Publicación automática en Cloudflare
 
 El portfolio está en C:\Cosas\Proyectos\Portfolio.

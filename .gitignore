@@ -6,3 +6,5 @@ dist/
 .dev.vars*
 !.env.example
 test-results/
+/dist/
+/dist-github/
