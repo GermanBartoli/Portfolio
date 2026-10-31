@@ -1,5 +1,10 @@
 # German Bartoli · Portfolio
 
+## Enlaces
+
+- [Sitio publicado en Cloudflare Pages](https://germanbartoli.pages.dev/)
+- [Repositorio en GitHub](https://github.com/GermanBartoli/Portfolio)
+
 Un espacio para reunir software, proyectos, videos y el recorrido detrás del código.
 
 **Sitio:** [germanbartoli.pages.dev](https://germanbartoli.pages.dev) · **Archivo:** [Portfolio-legacy](https://github.com/GermanBartoli/Portfolio-legacy)
