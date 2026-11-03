@@ -14,6 +14,19 @@ export interface Project {
 // Orden editorial: proyectos recientes primero; el archivo conserva el recorrido anterior.
 export const projects: Project[] = [
   {
+    slug: 'brujula-bursatil',
+    title: 'Brújula Bursátil',
+    category: 'Web',
+    year: 2026,
+    description:
+      'Una plataforma para seguir acciones y CEDEARs, organizar una cartera multimoneda y explorar gráficos, noticias y análisis con inteligencia artificial. Los datos de la cartera se guardan en el navegador.',
+    stack: ['React', 'TypeScript', 'Cloudflare'],
+    image: '/images/brujula-bursatil.png',
+    imageNote: 'Captura del panel de mercados de Brújula Bursátil',
+    website: 'https://brujula-bursatil.pages.dev/',
+    featured: true,
+  },
+  {
     slug: 'rift-sanctum',
     title: 'Rift Sanctum',
     category: 'Web',
