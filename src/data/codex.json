@@ -1,9 +1,9 @@
 {
   "source": "https://chatgpt.com/u/bartoligerman497",
-  "capturedAt": "2026-11-04",
+  "capturedAt": "2026-11-05",
   "lastActivityDate": "2026-11-04",
   "start": "2025-10-30",
-  "count": 371,
+  "count": 372,
   "stats": [
     [
       "Tokens acumulados",
@@ -29,6 +29,7 @@
   "plugins": [
     "Google Drive",
     "GitHub",
+    "Gmail",
     "Canva"
   ],
   "facts": [
