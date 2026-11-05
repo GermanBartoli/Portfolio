@@ -19,11 +19,11 @@ export const projects: Project[] = [
     category: 'Extensiones',
     year: 2026,
     description:
-      'Una extensión de Chrome para trabajar con foco en Trello: sesiones de concentración, registro de tiempo, historial editable y gestión de tarjetas, comentarios y adjuntos desde un panel propio.',
-    stack: ['React', 'TypeScript', 'Manifest V3', 'Vite'],
+      'Aplicación web y extensión de Chrome para trabajar con foco en Trello: sesiones, registro de tiempo, estadísticas e historial editable. Funciona desde la web sin instalar nada; la extensión agrega un panel dentro de las tarjetas.',
+    stack: ['React', 'TypeScript', 'Manifest V3', 'Vite', 'Cloudflare'],
     image: '/images/trello-focus.png',
     imageNote: 'Panel de Trello Focus con una tarjeta y datos de demostración',
-    website: 'https://github.com/GermanBartoli/trello-focus/releases/latest',
+    website: 'https://trello-focus.pages.dev/',
     featured: true,
   },
   {
