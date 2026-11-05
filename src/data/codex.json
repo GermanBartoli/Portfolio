@@ -7,7 +7,7 @@
   "stats": [
     [
       "Tokens acumulados",
-      "1.756,8 M"
+      "1.796,2 M"
     ],
     [
       "Máximo de tokens",
@@ -35,19 +35,19 @@
   "facts": [
     [
       "Modo rápido",
-      "Sin usar"
+      "2,9%"
     ],
     [
       "Razonamiento más usado",
-      "Medio · 92%"
+      "Medio · 91%"
     ],
     [
       "Skills exploradas",
-      "30"
+      "38"
     ],
     [
       "Total de skills usadas",
-      "169"
+      "197"
     ]
   ],
   "daily": [
@@ -289,7 +289,7 @@
     ],
     [
       370,
-      15.391011
+      54.872105
     ]
   ]
 }
