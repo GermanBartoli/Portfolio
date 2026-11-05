@@ -14,6 +14,19 @@ export interface Project {
 // Orden editorial: proyectos recientes primero; el archivo conserva el recorrido anterior.
 export const projects: Project[] = [
   {
+    slug: 'trello-focus',
+    title: 'Trello Focus',
+    category: 'Extensiones',
+    year: 2026,
+    description:
+      'Una extensión de Chrome para trabajar con foco en Trello: sesiones de concentración, registro de tiempo, historial editable y gestión de tarjetas, comentarios y adjuntos desde un panel propio.',
+    stack: ['React', 'TypeScript', 'Manifest V3', 'Vite'],
+    image: '/images/trello-focus.png',
+    imageNote: 'Panel de Trello Focus con una tarjeta y datos de demostración',
+    website: 'https://github.com/GermanBartoli/trello-focus/releases/latest',
+    featured: true,
+  },
+  {
     slug: 'brujula-bursatil',
     title: 'Brújula Bursátil',
     category: 'Web',
