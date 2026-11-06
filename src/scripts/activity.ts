@@ -3,6 +3,7 @@ type Day = { date: string; value: number; level?: number };
 type Metric = { name: string; percent: number; seconds?: number };
 type WakaData = { updatedAt: string; total: number; average: number; days: { date: string; total: number }[]; groups: { key: string; label: string; items: Metric[] }[] };
 let cleanup: (() => void) | undefined;
+let savedWakaPanel: HTMLElement | undefined;
 const dateLabel = (date: string) => new Date(`${date}T12:00:00Z`).toLocaleDateString('es-AR', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' });
 const duration = (seconds: number) => `${Math.floor(seconds / 3600).toLocaleString('es-AR')} h ${Math.floor(seconds % 3600 / 60)} min`;
 const tokens = (value: number) => value === 0 ? '0 tokens' : `${new Intl.NumberFormat('es-AR', { maximumFractionDigits: 1 }).format(value >= 1e6 ? value / 1e6 : value / 1e3)} ${value >= 1e6 ? 'M' : 'mil'} tokens`;
@@ -137,4 +138,11 @@ function setupActivity() {
   cleanup = () => { controller.abort(); clearInterval(timer); };
 }
 document.addEventListener('astro:page-load', setupActivity);
-document.addEventListener('astro:before-swap', () => cleanup?.());
+document.addEventListener('astro:before-swap', (event) => {
+  cleanup?.();
+  // Restaurar la altura antes de que Astro recupere el desplazamiento del historial.
+  const current = document.querySelector<HTMLElement>('[data-wakatime]');
+  if (current) savedWakaPanel = current.cloneNode(true) as HTMLElement;
+  const incoming = event.newDocument.querySelector('[data-wakatime]');
+  if (incoming && savedWakaPanel) incoming.replaceWith(savedWakaPanel.cloneNode(true));
+});
