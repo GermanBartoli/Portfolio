@@ -1,5 +1,46 @@
 let cleanup: (() => void) | undefined;
 
+const scrollKey = 'portfolio:home-scroll';
+const isHome = location.pathname === '/';
+const isReload = (performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined)?.type === 'reload';
+let savedScroll: { section: string; offset: number } | undefined;
+if (isHome && isReload) {
+  try {
+    savedScroll = JSON.parse(sessionStorage.getItem(scrollKey) || 'null') || undefined;
+  } catch { /* Ignorar posiciones anteriores inválidas. */ }
+  if (savedScroll) history.scrollRestoration = 'manual';
+}
+
+function restoreScroll() {
+  if (!savedScroll || location.pathname !== '/') return;
+  const section = document.getElementById(savedScroll.section);
+  if (!section || !Number.isFinite(savedScroll.offset)) return;
+  const root = document.documentElement;
+  const behavior = root.style.scrollBehavior;
+  root.style.scrollBehavior = 'auto';
+  window.scrollTo(0, section.getBoundingClientRect().top + scrollY + savedScroll.offset);
+  root.style.scrollBehavior = behavior;
+}
+
+window.addEventListener('pagehide', () => {
+  if (location.pathname !== '/') return;
+  const sections = Array.from(document.querySelectorAll<HTMLElement>('main > section[id]'));
+  const section = sections.findLast(item => item.getBoundingClientRect().top <= 100) || sections[0];
+  if (section) {
+    try {
+      sessionStorage.setItem(scrollKey, JSON.stringify({
+        section: section.id,
+        offset: -section.getBoundingClientRect().top,
+      }));
+    } catch { /* El navegador puede impedir el almacenamiento de sesión. */ }
+  }
+});
+
+document.addEventListener('portfolio:activity-ready', () => {
+  restoreScroll();
+  savedScroll = undefined;
+});
+
 function setup() {
   cleanup?.();
   const controller = new AbortController();
@@ -317,5 +358,8 @@ function setup() {
     document.documentElement.classList.remove('motion-ready');
   };
 }
-document.addEventListener('astro:page-load', setup);
+document.addEventListener('astro:page-load', () => {
+  setup();
+  restoreScroll();
+});
 document.addEventListener('astro:before-swap', () => cleanup?.());

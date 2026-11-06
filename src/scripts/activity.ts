@@ -131,6 +131,8 @@ function setupActivity() {
       if (status) status.textContent = `Sincronizado con WakaTime · ${new Date(data.updatedAt).toLocaleString('es-AR')} · caché de 15 minutos. El calendario público muestra estimaciones; las estadísticas se actualizan al ritmo de WakaTime.`;
     } catch {
       if (!signal.aborted && status) status.textContent = 'WakaTime no está disponible en este momento. Podés consultar mi perfil con el enlace de abajo.';
+    } finally {
+      if (!signal.aborted) document.dispatchEvent(new Event('portfolio:activity-ready'));
     }
   };
   void loadWaka();
