@@ -10,7 +10,7 @@ Guardar los originales con toda su resolución y calidad. No recomprimir con pé
 
 | Archivo | Resolución | Tamaño | Procedencia y estado |
 | --- | --- | --- | --- |
-| public/images/marco.png | 3840 × 2160 | 1.43 MB | Captura nueva de la página con las fotos restauradas |
+| public/images/marco.png | 3840 × 2160 | 1.42 MB | Captura renovada sin puntero, guardada directamente en PNG sin pérdida |
 | public/images/crecer.png | 3840 × 2160 | 1.18 MB | Captura nueva de CRecer; retrato fuente limitado a 400 × 400 |
 | public/images/cupido.png | 3840 × 2160 | 6.04 MB | Captura nueva del sitio publicado |
 | public/images/forja-del-invocador.png | 3840 × 2160 | 0.70 MB | Captura nueva del sitio publicado |
