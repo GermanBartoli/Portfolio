@@ -73,7 +73,7 @@ export const projects: Project[] = [
     description:
       'Un aviso sonoro para saber cuándo empieza, se pausa y termina una grabación en OBS Studio. Pequeña herramienta, una necesidad concreta.',
     stack: ['Lua', 'OBS Studio', 'Windows'],
-    image: '/images/obs.webp',
+    image: '/images/obs.png',
     featured: true,
   },
   {
@@ -84,7 +84,7 @@ export const projects: Project[] = [
     description:
       'Un espacio digital para el coaching online: entrenamiento basado en ciencia, videos y una conexión directa con la comunidad.',
     stack: ['JavaScript', 'CSS', 'Cloudflare'],
-    image: '/images/marco.webp',
+    image: '/images/marco.png',
     website: 'https://marcobartolifit.pages.dev',
     featured: true,
   },
@@ -109,7 +109,7 @@ export const projects: Project[] = [
     description:
       'El sitio de un estudio creativo de Córdoba. Identidad, contenido y estrategia en una experiencia visual con personalidad.',
     stack: ['HTML', 'JavaScript', 'Cloudflare'],
-    image: '/images/cupido.webp',
+    image: '/images/cupido.png',
     website: 'https://cupido-digitttal.pages.dev',
     featured: true,
   },
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     description:
       'YouTube Music en tu perfil de Discord. Extensión de Chrome con controles de privacidad y un conector local para Windows.',
     stack: ['JavaScript', 'Node.js', '.NET'],
-    image: '/images/discord.webp',
+    image: '/images/discord.png',
     imageNote: 'Identidad de la extensión',
     featured: true,
   },
@@ -133,7 +133,7 @@ export const projects: Project[] = [
     description:
       'Descubrir objetos sin abrir decenas de pestañas. Vistas previas y miniaturas directamente en las tablas de AQW Wiki.',
     stack: ['JavaScript', 'Chrome MV3'],
-    image: '/images/aqw.webp',
+    image: '/images/aqw.png',
     featured: true,
   },
   {
@@ -144,7 +144,7 @@ export const projects: Project[] = [
     description:
       'Una actividad comunitaria de PreMiD que mantiene canción, pausa y tiempos de YouTube Music sincronizados con Discord.',
     stack: ['TypeScript', 'PreMiD'],
-    image: '/images/premid.webp',
+    image: '/images/premid.png',
     imageNote: 'Interfaz de PreMiD utilizada como referencia',
     featured: true,
   },
@@ -156,7 +156,7 @@ export const projects: Project[] = [
     description:
       'Más claridad para tu biblioteca de Google Fotos. Encontrá fotos sin álbum y recorré una galería con filtros, sin modificar tus archivos.',
     stack: ['JavaScript', 'Chrome MV3'],
-    image: '/images/gallery.webp',
+    image: '/images/gallery.png',
     imageNote: 'Identidad visual de GalleryPRO',
     featured: true,
   },
