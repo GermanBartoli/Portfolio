@@ -1775,6 +1775,7 @@ dialog > p {
 .fidelity-links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .fidelity-links > * { display: block; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; text-align: left; background: #1c201b; color: var(--text); cursor: pointer; padding: 0; }
 .fidelity-links img { width: 100%; height: 165px; object-fit: cover; }
+.fidelity-links .fidelia-original { background: url("/images/fidelity/fidelia.jpg") center / cover; }
 .fidelity-links span { display: flex; justify-content: space-between; padding: 14px 16px; font-size: 14px; }
 .fidelity-links b { color: var(--accent); }
 .fidelity-photos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
