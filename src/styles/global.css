@@ -502,6 +502,16 @@ p {
 .project-image:hover .project-open {
   transform: rotate(45deg);
 }
+.visual-trello-focus {
+  background: #eef3e9;
+  padding: 22px;
+}
+.visual-trello-focus img {
+  object-fit: contain;
+}
+.visual-trello-focus:hover img {
+  transform: none;
+}
 .visual-forja-del-invocador {
   background: #0c1511;
 }
