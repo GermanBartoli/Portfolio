@@ -1753,7 +1753,7 @@ dialog > p {
 }
 
 /* Navegación adaptable: enlaces visibles y excedente en un menú discreto. */
-.site-header { position: sticky; top: 0; gap: 36px; background: #111311f2; backdrop-filter: blur(16px); }
+.site-header { position: relative; gap: 36px; background: #111311f2; backdrop-filter: blur(16px); }
 .site-header .wordmark { flex-shrink: 0; }
 .site-header .section-nav { flex: 1; min-width: 0; justify-content: flex-end; align-items: center; gap: 24px; }
 .nav-inline { display: flex; gap: 24px; align-items: center; white-space: nowrap; min-width: 0; }
