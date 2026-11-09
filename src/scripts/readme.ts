@@ -1,4 +1,4 @@
-export {};
+import { prepararZoom } from './projectImage';
 let active: AbortController | undefined;
 async function cargarReadme() {
   active?.abort();
@@ -35,6 +35,7 @@ async function cargarReadme() {
     if (controller.signal.aborted || !section.isConnected) return;
     content.replaceChildren(template.content);
     content.hidden = false;
+    void prepararZoom(section, controller.signal);
     status.textContent = 'README de GitHub · Se actualiza automáticamente (caché de 5 minutos).';
     const anchor = decodeURIComponent(location.hash.slice(1));
     if (anchor.startsWith('user-content-')) document.getElementById(anchor)?.scrollIntoView();

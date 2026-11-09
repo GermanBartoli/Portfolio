@@ -1,5 +1,10 @@
 # Historial de cambios
 
+## 1.0.15 — 2026-11-09
+
+- Abre la primera captura del README de cada ficha en un visor con zoom, ajuste y desplazamiento.
+- Admite teclado, cierre con Escape y retorno de foco a la imagen.
+
 ## 1.0.14 — 2026-11-09
 
 - Recupera el README renderizado desde la página pública de GitHub cuando su API no responde.
