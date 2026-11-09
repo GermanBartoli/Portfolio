@@ -13,7 +13,7 @@
 
 ## Documentación dentro del portfolio
 
-Cada ficha carga el HTML del README público directamente desde GitHub, con imágenes, instalación, tutorial y enlaces. Las modificaciones del README aparecen sin recompilar el portfolio, con una caché de hasta 5 minutos. Si el documento no está disponible, se muestra un aviso y el enlace original.
+Cada ficha carga el HTML del README público directamente desde GitHub, con imágenes, instalación, tutorial y enlaces. Las modificaciones del README aparecen sin recompilar el portfolio, con una caché de hasta 5 minutos. Si la API falla, consulta también la página pública del repositorio. Si el documento no está disponible, se muestra un aviso y el enlace original.
 
 ## Primeros pasos
 

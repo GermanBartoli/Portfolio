@@ -1,5 +1,10 @@
 # Historial de cambios
 
+## 1.0.14 — 2026-11-09
+
+- Recupera el README renderizado desde la página pública de GitHub cuando su API no responde.
+- Conserva enlaces e imágenes de la rama original y registra el estado HTTP del fallo sin datos privados.
+
 ## 1.0.13 — 2026-11-09
 
 - README público integrado en cada ficha de proyecto, con tutorial, imágenes y enlaces originales.

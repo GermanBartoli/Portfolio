@@ -32,6 +32,14 @@ async function leerLimitado(response) {
   }
   return new Response(new Blob(chunks)).text();
 }
+export function extraerReadmePublico(page, url) {
+  const article = page.match(/<article\b[^>]*class="[^"]*markdown-body[^"]*"[^>]*>[\s\S]*?<\/article>/i)?.[0];
+  if (!article) throw new Error('La página no contiene un README público');
+  // La página de GitHub ya resuelve la rama y carpeta de sus imágenes y enlaces.
+  const absolute = article.replace(/(?<![\w-])(src|href)="(\/[^"]*)"/g, (_, name, value) => name + '="' + new URL(value, 'https://github.com').href + '"');
+  return prepararReadme(absolute, { html_url: url, download_url: url });
+}
+
 export async function getProjectReadme(request, context) {
   const reply = (data, status) => new Response(JSON.stringify(data), { status, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' } });
   if (request.method !== 'GET') return reply({ error: 'Método no permitido.' }, 405);
@@ -45,14 +53,27 @@ export async function getProjectReadme(request, context) {
     const endpoint = `https://api.github.com/repos/GermanBartoli/${slug}/readme`;
     // No enviar credenciales: solamente se admiten repositorios públicos.
     const headers = { 'User-Agent': 'Portfolio-GermanBartoli', Accept: 'application/vnd.github+json' };
-    const metadata = await fetch(endpoint, { headers, signal: AbortSignal.timeout(10000) });
-    if (metadata.status === 404) return reply({ error: 'README no disponible.' }, 404);
-    if (!metadata.ok) throw new Error('GitHub no disponible');
-    const source = JSON.parse(await leerLimitado(metadata));
-    const response = await fetch(endpoint, { headers: { ...headers, Accept: 'application/vnd.github.html+json' }, signal: AbortSignal.timeout(10000) });
-    if (!response.ok) throw new Error('GitHub no disponible');
-    const html = prepararReadme(await leerLimitado(response), source);
-    const result = new Response(JSON.stringify({ html, url: source.html_url }), { headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=300', 'X-Content-Type-Options': 'nosniff' } });
+    let html;
+    let url;
+    try {
+      const metadata = await fetch(endpoint, { headers, signal: AbortSignal.timeout(10000) });
+      if (metadata.status === 404) return reply({ error: 'README no disponible.' }, 404);
+      if (!metadata.ok) throw new Error('metadatos HTTP ' + metadata.status);
+      const source = JSON.parse(await leerLimitado(metadata));
+      const response = await fetch(endpoint, { headers: { ...headers, Accept: 'application/vnd.github.html+json' }, signal: AbortSignal.timeout(10000) });
+      if (!response.ok) throw new Error('HTML HTTP ' + response.status);
+      html = prepararReadme(await leerLimitado(response), source);
+      url = source.html_url;
+    } catch (error) {
+      // Registrar solo un código de diagnóstico; nunca contenido ni credenciales.
+      console.warn(JSON.stringify({ event: 'readme_api_fallback', reason: /^metadatos HTTP \d+$|^HTML HTTP \d+$/.test(error.message) ? error.message : 'respuesta no disponible' }));
+      url = 'https://github.com/GermanBartoli/' + slug;
+      const page = await fetch(url, { headers: { 'User-Agent': 'Portfolio-GermanBartoli', Accept: 'text/html' }, signal: AbortSignal.timeout(10000) });
+      if (page.status === 404) return reply({ error: 'README no disponible.' }, 404);
+      if (!page.ok) throw new Error('Página pública no disponible');
+      html = extraerReadmePublico(await leerLimitado(page), url);
+    }
+    const result = new Response(JSON.stringify({ html, url }), { headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'public, max-age=300', 'X-Content-Type-Options': 'nosniff' } });
     if (cache && context) context.waitUntil(cache.put(key, result.clone()));
     return result;
   } catch {

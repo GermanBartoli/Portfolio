@@ -68,3 +68,21 @@ test('habilita GitHub Pages sin permitir otros orígenes', async t => {
     assert.equal(response.headers.get('Cache-Control'), 'no-store');
   }
 });
+
+import { extraerReadmePublico } from '../public/readmes.mjs';
+test('recupera el HTML de la página pública cuando la API limita consultas', async t => {
+  const urls = [];
+  t.mock.method(globalThis, 'fetch', async url => {
+    urls.push(url);
+    return String(url).includes('api.github.com') ? new Response('', {status:403}) : new Response('<article class="markdown-body entry-content"><h1>Guía actual</h1><img src="/autor/repo/raw/otra-rama/docs/vista.png"><a href="#uso">Uso</a></article>');
+  });
+  const response = await getProjectReadme(request());
+  assert.equal(response.status, 200);
+  const data = await response.json();
+  assert.match(data.html, /https:\/\/github.com\/autor\/repo\/raw\/otra-rama\/docs\/vista.png/);
+  assert.match(data.html, /#user-content-uso/);
+  assert.equal(urls[1], 'https://github.com/GermanBartoli/obs-recording-beep');
+});
+test('no confunde una página de login o error con documentación', () => {
+  assert.throws(() => extraerReadmePublico('<html>Iniciar sesión</html>', 'https://github.com/autor/repo'));
+});
