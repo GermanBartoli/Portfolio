@@ -1890,3 +1890,10 @@ dialog > p {
 .orbit-scene:focus-visible:not([data-pointer-focus]) { outline: 2px solid var(--accent); outline-offset: 8px; border-radius: 50%; }
 .orbit-scene[data-pointer-focus]:focus { outline: none; }
 .orbit-object { width: 100%; height: 100%; transform-style: preserve-3d; transform: rotateX(var(--orbit-x, 0deg)) rotateY(var(--orbit-y, 0deg)); }
+
+/* Mantener estables las capas de los aros durante la rotación 3D. */
+.orbit-object,
+.orbit,
+.orbit-core {
+  will-change: transform;
+}
