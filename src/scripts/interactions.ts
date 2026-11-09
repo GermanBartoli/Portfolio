@@ -262,12 +262,31 @@ function setup() {
     let pointer: number | undefined;
     let lastX = 0;
     let lastY = 0;
+    let resumeAt = 0;
+    let frame = 0;
+    let previousTime = 0;
+    const motion = matchMedia('(prefers-reduced-motion: reduce)');
     const rotate = (x: number, y: number) => {
       rotationX = Math.max(-85, Math.min(85, x));
       rotationY = y % 360;
       orbit.style.setProperty('--orbit-x', rotationX + 'deg');
       orbit.style.setProperty('--orbit-y', rotationY + 'deg');
     };
+    // Evitar saltos al volver desde una pestaña oculta.
+    const animate = (time: number) => {
+      const elapsed = previousTime ? Math.min(time - previousTime, 50) : 0;
+      previousTime = time;
+      if (pointer === undefined && time >= resumeAt) rotate(rotationX, rotationY + elapsed * 0.018);
+      frame = requestAnimationFrame(animate);
+    };
+    const updateAnimation = () => {
+      cancelAnimationFrame(frame);
+      previousTime = 0;
+      if (!document.hidden && !motion.matches) frame = requestAnimationFrame(animate);
+    };
+    motion.addEventListener('change', updateAnimation, { signal });
+    signal.addEventListener('abort', () => cancelAnimationFrame(frame), { once: true });
+    updateAnimation();
     orbit.addEventListener('pointerdown', (event) => {
       if (!event.isPrimary || event.button !== 0 || pointer !== undefined) return;
       pointer = event.pointerId;
@@ -284,20 +303,33 @@ function setup() {
       lastX = event.clientX;
       lastY = event.clientY;
     }, { signal });
-    const finishDrag = (event: PointerEvent) => {
-      if (event.pointerId !== pointer) return;
+    const stopDrag = () => {
+      const captured = pointer;
       pointer = undefined;
+      resumeAt = performance.now() + 1200;
       orbit.classList.remove('is-dragging');
-      if (orbit.hasPointerCapture(event.pointerId)) orbit.releasePointerCapture(event.pointerId);
+      if (captured !== undefined && orbit.hasPointerCapture(captured)) orbit.releasePointerCapture(captured);
     };
+    const finishDrag = (event: PointerEvent) => {
+      if (event.pointerId === pointer) stopDrag();
+    };
+    window.addEventListener('blur', stopDrag, { signal });
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopDrag();
+      updateAnimation();
+    }, { signal });
     orbit.addEventListener('pointerup', finishDrag, { signal });
     orbit.addEventListener('pointercancel', finishDrag, { signal });
     orbit.addEventListener('lostpointercapture', finishDrag, { signal });
-    orbit.addEventListener('blur', () => { delete orbit.dataset.pointerFocus; }, { signal });
+    // Cambiar de pestaña no convierte un clic en navegación por teclado.
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Tab' && !event.ctrlKey && !event.metaKey && !event.altKey) delete orbit.dataset.pointerFocus;
+    }, { signal });
     orbit.addEventListener('keydown', (event) => {
-      delete orbit.dataset.pointerFocus;
       if (!['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Home'].includes(event.key)) return;
+      delete orbit.dataset.pointerFocus;
       event.preventDefault();
+      resumeAt = performance.now() + 1200;
       if (event.key === 'Home') rotate(0, 0);
       else rotate(rotationX + (event.key === 'ArrowUp' ? -10 : event.key === 'ArrowDown' ? 10 : 0),
         rotationY + (event.key === 'ArrowLeft' ? -10 : event.key === 'ArrowRight' ? 10 : 0));
