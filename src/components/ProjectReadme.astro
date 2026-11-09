@@ -1,0 +1,44 @@
+---
+interface Props { slug: string; title: string; }
+const { slug, title } = Astro.props;
+const url = `https://github.com/GermanBartoli/${slug}#readme`;
+---
+<section data-project-readme={slug} class="project-readme" aria-label={`Guía de ${title}`}>
+  <header class="readme-header">
+    <div><span class="eyebrow">DOCUMENTACIÓN DEL PROYECTO</span><h2>Guía de uso</h2></div>
+    <a class="text-link" href={url} target="_blank" rel="noreferrer">Ver README en GitHub ↗</a>
+  </header>
+  <p class="readme-date" data-readme-status role="status">Cargando documentación desde GitHub…</p>
+  <div class="readme-content" data-readme-content hidden></div>
+  <button class="button button-outline" data-readme-retry hidden>Reintentar</button>
+  <noscript><p>Para leer la guía, abrí el enlace al README de GitHub.</p></noscript>
+</section>
+<script>import "../scripts/readme";</script>
+<style is:global>
+  .project-readme { margin-top: 64px; min-width: 0; border-top: 1px solid var(--line); padding-top: 36px; }
+  .readme-header { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .readme-header h2 { font-size: clamp(28px, 4vw, 42px); margin-top: 12px; }
+  .readme-date { color: var(--muted); font-size: 12px; margin: 18px 0 28px; }
+  .readme-content { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: clamp(18px, 4vw, 48px); overflow-wrap: anywhere; line-height: 1.75; }
+  .readme-content .markdown-body { max-width: 960px; margin: auto; }
+  .readme-content h1 { font-size: clamp(26px, 4vw, 40px); line-height: 1.25; margin: 0 0 24px; }
+  .readme-content h2 { font-size: clamp(23px, 3vw, 30px); line-height: 1.35; margin: 36px 0 18px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .readme-content h3, .readme-content h4 { font-size: 20px; margin: 28px 0 14px; }
+  .readme-content p, .readme-content ul, .readme-content ol, .readme-content pre, .readme-content table { margin: 16px 0; }
+  .readme-content ul, .readme-content ol { padding-left: 25px; }
+  .readme-content ul { list-style: disc; }
+  .readme-content ol { list-style: decimal; }
+  .readme-content li { margin: 6px 0; }
+  .readme-content a { text-decoration: underline; text-underline-offset: 3px; }
+  .readme-content img { max-width: 100%; height: auto; display: inline; vertical-align: middle; }
+  .readme-content pre { padding: 20px; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; overflow-x: auto; white-space: pre; }
+  .readme-content code { font-family: monospace; font-size: .88em; }
+  .readme-content table { display: block; overflow-x: auto; border-collapse: collapse; }
+  .readme-content th, .readme-content td { padding: 10px 14px; border: 1px solid var(--line); min-width: 120px; overflow-wrap: normal; }
+  .readme-content blockquote { border-left: 3px solid var(--muted); padding-left: 20px; margin: 20px 0; }
+  .readme-content .anchor { display: block; height: 0; overflow: hidden; }
+  .readme-content .anchor svg { display: none; }
+  .readme-content [id] { scroll-margin-top: 110px; }
+  .readme-content summary { cursor: pointer; }
+  .readme-empty { margin-top: 24px; color: var(--muted); }
+</style>

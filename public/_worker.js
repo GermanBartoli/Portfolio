@@ -1,3 +1,5 @@
+import { getProjectReadme } from './readmes.mjs';
+
 const json = (data, status = 200) =>
   new Response(JSON.stringify(data), {
     status,
@@ -227,9 +229,10 @@ export async function getWakaActivity(request, context) {
 export default {
   async fetch(request, env, context) {
     const url = new URL(request.url);
-    if (url.pathname === '/api/activity/wakatime') {
-      const original = await getWakaActivity(request, context);
+    if (url.pathname === '/api/activity/wakatime' || url.pathname.startsWith('/api/readme/')) {
+      const original = url.pathname.startsWith('/api/readme/') ? await getProjectReadme(request, context) : await getWakaActivity(request, context);
       const response = new Response(original.body, original);
+      if (url.pathname.startsWith('/api/readme/')) response.headers.set('Cache-Control', 'no-store');
       if (request.headers.get('Origin') === 'https://germanbartoli.github.io') {
         response.headers.set('Access-Control-Allow-Origin', 'https://germanbartoli.github.io');
         response.headers.append('Vary', 'Origin');

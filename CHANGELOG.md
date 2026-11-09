@@ -1,5 +1,11 @@
 # Historial de cambios
 
+## 1.0.13 — 2026-11-09
+
+- README público integrado en cada ficha de proyecto, con tutorial, imágenes y enlaces originales.
+- Consulta automática del HTML de GitHub con caché de 5 minutos, sin republicar el portfolio al editar un README.
+- Presentación adaptable y estado claro para los dos proyectos históricos sin documentación pública.
+
 ## 2026-10-22
 
 - Historia de ancho completo, descripción profesional ampliada y galería de Fidelitytools.

@@ -25,3 +25,9 @@ Las descripciones se basan en los README y metadatos públicos de cada repositor
 - Miniaturas y videos servidos por YouTube. La reproducción solo se carga al pulsar el botón.
 - La captura de AQW Wiki conserva los derechos de sus autores; la wiki indica CC BY-SA 3.0 salvo indicación contraria. Fuente: `https://aqwwiki.wikidot.com/`.
 - Marcas, logos y contenido de proyectos pertenecen a sus respectivos titulares.
+
+## README en las fichas de proyectos
+
+Cada ficha consulta `/api/readme/:repositorio` al abrirse. El Worker obtiene el HTML sanitizado de GitHub sin credenciales, adapta las rutas a la rama y carpeta reales y guarda la respuesta en caché durante 5 minutos. Los cambios del README no requieren recompilar ni publicar el portfolio. No se conserva una copia versionada de los documentos ni se incorpora contenido privado.
+
+El navegador cancela la consulta al cambiar de página, admite reintentos y muestra un aviso cuando el documento no existe o GitHub está temporalmente limitado. Se mantiene un enlace directo al original. Los diagramas Mermaid conservan su código y un enlace para verlos renderizados en GitHub.
