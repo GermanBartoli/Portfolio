@@ -1,5 +1,10 @@
 # Historial de cambios
 
+## 1.0.16 — 2026-11-09
+
+- Permite abrir y ampliar la imagen principal al entrar en cada ficha de proyecto.
+- Conserva el visor del README y comparte los controles de zoom entre ambos.
+
 ## 1.0.15 — 2026-11-09
 
 - Abre la primera captura del README de cada ficha en un visor con zoom, ajuste y desplazamiento.

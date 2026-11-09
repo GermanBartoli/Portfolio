@@ -1,5 +1,5 @@
-export async function prepararZoom(section: HTMLElement, signal: AbortSignal) {
-  const content = section.querySelector<HTMLElement>('[data-readme-content]');
+export async function prepararZoom(section: HTMLElement, signal: AbortSignal, selector = '[data-readme-content]') {
+  const content = section.querySelector<HTMLElement>(selector);
   const dialog = section.querySelector<HTMLDialogElement>('[data-image-dialog]');
   const expanded = dialog?.querySelector<HTMLImageElement>('[data-expanded-image]');
   const viewport = dialog?.querySelector<HTMLElement>('[data-image-viewport]');
@@ -17,7 +17,7 @@ export async function prepararZoom(section: HTMLElement, signal: AbortSignal) {
   const button = document.createElement('button');
   button.type = 'button';
   button.className = 'readme-image-open';
-  button.setAttribute('aria-label', 'Abrir y ampliar la imagen del proyecto');
+  button.setAttribute('aria-label', selector === '[data-primary-image]' ? 'Abrir y ampliar la imagen principal del proyecto' : 'Abrir y ampliar la imagen del proyecto');
   button.title = 'Abrir y ampliar';
   const parent = photo.parentElement;
   if (parent?.tagName === 'A' && parent.childElementCount === 1 && !parent.textContent?.trim()) parent.replaceWith(button);

@@ -33,3 +33,5 @@ Cada ficha consulta `/api/readme/:repositorio` al abrirse. El Worker consulta la
 El navegador cancela la consulta al cambiar de página, admite reintentos y muestra un aviso cuando el documento no existe o GitHub está temporalmente limitado. Se mantiene un enlace directo al original. Los diagramas Mermaid conservan su código y un enlace para verlos renderizados en GitHub.
 
 La primera imagen de contenido del README (excluyendo distintivos y miniaturas menores a 240 × 120) se abre en un visor dentro de la ficha. Permite ampliar hasta 400%, ajustar, recorrer la imagen y cerrar con Escape. Usa el archivo original sin recomprimir.
+
+La imagen principal al comienzo de cada ficha también permite abrir el visor y ampliar hasta 400%. Funciona independientemente de la carga del README.
