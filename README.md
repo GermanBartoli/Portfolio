@@ -1,4 +1,21 @@
-# German Bartoli · Portfolio
+# Germán Bartoli · Portfolio
+
+**Proyectos, recorrido y actividad de desarrollo en un portfolio construido con Astro.**
+
+[![Repositorio](https://img.shields.io/badge/GitHub-GermanBartoli-181717?logo=github)](https://github.com/GermanBartoli/Portfolio)
+[![Verificaciones](https://github.com/GermanBartoli/Portfolio/actions/workflows/validar.yml/badge.svg)](https://github.com/GermanBartoli/Portfolio/actions/workflows/validar.yml)
+
+[Abrir sitio](https://germanbartoli.pages.dev/) · [Empezar](#primeros-pasos) · [Mapa del repositorio](#mapa-del-repositorio) · [Autoría](#autoría-de-esta-documentación)
+
+![Vista del proyecto: Germán Bartoli · Portfolio](docs/images/vista-actual.jpg)
+
+*Captura de la página publicada, tomada el 9 de noviembre de 2026. Conservada sin redimensionar ni recomprimir.*
+
+## Primeros pasos
+
+1. Recorré Proyectos para abrir demostraciones y repositorios.
+2. Explorá las secciones Codex y WakaTime; las cifras indican actividad registrada, no una medición de calidad.
+3. Para mantener el sitio, usá la guía de desarrollo y la estructura de contenido de este README.
 
 ## Enlaces
 
@@ -108,3 +125,19 @@ La implementación sigue la [guía oficial de publicación continua con carga di
 ## Autor
 
 Creado por [German Bartoli](https://github.com/GermanBartoli). Código bajo licencia MIT. Las imágenes de proyectos y marcas mantienen sus derechos originales; ver [créditos](docs/CONTENIDO.md).
+
+## Mapa del repositorio
+
+- [package.json](<package.json>)
+- [CONTRIBUTING.md](<CONTRIBUTING.md>)
+- [LICENSE](<LICENSE>)
+- [docs/index.html](<docs/index.html>)
+- [docs/ARQUITECTURA.md](<docs/ARQUITECTURA.md>)
+- [docs/CALIDAD-IMAGENES.md](<docs/CALIDAD-IMAGENES.md>)
+- [docs/CONTENIDO.md](<docs/CONTENIDO.md>)
+
+## Autoría de esta documentación
+
+Repositorio mantenido por [Germán Bartoli](https://github.com/GermanBartoli). Guía revisada y actualizada con **Codex**, coautor de esta actualización documental. Los autores, colaboradores, licencias y recursos de terceros conservan sus créditos originales.
+
+Los commits de esta revisión incluyen `Co-authored-by: Codex <noreply@openai.com>`; esta atribución no modifica la autoría del historial anterior.
