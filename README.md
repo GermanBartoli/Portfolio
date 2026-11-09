@@ -36,16 +36,16 @@ Astro genera páginas HTML rápidas y optimizadas; TypeScript organiza los datos
 
 ## Desarrollo
 
-Requisitos: Node.js 24 LTS y npm. La validación automática usa la misma versión principal.
+Requisitos: Node.js 24 LTS y pnpm. La validación automática usa la misma versión principal.
 
 ```powershell
-npm ci
-npm run dev
-npm test
-npm run build
+pnpm install --frozen-lockfile
+pnpm run dev
+pnpm test
+pnpm run build
 ```
 
-`npm run dev` abre el sitio local en `http://127.0.0.1:4321`. Los envíos reales del formulario se prueban desde el dominio público: FormSubmit activa cada origen por separado. Para probar la API alternativa: `npx wrangler pages dev dist`, con `CONTACT_RECIPIENT` en un archivo `.dev.vars` ignorado por Git.
+`pnpm run dev` abre el sitio local en `http://127.0.0.1:4321`. Los envíos reales del formulario se prueban desde el dominio público: FormSubmit activa cada origen por separado. Para probar la API alternativa: `pnpm exec wrangler pages dev dist`, con `CONTACT_RECIPIENT` en un archivo `.dev.vars` ignorado por Git.
 
 ## Estructura
 
@@ -94,10 +94,10 @@ KV tiene consistencia eventual: el límite reduce abuso ordinario, pero no garan
 Proyecto Cloudflare Pages: `germanbartoli`, rama de producción `main`.
 
 ```powershell
-npm test
-npm run build
-npx wrangler login
-npm run deploy
+pnpm test
+pnpm run build
+pnpm exec wrangler login
+pnpm run deploy
 ```
 
 Cada push a `main` ejecuta las pruebas, genera el sitio y publica en Cloudflare Pages mediante GitHub Actions. Los pull requests y las demás ramas ejecutan las validaciones sin modificar producción. También se puede iniciar el workflow manualmente desde Actions.
@@ -153,3 +153,7 @@ Los commits de esta revisión incluyen `Co-authored-by: Codex <noreply@openai.co
     Hecho por Germán Bartoli · Ver portfolio
   </a>
 </p>
+
+## Actualizar dependencias
+
+Ejecutar `pnpm dlx npm-check-updates -u --target latest` y `pnpm install`. TypeScript permanece en la versión 6 porque `astro check` aún no admite TypeScript 7; `.ncurc.json` conserva esa excepción.
