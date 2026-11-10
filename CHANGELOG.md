@@ -1,5 +1,10 @@
 # Historial de cambios
 
+## 1.0.23 — 2026-11-09
+
+- Agrega zoom del 100 % al 400 %, ajuste y desplazamiento a las fotos de la galería.
+- Restablece el zoom al cambiar de foto y admite los atajos + y −.
+
 ## 1.0.16 — 2026-11-09
 
 - Permite abrir y ampliar la imagen principal al entrar en cada ficha de proyecto.
