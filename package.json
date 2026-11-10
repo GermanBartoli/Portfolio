@@ -7,7 +7,7 @@
     "preview": "astro preview --host 127.0.0.1",
     "test": "node --test tests/*.test.mjs"
   },
-  "version": "1.0.24",
+  "version": "1.0.25",
   "name": "german-bartoli-portfolio",
   "type": "module",
   "engines": {
