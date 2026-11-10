@@ -5,7 +5,7 @@
 [![Repositorio](https://img.shields.io/badge/GitHub-GermanBartoli-181717?logo=github)](https://github.com/GermanBartoli/Portfolio)
 [![Verificaciones](https://github.com/GermanBartoli/Portfolio/actions/workflows/validar.yml/badge.svg)](https://github.com/GermanBartoli/Portfolio/actions/workflows/validar.yml)
 
-[Abrir sitio](https://germanbartoli.pages.dev/) · [Empezar](#primeros-pasos) · [Mapa del repositorio](#mapa-del-repositorio) · [Autoría](#autoría-de-esta-documentación)
+[Abrir en Cloudflare](https://germanbartoli.pages.dev/) · [Abrir en GitHub Pages](https://germanbartoli.github.io/Portfolio/) · [Empezar](#primeros-pasos) · [Mapa del repositorio](#mapa-del-repositorio) · [Autoría](#autoría-de-esta-documentación)
 
 ![Vista del proyecto: Germán Bartoli · Portfolio](docs/images/vista-actual.jpg)
 
