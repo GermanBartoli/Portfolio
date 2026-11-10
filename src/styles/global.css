@@ -1902,3 +1902,6 @@ dialog > p {
 .orbit-core {
   will-change: transform;
 }
+.visual-german-gastos { background: #f6f6f4; padding: 18px; }
+.visual-german-gastos img { object-fit: contain; }
+.visual-german-gastos:hover img { transform: none; }

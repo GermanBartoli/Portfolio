@@ -1,5 +1,10 @@
 # Historial de cambios
 
+## 1.0.24 — 2026-11-09
+
+- Agrega Germán Gastos como proyecto destacado con captura original y enlace a Cloudflare.
+- Identifica los repositorios privados y enlaza su README sin intentar cargar documentación restringida.
+
 ## 1.0.23 — 2026-11-09
 
 - Agrega zoom del 100 % al 400 %, ajuste y desplazamiento a las fotos de la galería.

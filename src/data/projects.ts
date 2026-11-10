@@ -9,10 +9,25 @@ export interface Project {
   imageNote?: string;
   website?: string;
   featured?: boolean;
+  privateRepo?: boolean;
 }
 
 // Orden editorial: proyectos recientes primero; el archivo conserva el recorrido anterior.
 export const projects: Project[] = [
+  {
+    slug: 'german-gastos',
+    title: 'Germán Gastos',
+    category: 'Web',
+    year: 2026,
+    description:
+      'Un espacio privado para organizar gastos fijos, registrar pagos y revisar los pendientes de cada mes. Separa ARS y USD, conserva el historial y permite exportar respaldos.',
+    stack: ['React', 'TypeScript', 'Cloudflare Workers', 'D1'],
+    image: '/images/german-gastos.png',
+    imageNote: 'Cabecera de Germán Gastos, sin importes ni datos financieros personales',
+    website: 'https://german-gastos.bartoligerman497.workers.dev/',
+    featured: true,
+    privateRepo: true,
+  },
   {
     slug: 'trello-focus',
     title: 'Trello Focus',
