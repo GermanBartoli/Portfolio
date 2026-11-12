@@ -1,5 +1,10 @@
 # Historial de cambios
 
+## 1.0.26 — 2026-11-12
+
+- Ajusta el encuadre de la foto vertical de la oficina para mostrar las caras del equipo en la miniatura.
+- Conserva la imagen original al ampliarla.
+
 ## 1.0.24 — 2026-11-09
 
 - Agrega Germán Gastos como proyecto destacado con captura original y enlace a Cloudflare.
