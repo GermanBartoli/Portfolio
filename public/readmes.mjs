@@ -16,7 +16,7 @@ export function prepararReadme(html, source) {
     });
 }
 
-const proyectos = new Set(["trello-focus","brujula-bursatil","rift-sanctum","forja-del-invocador","obs-recording-beep","MarcoBartoliFit","crecer-coach-laboral","CupidoDigitttal","Discord-Rich-Presence","aqw-wiki-item-preview","premid-youtube-music-sync","gallerypro","SqlBulkCopy-Adapter-CSharp","Bootstrap4-Course-Platzi","Library-CSharp-MySQL","Academic-System-DevSpirit","Final-Project-TUP-UTN","UTN-Academy","Bitsion-Fictitious-SA","Da-Vinci-Code-Manager"]);
+const proyectos = new Set(["WinGer","trello-focus","brujula-bursatil","rift-sanctum","forja-del-invocador","obs-recording-beep","MarcoBartoliFit","crecer-coach-laboral","CupidoDigitttal","Discord-Rich-Presence","aqw-wiki-item-preview","premid-youtube-music-sync","gallerypro","SqlBulkCopy-Adapter-CSharp","Bootstrap4-Course-Platzi","Library-CSharp-MySQL","Academic-System-DevSpirit","Final-Project-TUP-UTN","UTN-Academy","Bitsion-Fictitious-SA","Da-Vinci-Code-Manager"]);
 
 async function leerLimitado(response) {
   const reader = response.body?.getReader();

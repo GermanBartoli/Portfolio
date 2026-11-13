@@ -15,6 +15,19 @@ export interface Project {
 // Orden editorial: proyectos recientes primero; el archivo conserva el recorrido anterior.
 export const projects: Project[] = [
   {
+    slug: 'WinGer',
+    title: 'WinGer',
+    category: 'Software',
+    year: 2026,
+    description:
+      'Aplicación de escritorio para buscar y actualizar programas con WinGet, consultar Microsoft Store y revisar los instaladores con VirusTotal. Conserva resultados, historial y preferencias en una interfaz nativa de Windows.',
+    stack: ['C#', '.NET 10', 'WinUI 3', 'WinGet', 'VirusTotal'],
+    image: '/images/winger.svg',
+    imageNote: 'Guía visual de WinGer; esquema de funciones, no una captura de la aplicación',
+    website: 'https://github.com/GermanBartoli/WinGer/releases',
+    featured: true,
+  },
+  {
     slug: 'german-gastos',
     title: 'Germán Gastos',
     category: 'Web',
