@@ -7,7 +7,7 @@
     "preview": "astro preview --host 127.0.0.1",
     "test": "node --test tests/*.test.mjs"
   },
-  "version": "1.0.26",
+  "version": "1.0.27",
   "name": "german-bartoli-portfolio",
   "type": "module",
   "engines": {
@@ -15,11 +15,11 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.12",
-    "astro": "^7.4.8",
+    "astro": "^7.4.11",
     "typescript": "^6.0.3"
   },
   "devDependencies": {
-    "wrangler": "^4.159.0"
+    "wrangler": "^4.160.1"
   },
   "packageManager": "pnpm@12.18.0"
 }
