@@ -157,3 +157,7 @@ Los commits de esta revisión incluyen `Co-authored-by: Codex <noreply@openai.co
 ## Actualizar dependencias
 
 Ejecutar `pnpm dlx npm-check-updates -u --target latest` y `pnpm install`. TypeScript permanece en la versión 6 porque `astro check` aún no admite TypeScript 7; `.ncurc.json` conserva esa excepción.
+
+## Guías y comunidad
+
+[Guía de uso](GUIA_DE_USO.md) · [Preguntas frecuentes](PREGUNTAS_FRECUENTES.md) · [Cómo colaborar](CONTRIBUTING.md) · [Código de conducta](CODE_OF_CONDUCT.md)
