@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="560" viewBox="0 0 1280 560" role="img" aria-label="Codex Pulse: tu consumo a mano, cinco widgets y sesión cifrada. Datos de ejemplo.">
+<defs><linearGradient id="fondo" x2="1" y2="1"><stop stop-color="#0c1714"/><stop offset="1" stop-color="#203d32"/></linearGradient></defs>
+<rect width="1280" height="560" rx="32" fill="url(#fondo)"/>
+<g font-family="Segoe UI,Arial,sans-serif">
+<text x="64" y="87" fill="#8fe4c4" font-size="17" letter-spacing="4">TU CONSUMO, A MANO</text>
+<text x="60" y="175" fill="#f1fff8" font-size="70" font-weight="700">Codex Pulse</text>
+<text x="64" y="233" fill="#c2d8cc" font-size="25">Sabé cuánto queda.</text>
+<text x="64" y="273" fill="#c2d8cc" font-size="25">Elegí cómo verlo.</text>
+<rect x="64" y="332" width="178" height="48" rx="24" fill="#8fe4c4"/><text x="88" y="363" fill="#0c1714" font-size="18" font-weight="600">5 widgets nativos</text>
+<text x="64" y="435" fill="#c2d8cc" font-size="19">Vista previa · Estilo individual · Historial</text>
+<text x="64" y="478" fill="#90b5a2" font-size="16">Android 12+ / Sesión cifrada en tu teléfono</text>
+<rect x="665" y="68" width="548" height="280" rx="32" fill="#13231d" stroke="#3b5d4c"/>
+<text x="700" y="119" fill="#e2f4e9" font-size="24" font-weight="600">Codex Pulse</text>
+<text x="700" y="157" fill="#b7cdbf" font-size="18">Semanal</text>
+<text x="694" y="239" fill="#8fe4c4" font-size="78" font-weight="700">44%</text>
+<text x="895" y="230" fill="#b7cdbf" font-size="20">disponible</text>
+<rect x="700" y="265" width="475" height="9" rx="4" fill="#30483c"/><rect x="700" y="265" width="209" height="9" rx="4" fill="#8fe4c4"/>
+<text x="700" y="309" fill="#b7cdbf" font-size="17">Se renueva en 1 día · Datos de ejemplo</text>
+<rect x="665" y="373" width="168" height="132" rx="28" fill="#13231d" stroke="#3b5d4c"/>
+<text x="688" y="406" fill="#e2f4e9" font-size="17">Codex</text><text x="687" y="460" fill="#8fe4c4" font-size="45" font-weight="700">44%</text><text x="690" y="486" fill="#b7cdbf" font-size="14">disponible</text>
+<text x="866" y="418" fill="#e2f4e9" font-size="22" font-weight="600">Tu inicio. Tu estilo.</text>
+<text x="866" y="456" fill="#b7cdbf" font-size="18">Del indicador pequeño</text><text x="866" y="484" fill="#b7cdbf" font-size="18">al historial completo.</text>
+</g></svg>

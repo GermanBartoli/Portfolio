@@ -15,6 +15,19 @@ export interface Project {
 // Orden editorial: proyectos recientes primero; el archivo conserva el recorrido anterior.
 export const projects: Project[] = [
   {
+    slug: 'CodexPulse',
+    title: 'Codex Pulse',
+    category: 'Software',
+    year: 2026,
+    description:
+      'Aplicación Android para ver cuánto queda de la cuota de Codex y cuándo se renueva. Incluye cinco widgets, vistas previas, estilos individuales e historial local, con la sesión cifrada en el teléfono.',
+    stack: ['Kotlin', 'Jetpack Compose', 'Glance', 'WorkManager', 'Android Keystore'],
+    image: '/images/codex-pulse.svg',
+    imageNote: 'Presentación ilustrativa de Codex Pulse con datos de ejemplo; no muestra una cuenta real',
+    website: 'https://github.com/GermanBartoli/CodexPulse/releases/tag/v0.5.1',
+    featured: true,
+  },
+  {
     slug: 'WinGer',
     title: 'WinGer',
     category: 'Software',
