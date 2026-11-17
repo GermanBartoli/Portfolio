@@ -502,6 +502,15 @@ p {
 .project-image:hover .project-open {
   transform: rotate(45deg);
 }
+.visual-winger {
+  background: #0b1e30;
+}
+.visual-winger img {
+  object-fit: contain;
+}
+.visual-winger:hover img {
+  transform: none;
+}
 .visual-trello-focus {
   background: #eef3e9;
   padding: 22px;
