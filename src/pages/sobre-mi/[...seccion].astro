@@ -1,0 +1,54 @@
+---
+import { paginas, ruta, enlaces, retratos, consejos, preguntas } from '../../data/cuaderno';
+import { education, experience, videos } from '../../data/profile';
+import { projects } from '../../data/projects';
+import '../../styles/cuaderno.css';
+export function getStaticPaths() {
+  return paginas.map(([id, titulo]) => ({ params: { seccion: id || undefined }, props: { id, titulo } }));
+}
+const { id, titulo } = Astro.props;
+const fotos = [...retratos, ...Array.from({length: 8}, (_, i) => [`/images/fidelity/equipo-${i+1}.jpg`, `Con el equipo de Fidelitytools · Foto ${i+1}`])];
+const fichas = (indices: number[]) => indices.map(i => enlaces[i]);
+---
+<!doctype html>
+<html lang="es-AR"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="description" content="El cuaderno personal de Germán Bartoli. Fotos, juegos, música, proyectos y pruebas desde Córdoba."/><link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)}/><link rel="icon" href="/favicon.png"/><title>{titulo} · El cuaderno de Germán Bartoli</title></head>
+<body><a class="salto" href="#contenido">Saltar al contenido</a><div class="hoja">
+<header><a href="/sobre-mi/" class="firma">gb<span>.</span></a><span>Cuaderno personal</span><a class="volver" href="/">Volver al portfolio ↗</a></header>
+<nav aria-label="Secciones del cuaderno">{paginas.map(([clave,nombre]) => <a href={ruta(clave)} aria-current={id === clave ? 'page' : undefined}>{nombre}</a>)}</nav>
+<main id="contenido">
+{!id ? <>
+<section class="portada"><div><small>VILLA ALLENDE / CÓRDOBA, AR</small><h1>Germán<br/><em>Bartoli.</em></h1><p>Hago software, juego como KillerBiss y programo con música. Acá junté las cosas que suelen quedar afuera de un currículum.</p><a class="boton" href={ruta('fotos')}>Abrir mi álbum ↗</a></div><figure class="postal"><img src={retratos[0][0]} alt="Germán sentado a la mesa, sonriendo"/><figcaption>Del archivo de mi portfolio</figcaption></figure></section>
+<div class="atajos">{[['juegos','♞','Mis partidas','Del tablero a la Grieta'],['musica','♫','Mis auriculares','Lo que pongo para programar'],['pruebas','✳','¿Cuánto sabés de mí?','Seis preguntas para jugar']].map(([clave,icono,nombre,bajada]) => <a href={ruta(clave)}><b aria-hidden="true">{icono}</b><div><strong>{nombre}</strong><span>{bajada}</span></div><i>↗</i></a>)}</div></> : <h1 class="interior">{titulo}<em>.</em></h1>}
+{id === 'fotos' && <div class="album">{fotos.map(([src, texto]) => <figure><a href={src} aria-label={`Abrir original: ${texto}`}><img src={src} loading="lazy" alt={texto}/></a><figcaption>{texto}</figcaption></figure>)}</div>}
+{id === 'taller' && <><p class="bajada">Herramientas que hice para Windows, para el navegador y para jugar. Cada ficha lleva a la historia del proyecto.</p><div class="tarjetas">{projects.map(p => <a href={`/proyectos/${p.slug}/`}><small>{p.category} / {p.year}</small><h2>{p.title}</h2><p>{p.description}</p></a>)}</div></>}
+{id === 'recorrido' && <div class="lista">{[...experience.map(x => [x.date,x.title,x.text,x.url]),...education.map(x => [x.date,x.title,x.place,x.url])].map(([fecha,nombre,texto,url]) => <article><small>{fecha}</small><h2><a href={url}>{nombre} ↗</a></h2><p>{texto}</p></article>)}</div>}
+{id === 'consejos' && <div class="tarjetas">{consejos.map(([nombre,texto]) => <article><h2>{nombre}</h2><p>{texto}</p></article>)}</div>}
+{id === 'juegos' && <p class="bajada">En Steam y en la Grieta soy KillerBiss. En AdventureQuest Worlds y frente al tablero me encontrás como Marcoss13.</p>}
+{id === 'musica' && <><p class="bajada">Esta es la playlist que pongo cuando abro el editor.</p><iframe title="Mi playlist para programar" src="https://open.spotify.com/embed/playlist/5zy0EhRvYm0LafUibvCxOo?theme=0" width="100%" height="352" loading="lazy" allow="encrypted-media; fullscreen; picture-in-picture"></iframe></>}
+{['links','musica','juegos'].includes(id) && <div class="directorios">{(id === 'links' ? enlaces : fichas(id === 'musica' ? [4,9,10] : [5,6,7,15,16])).map(([nombre,texto,url]) => <a href={url}><strong>{nombre}</strong><span>{texto}</span><i>↗</i></a>)}</div>}
+{id === 'musica' && <><h2>También subí estos videos</h2><div class="directorios">{videos.map(v => <a href={`https://www.youtube.com/watch?v=${v.id}`}>{v.title}<i>↗</i></a>)}</div></>}
+{id === 'pruebas' && <section class="tarjetas experimentos"><article><h2>Marcá el ritmo</h2><p>Poné una canción y tocá el botón en cada pulso para medir el tempo. Una pausa de tres segundos empieza otra medición.</p><button id="pulsar">Marcar pulso ♫</button><output id="tempo" aria-live="polite"></output></article><article><h2>Una pestaña al azar</h2><p>Dejá que el cuaderno elija qué rincón visitar.</p><button id="sorpresa">Sortear pestaña ⚄</button><output aria-live="polite"><a id="destino"></a></output></article></section>}
+{id === 'pruebas' && <form id="trivia"><h2>La trivia de Germán</h2><p class="bajada">Elegí una respuesta por pregunta y descubrí cuánto conocés de mi cuaderno.</p>{preguntas.map(([pregunta,opciones,correcta],i) => <fieldset data-correcta={correcta}><legend>{pregunta}</legend>{opciones.map(opcion => <label><input type="radio" required name={`pregunta-${i}`} value={opcion}/>{opcion}</label>)}<output></output></fieldset>)}<button class="boton">Ver mi puntaje</button> <button type="reset">Volver a jugar</button><p aria-live="polite" id="resultado"></p></form>}
+</main><footer><span>Germán Bartoli · Córdoba</span><a href={ruta('links')}>Mis links ↗</a></footer></div>
+<script>
+import '../../scripts/ritmo';
+const formulario = document.querySelector<HTMLFormElement>('#trivia');
+const grupos = formulario?.querySelectorAll('fieldset') ?? [];
+const resultado = document.querySelector('#resultado');
+function limpiar() {
+  for (const grupo of grupos) grupo.querySelector('output')!.textContent = '';
+  if (resultado) resultado.textContent = '';
+}
+formulario?.addEventListener('reset', limpiar);
+formulario?.addEventListener('change', limpiar);
+formulario?.addEventListener('submit', evento => {
+  evento.preventDefault();
+  let aciertos = 0;
+  for (const grupo of grupos) {
+    const coincide = grupo.querySelector<HTMLInputElement>('input:checked')?.value === grupo.dataset.correcta;
+    if (coincide) aciertos++;
+    grupo.querySelector('output')!.textContent = coincide ? '¡Acertaste!' : `La respuesta era ${grupo.dataset.correcta}.`;
+  }
+  if (resultado) resultado.textContent = `Acertaste ${aciertos} de ${grupos.length}.`;
+});
+</script></body></html>

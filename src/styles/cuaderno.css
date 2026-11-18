@@ -1,0 +1,41 @@
+:root { color-scheme: light; --papel: #fbf7ee; --tinta: #252823; --verde: #245447; --linea: #c9c8b8; font: 16px/1.5 "Segoe UI", sans-serif; background: var(--papel); color: var(--tinta); }
+* { box-sizing: border-box; }
+body, figure { margin: 0; }
+.hoja { width: min(1180px, 92%); margin: auto; }
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--verde); text-decoration: underline; }
+:focus-visible { outline: 3px solid #ab421c; outline-offset: 3px; }
+.salto { position: absolute; top: -6rem; background: white; padding: 1rem; z-index: 4; }.salto:focus { top: 0; }
+header, footer, nav, .directorios a, .atajos a { display: flex; align-items: center; }
+header { gap: 1rem; padding: 1rem 0; border-bottom: 2px solid var(--tinta); }
+.firma { font: italic bold 3rem/.9 Georgia, serif; letter-spacing: -.12em; padding-right: .15em; }.firma span, h1 em { color: var(--verde); }
+.volver, footer a { margin-left: auto; }
+nav { gap: .4rem; flex-wrap: wrap; border-bottom: 1px solid var(--linea); padding: .8rem 0; }
+nav a { padding: .38rem .85rem; border-radius: 2rem; font-weight: 600; }
+nav a[aria-current] { color: white; background: var(--verde); }
+.portada { display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: 5%; padding: clamp(2rem,5vw,5rem) 4%; background: repeating-linear-gradient(transparent 0 31px, #c4cbb733 31px 32px); }
+h1, h2, .atajos strong { font-family: Georgia, serif; font-weight: 500; }
+h1 { font-size: clamp(4rem,8.7vw,8rem); letter-spacing: -.075em; line-height: .89; margin: 1rem 0; }
+small, figcaption, footer { font-family: "Courier New", monospace; }
+small { letter-spacing: .08em; font-weight: bold; color: var(--verde); }
+.portada p, .bajada { max-width: 55ch; font-size: clamp(1.1rem,2vw,1.35rem); }
+.boton, button { display: inline-block; border: 1px solid var(--verde); border-radius: .3rem; padding: .68rem 1.1rem; font: inherit; cursor: pointer; background: transparent; color: var(--verde); }
+.boton, .boton:hover { background: var(--verde); color: white; }
+.postal { position: relative; background: white; padding: 12px 12px 0; transform: rotate(3deg); box-shadow: 2px 5px 12px #332a1b25; max-width: 370px; justify-self: center; }
+.postal::before { content: ''; position: absolute; width: 30%; height: 25px; background: #dec993dc; top: -11px; left: 35%; transform: rotate(-7deg); }
+.postal img { display: block; width: 100%; aspect-ratio: 1 / 1.08; object-fit: cover; }
+figcaption { padding: .7rem .3rem; }
+.atajos, .tarjetas, .album, .directorios { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%,260px),1fr)); }
+.atajos a, .tarjetas > *, .directorios a, fieldset { border: 1px solid var(--linea); border-radius: .4rem; padding: 1.2rem; }
+.atajos a { gap: 1rem; background: #e3ebdd; }.atajos a:nth-child(2) { background: #f5e3ca; }.atajos a:nth-child(3) { background: #e4e5f1; }
+.atajos b { font-size: 2.3rem; }.atajos strong { font-size: 1.4rem; }.atajos span { display: block; font-size: .9rem; }
+i { margin-left: auto; font-style: normal; }
+.interior { font-size: clamp(3.5rem,7vw,6rem); margin: 2.5rem 0; }
+.album img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }.album figure { padding: .6rem; background: white; border: 1px solid var(--linea); }
+.directorios { margin: 1.2rem 0; }.directorios a { flex-wrap: wrap; gap: .55rem; }.directorios span { font-size: .9rem; }
+.lista { max-width: 75ch; }.lista article { padding: 1rem 0; border-top: 1px solid var(--linea); }.lista p { white-space: pre-line; }
+h2 { margin: .5rem 0; font-size: 1.8rem; line-height: 1.15; }iframe { border: 0; border-radius: .75rem; }
+fieldset { margin: 1rem 0; }legend { font-weight: 700; }label { display: inline-flex; gap: .5rem; align-items: center; margin-right: 1rem; min-height: 44px; cursor: pointer; }output { display: block; color: var(--verde); }
+footer { border-top: 1px solid var(--linea); margin-top: 3rem; padding: 1.4rem 0; }
+@media (max-width: 650px) { .portada { grid-template-columns: 1fr; gap: 2rem; }.postal { max-width: min(78%,320px); }.atajos { margin-top: 1rem; }nav { gap: .15rem; }nav a { padding: .4rem .62rem; }.volver, header>span { font-size: .85rem; } }
+.experimentos { margin-bottom: 2.5rem; }.experimentos output { margin-top: .8rem; }
