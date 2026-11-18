@@ -37,5 +37,8 @@ i { margin-left: auto; font-style: normal; }
 h2 { margin: .5rem 0; font-size: 1.8rem; line-height: 1.15; }iframe { border: 0; border-radius: .75rem; }
 fieldset { margin: 1rem 0; }legend { font-weight: 700; }label { display: inline-flex; gap: .5rem; align-items: center; margin-right: 1rem; min-height: 44px; cursor: pointer; }output { display: block; color: var(--verde); }
 footer { border-top: 1px solid var(--linea); margin-top: 3rem; padding: 1.4rem 0; }
+@media (min-width: 900px) {
+  .portada { padding-block: clamp(2rem, 5vh, 5rem); }
+}
 @media (max-width: 650px) { .portada { grid-template-columns: 1fr; gap: 2rem; }.postal { max-width: min(78%,320px); }.atajos { margin-top: 1rem; }nav { gap: .15rem; }nav a { padding: .4rem .62rem; }.volver, header>span { font-size: .85rem; } }
 .experimentos { margin-bottom: 2.5rem; }.experimentos output { margin-top: .8rem; }
