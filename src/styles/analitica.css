@@ -1,0 +1,39 @@
+.analitica { display: block; max-width: 1170px; padding-block: clamp(100px, 10vw, 160px) 80px; }
+.volver-codex, .nota-analitica, .cabecera-analitica .origen-analitica, .panel-analitica header p { color: var(--muted); font-size: .86rem; }
+.volver-codex:hover { color: var(--accent); }
+.cabecera-analitica, .controles-analitica, .panel-analitica header, .filtros-plan { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.cabecera-analitica { margin: 40px 0 30px; align-items: end; }
+.cabecera-analitica h1 { font-size: clamp(3.2rem, 7.6vw, 7.2rem); line-height: .94; letter-spacing: -.075em; margin: .7rem 0 0; }
+.cabecera-analitica h1 em { color: var(--accent); }
+.origen-analitica { display: flex; align-items: baseline; gap: .6rem; line-height: 1.7; }
+.origen-analitica strong { color: var(--ink); font-weight: 500; }
+.controles-analitica { border-top: 1px solid var(--line); padding-block: 20px; flex-wrap: wrap; }
+.periodos-analitica { display: inline-flex; border: 1px solid var(--line); border-radius: 30px; padding: 3px; }
+.analitica button, .analitica select, .analitica input { font: inherit; color: var(--ink); }
+.periodos-analitica button { cursor: pointer; background: transparent; border: 0; padding: 8px 16px; border-radius: 25px; font-size: .85rem; }
+.periodos-analitica button[aria-pressed=true] { background: var(--accent); color: #171b10; }
+.controles-analitica label, .analitica select, .analitica input { font-size: .83rem; }
+.analitica select, .analitica input { color-scheme: dark; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 8px; }
+.paneles-analitica { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.panel-analitica { min-width: 0; padding: clamp(16px,2.3vw,30px); background: linear-gradient(145deg,#1c201b,#161916); border: 1px solid var(--line); border-radius: 18px; }
+.panel-analitica h2 { font-size: clamp(1.15rem,2vw,1.55rem); margin: 0; letter-spacing: -.035em; }
+.panel-analitica header { align-items: start; flex-wrap: wrap; }
+.panel-analitica header p { margin: 5px 0 0; font-size: .78rem; }
+.total-analitica { display: block; margin-top: 20px; font-size: clamp(1.45rem,3vw,2.3rem); letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
+.lienzo-analitica { margin: 12px 0 14px; }
+.lienzo-analitica svg { width: 100%; height: 150px; display: block; overflow: visible; cursor: crosshair; touch-action: pan-y; }
+.ejes-analitica { display: flex; justify-content: space-between; color: var(--muted); font-size: .72rem; margin-top: 4px; }
+.leyenda-analitica { display: flex; gap: 4px 12px; flex-wrap: wrap; }
+.leyenda-analitica button { background: none; cursor: pointer; border: 0; padding: 4px 0; font-size: .75rem; }
+.leyenda-analitica button::before { content: ''; display: inline-block; background: var(--serie); width: .65em; height: .65em; border-radius: 50%; margin-right: .4em; }
+.leyenda-analitica button[aria-pressed=false] { opacity: .62; }
+.lectura-analitica { color: var(--muted); font-size: .78rem; line-height: 1.6; margin-top: 12px; border-top: 1px solid var(--line); padding-top: 10px; overflow-wrap: anywhere; }
+.limites-analitica { margin-top: 16px; }
+.limites-analitica header { margin-bottom: 18px; }
+.limites-analitica details { padding: 12px 2px; border-top: 1px solid var(--line); font-size: .9rem; }
+.limites-analitica summary { cursor: pointer; }
+.limites-analitica summary strong { float: right; color: var(--accent); }
+.limites-analitica dl > div { display: flex; justify-content: space-between; gap: 12px; padding: 3px 0; }
+.limites-analitica dl, .limites-analitica details p { color: var(--muted); font-size: .82rem; margin: 12px 0 0; }
+.nota-analitica { margin-top: 20px; line-height: 1.6; }
+@media(max-width: 750px) { .paneles-analitica { grid-template-columns: 1fr; } .cabecera-analitica { flex-wrap: wrap; } .periodos-analitica button { padding-inline: 12px; } }

@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+import perfil from '../data/codex.json';
+import analitica from '../data/codex-analitica.json';
+import '../styles/analitica.css';
+const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(JSON.stringify(analitica)));
+const huella = Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2,'0')).join('');
+const datos = { ...analitica, tokens: { inicio: perfil.start, hasta: perfil.capturedAt, dias: perfil.daily } };
+const dimensiones = [['funcion','Por función'], ['modelo','Por modelo'], ['superficie','Por superficie'], ['inicio','Por inicio del turno']];
+const graficos = [
+  { id: 'uso', titulo: 'Historial de uso', unidad: 'Participación en el consumo del período', opciones: dimensiones },
+  { id: 'tokens', titulo: 'Tokens procesados', unidad: 'Tokens del perfil público', opciones: [] },
+  { id: 'mensajes', titulo: 'Mensajes', unidad: 'Mensajes enviados', opciones: dimensiones.slice(1,3) },
+  { id: 'herramientas', titulo: 'Actividad de herramientas', unidad: 'Invocaciones', opciones: [['complementos','Complementos'],['skills','Skills']] },
+];
+---
+<Layout title="Consumo de Codex · German Bartoli" description="Mi historial de uso de Codex. Explorá tokens, mensajes, herramientas y límites del plan por fecha.">
+  <codex-analitica class="analitica section-shell" data-analitica-hash={huella}>
+    <script type="application/json" is:inline set:html={JSON.stringify(datos).replaceAll('<','\\u003c')} />
+    <a class="volver-codex" href="/#codex">← Volver al perfil de Codex</a>
+    <header class="cabecera-analitica">
+      <div><p class="eyebrow">GERMAN BARTOLI / CODEX</p><h1>Mi historial<br />de <em>consumo.</em></h1></div>
+      <div class="origen-analitica"><i class="small-dot"></i><span>Última consulta<br /><strong>{new Date(analitica.hasta + 'T12:00Z').toLocaleDateString('es-AR',{day:'numeric', month:'long',year:'numeric',timeZone:'UTC'})}</strong></span></div>
+    </header>
+    <div class="controles-analitica">
+      <div class="periodos-analitica" role="group" aria-label="Intervalo de los gráficos">
+        {[[7,'7 días'],[30,'30 días'],[90,'90 días'],[0,'Todo']].map(([dias,etiqueta]) => <button type="button" data-rango={dias} aria-pressed={dias === 7}>{etiqueta}</button>)}
+      </div>
+      <label>Hasta <input type="date" data-hasta min={analitica.desde} max={analitica.hasta} value={analitica.hasta} /></label>
+    </div>
+    <noscript>Activá JavaScript para explorar los gráficos.</noscript>
+    <div class="paneles-analitica">
+      {graficos.map(g => <section class="panel-analitica" data-grafico={g.id}>
+        <header><div><h2>{g.titulo}</h2><p>{g.unidad}</p></div>
+          {g.opciones.length > 0 && <select aria-label={`Desglose de ${g.titulo}`}>{g.opciones.map(([k,v]) => <option value={k}>{v}</option>)}</select>}
+        </header>
+        <strong class="total-analitica" data-total></strong>
+        <div class="lienzo-analitica" data-lienzo></div>
+        <div class="leyenda-analitica" data-leyenda></div>
+        <div class="lectura-analitica" data-lectura aria-live="polite"></div>
+      </section>)}
+    </div>
+    <section class="panel-analitica limites-analitica">
+      <header><div><h2>Historial del plan</h2><p>Porcentaje del límite usado en cada período. Corte del {new Date(analitica.cortePlan).toLocaleString('es-AR', {timeZone:'UTC',dateStyle:'short',timeStyle:'short'})} UTC.</p></div>
+      <div class="filtros-plan"><select data-ventana aria-label="Duración del límite"><option value="10080">Semanal</option><option value="300">5 horas</option></select>
+      <select data-dimension aria-label="Desglose del límite">{dimensiones.map(([k,v]) => <option value={k}>{v}</option>)}</select></div></header>
+      <div data-periodos></div>
+    </section>
+    <p class="nota-analitica">Los tokens provienen de mi perfil público. Las demás estadísticas provienen de la analítica de mi cuenta y usan fechas UTC. El día en curso puede estar incompleto.</p>
+  </codex-analitica>
+</Layout>
+<script>import '../scripts/analitica';</script>

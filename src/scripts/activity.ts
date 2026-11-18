@@ -14,8 +14,10 @@ function renderHeatmap(grid: HTMLElement, months: HTMLElement | null, detail: HT
   const offset = days.length ? new Date(`${days[0].date}T12:00:00Z`).getUTCDay() : 0;
   for (let i = 0; i < offset; i++) { const spacer = document.createElement('span'); spacer.className = 'heatmap-empty'; fragment.append(spacer); }
   days.forEach((day, index) => {
-    const button = document.createElement('button');
-    button.type = 'button';
+    const historial = grid.dataset.historial;
+    const button = historial ? document.createElement('a') : document.createElement('button');
+    if (button instanceof HTMLAnchorElement) button.href = historial + '?dia=' + day.date;
+    else button.type = 'button';
     button.className = 'heatmap-day';
     button.tabIndex = index === days.length - 1 ? 0 : -1;
     const level = day.level ?? (day.value === 0 ? 0 : Math.min(4, Math.ceil(day.value / max * 4)));
@@ -64,7 +66,7 @@ function setupActivity() {
     grid.addEventListener('keydown', event => {
       const steps: Record<string, number> = { ArrowRight: 7, ArrowLeft: -7, ArrowDown: 1, ArrowUp: -1 };
       if (!(event.key in steps)) return;
-      const buttons = Array.from(grid.querySelectorAll('button'));
+      const buttons = Array.from(grid.querySelectorAll<HTMLElement>('.heatmap-day'));
       const index = buttons.indexOf(event.target as HTMLButtonElement);
       if (index < 0) return;
       event.preventDefault();
@@ -90,7 +92,7 @@ function setupActivity() {
       const grid = codex.querySelector<HTMLElement>('[data-codex-grid]');
       if (grid) renderHeatmap(grid, codex.querySelector('[data-codex-months]'), codex.querySelector('[data-codex-detail]'), displayed, value => `${tokens(value)}${mode === 'weekly' ? ' · total de la semana' : mode === 'cumulative' ? ' · acumulado del período' : ''}`, modeController.signal, true);
       const detail = codex.querySelector('[data-codex-detail]');
-      if (detail) detail.textContent = 'Pasá el mouse, tocá un día o usá las flechas para ver el consumo.';
+      if (detail) detail.textContent = 'Pasá el mouse o usá las flechas para ver el consumo. Abrí un día para explorar sus gráficos.';
       codex.querySelectorAll<HTMLButtonElement>('[data-mode]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.mode === mode)));
     };
     draw('daily');
