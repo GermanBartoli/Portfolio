@@ -1,13 +1,13 @@
 {
   "source": "https://chatgpt.com/u/bartoligerman497",
   "capturedAt": "2026-11-17",
-  "lastActivityDate": "2026-11-16",
+  "lastActivityDate": "2026-11-17",
   "start": "2025-10-30",
   "count": 384,
   "stats": [
     [
       "Tokens acumulados",
-      "2.695,6 M"
+      "2.714,6 M"
     ],
     [
       "Máximo de tokens",
@@ -19,11 +19,11 @@
     ],
     [
       "Racha más larga",
-      "44 días"
+      "45 días"
     ],
     [
       "Racha actual",
-      "44 días"
+      "45 días"
     ]
   ],
   "plugins": [
@@ -49,7 +49,7 @@
     ],
     [
       "Total de skills usadas",
-      "521"
+      "526"
     ]
   ],
   "daily": [
@@ -339,7 +339,11 @@
     ],
     [
       382,
-      54.548913
+      55.348037
+    ],
+    [
+      383,
+      18.237138
     ]
   ]
 }
