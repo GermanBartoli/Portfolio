@@ -18,7 +18,7 @@ const iconos: Record<string, string> = {
       {codex.stats.map(([label,value]) => <div><dd>{value}</dd><dt>{label}</dt></div>)}
     </dl>
     <div class="activity-chart-heading"><h3>Actividad de tokens</h3><div class="activity-modes" role="group" aria-label="Vista del consumo de Codex"><button type="button" data-mode="daily" aria-pressed="true">Diario</button><button type="button" data-mode="weekly" aria-pressed="false">Semanal</button><button type="button" data-mode="cumulative" aria-pressed="false">Acumulado</button></div></div>
-    <div class="heatmap-scroll"><div class="heatmap" data-codex-grid data-historial="/codex/" aria-label="Consumo de tokens por día"></div><div class="heatmap-months" data-codex-months></div></div>
+    <div class="heatmap-scroll"><div class="heatmap" role="group" data-codex-grid data-historial="/codex/" aria-label="Consumo de tokens por día"></div><div class="heatmap-months" data-codex-months></div></div>
     <p class="activity-detail" data-codex-detail aria-live="polite">Pasá el mouse o usá las flechas para ver el consumo. Abrí un día para explorar sus gráficos.</p>
     <div class="codex-bottom"><div><h3>Complementos principales</h3><div class="plugin-pills">{codex.plugins.map(nombre => <span class:list={["plugin-icon", { "plugin-name": !iconos[nombre] }]} title={nombre}>{iconos[nombre] ? <img src={`/images/plugins/${iconos[nombre]}.png`} alt={nombre} width="56" height="56" loading="lazy" /> : nombre}</span>)}</div></div><div><h3>Estadísticas</h3><dl class="codex-facts">{codex.facts.map(([nombre, valor]) => <div><dt>{nombre}</dt><dd>{valor}</dd></div>)}</dl></div></div>
     <p class="activity-source">Perfil consultado el {new Date(`${codex.capturedAt}T12:00:00Z`).toLocaleDateString("es-AR", { timeZone: "UTC" })}. Última actividad informada: {codex.lastActivityDate ?? "sin consumo"}. Los datos de hoy pueden aparecer con demora. <a href={codex.source} target="_blank" rel="noreferrer">Ver perfil original ↗</a></p>
@@ -31,7 +31,7 @@ const iconos: Record<string, string> = {
     <div data-waka-content hidden>
       <dl class="activity-totals waka-totals"><div><dd data-waka-total></dd><dt>Tiempo programando desde julio de 2022</dt></div><div><dd data-waka-average></dd><dt>Promedio diario de programación</dt></div></dl>
       <h3>Actividad del último año</h3>
-      <div class="heatmap-scroll"><div class="heatmap" data-waka-grid aria-label="Actividad diaria de programación"></div><div class="heatmap-months" data-waka-months></div></div>
+      <div class="heatmap-scroll"><div class="heatmap" role="group" data-waka-grid aria-label="Actividad diaria de programación"></div><div class="heatmap-months" data-waka-months></div></div>
       <p class="activity-detail" data-waka-detail aria-live="polite">Explorá los días para ver tu actividad.</p>
       <div class="waka-charts" data-waka-charts></div>
     </div>
