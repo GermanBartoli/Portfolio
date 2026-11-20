@@ -42,6 +42,9 @@ const url = `https://github.com/GermanBartoli/${slug}#readme`;
   .readme-content pre { padding: 20px; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; overflow-x: auto; white-space: pre; }
   .readme-content code { font-family: monospace; font-size: .88em; }
   .readme-content table { display: block; overflow-x: auto; border-collapse: collapse; }
+  .tabla-desplazable { max-width: 100%; overflow-x: auto; margin: 16px 0; }
+  .tabla-desplazable:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .readme-content .tabla-desplazable > table { display: table; overflow: visible; margin: 0; }
   .readme-content th, .readme-content td { padding: 10px 14px; border: 1px solid var(--line); min-width: 120px; overflow-wrap: normal; }
   .readme-content blockquote { border-left: 3px solid var(--muted); padding-left: 20px; margin: 20px 0; }
   .readme-content .anchor { display: block; height: 0; overflow: hidden; }

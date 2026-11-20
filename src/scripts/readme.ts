@@ -1,7 +1,38 @@
 import { prepararZoom } from './projectImage';
 let active: AbortController | undefined;
+const observadorTablas = new ResizeObserver(entradas => {
+  for (const { target } of entradas) {
+    const contenedor = target.closest<HTMLElement>('.tabla-desplazable');
+    if (!contenedor) continue;
+    if (contenedor.scrollWidth > contenedor.clientWidth + 1) {
+      contenedor.tabIndex = 0;
+      contenedor.setAttribute('role', 'region');
+      contenedor.setAttribute('aria-label', contenedor.dataset.nombre!);
+    } else {
+      contenedor.removeAttribute('tabindex');
+      contenedor.removeAttribute('role');
+      contenedor.removeAttribute('aria-label');
+    }
+  }
+});
+
+function prepararTablas(raiz: ParentNode) {
+  for (const tabla of raiz.querySelectorAll<HTMLTableElement>('.readme-content table')) {
+    if (tabla.parentElement?.classList.contains('tabla-desplazable')) continue;
+    const contenedor = document.createElement('div');
+    contenedor.className = 'tabla-desplazable';
+    const columnas = Array.from(tabla.tHead?.rows[0]?.cells ?? [], celda => celda.textContent?.trim()).filter(Boolean);
+    contenedor.dataset.nombre = tabla.caption?.textContent?.trim() || (columnas.length ? 'Tabla con columnas ' + columnas.join(', ') : 'Tabla de la guía');
+    tabla.before(contenedor);
+    contenedor.append(tabla);
+    observadorTablas.observe(contenedor);
+    observadorTablas.observe(tabla);
+  }
+}
 async function cargarReadme() {
   active?.abort();
+  observadorTablas.disconnect();
+  prepararTablas(document);
   const section = document.querySelector<HTMLElement>('[data-project-readme]');
   if (!section) return;
   const content = section.querySelector<HTMLElement>('[data-readme-content]')!;
@@ -35,6 +66,7 @@ async function cargarReadme() {
     if (controller.signal.aborted || !section.isConnected) return;
     content.replaceChildren(template.content);
     content.hidden = false;
+    prepararTablas(section);
     void prepararZoom(section, controller.signal);
     status.textContent = 'README de GitHub · Se actualiza automáticamente (caché de 5 minutos).';
     const anchor = decodeURIComponent(location.hash.slice(1));
@@ -48,4 +80,7 @@ async function cargarReadme() {
   }
 }
 document.addEventListener('astro:page-load', cargarReadme);
-document.addEventListener('astro:before-swap', () => active?.abort());
+document.addEventListener('astro:before-swap', () => {
+  active?.abort();
+  observadorTablas.disconnect();
+});
