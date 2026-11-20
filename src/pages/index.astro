@@ -38,3 +38,13 @@ import { profile, experience, education, videos } from '../data/profile';
   <Location />
   <dialog id="video-dialog" closedby="any" aria-label="Reproductor de video"><button type="button" commandfor="video-dialog" command="close" class="dialog-close" aria-label="Cerrar video">Cerrar ✕</button><div id="video-container"></div><p>Si YouTube no permite reproducirlo aquí, usá el enlace «Abrir en YouTube».</p></dialog>
 </Layout>
+
+<style>
+@media (max-width: 760px) {
+  .orbital-glow { inset-inline: 5%; }
+}
+@media (max-width: 600px) {
+  .hero-copy h1 span, .hero-copy h1 em, .section-heading h2, .contact-copy h2 { white-space: normal; overflow-wrap: anywhere; }
+  .hero-copy { min-width: 0; }
+}
+</style>
