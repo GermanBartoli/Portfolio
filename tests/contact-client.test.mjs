@@ -2,9 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
-import ts from 'typescript';
+import { stripTypeScriptTypes } from 'node:module';
 
-const source = ts.transpileModule(readFileSync(new URL('../src/scripts/contact.ts', import.meta.url), 'utf8'), { compilerOptions: { target: ts.ScriptTarget.ES2022 } }).outputText;
+const source = stripTypeScriptTypes(readFileSync(new URL('../src/scripts/contact.ts', import.meta.url), 'utf8'));
 
 function client(response) {
   const status = { textContent: '' };
