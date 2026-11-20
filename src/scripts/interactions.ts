@@ -1,3 +1,4 @@
+import { prepararCierreDialogo } from './cierreDialogo';
 let cleanup: (() => void) | undefined;
 
 const scrollKey = 'portfolio:home-scroll';
@@ -338,11 +339,7 @@ function setup() {
   const dialog = document.querySelector<HTMLDialogElement>('#video-dialog');
   const container = document.getElementById('video-container');
   let videoTrigger: HTMLElement | undefined;
-  const closeVideo = () => {
-    dialog?.close();
-    container?.replaceChildren();
-    videoTrigger?.focus();
-  };
+
   document
     .querySelectorAll<HTMLButtonElement>('[data-video]')
     .forEach((button) =>
@@ -363,9 +360,7 @@ function setup() {
         { signal },
       ),
     );
-  dialog
-    ?.querySelector('.dialog-close')
-    ?.addEventListener('click', closeVideo, { signal });
+  if (dialog) prepararCierreDialogo(dialog, signal);
   dialog?.addEventListener(
     'close',
     () => {
@@ -374,13 +369,7 @@ function setup() {
     },
     { signal },
   );
-  dialog?.addEventListener(
-    'click',
-    (event) => {
-      if (event.target === dialog) closeVideo();
-    },
-    { signal },
-  );
+
   cleanup = () => {
     controller.abort();
     observer.disconnect();

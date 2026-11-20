@@ -1,3 +1,4 @@
+import { prepararCierreDialogo } from './cierreDialogo';
 export async function prepararZoom(section: HTMLElement, signal: AbortSignal, selector = '[data-readme-content]') {
   const content = section.querySelector<HTMLElement>(selector);
   const dialog = section.querySelector<HTMLDialogElement>('[data-image-dialog]');
@@ -45,8 +46,8 @@ export async function prepararZoom(section: HTMLElement, signal: AbortSignal, se
   less.addEventListener('click', () => change(-.5), { signal });
   more.addEventListener('click', () => change(.5), { signal });
   dialog.querySelector('[data-image-fit]')?.addEventListener('click', () => { zoom = 1; fit(); render(); viewport.scrollTo(0, 0); }, { signal });
-  dialog.querySelector('[data-image-close]')?.addEventListener('click', () => dialog.close(), { signal });
-  dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); }, { signal });
+  prepararCierreDialogo(dialog, signal);
+
   dialog.addEventListener('keydown', event => {
     if (event.key === '+' || event.key === '=') { event.preventDefault(); change(.5); }
     if (event.key === '-') { event.preventDefault(); change(-.5); }

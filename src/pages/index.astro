@@ -36,5 +36,5 @@ import { profile, experience, education, videos } from '../data/profile';
   <CodingMusic />
   <section id="contacto" class="contact section-shell"><div class="contact-copy"><span class="eyebrow">08 / EL PRÓXIMO PROYECTO</span><h2>¿Y si lo<br /><em>construimos?</em></h2><p>¿Una idea, una colaboración o simplemente ganas de conversar? Contame.</p><div class="contact-socials"><a href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a><a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a></div><span class="eyebrow contact-location">VILLA ALLENDE · CÓRDOBA · ARGENTINA</span></div><Contact /></section>
   <Location />
-  <dialog id="video-dialog" aria-label="Reproductor de video"><button class="dialog-close" aria-label="Cerrar video">Cerrar ✕</button><div id="video-container"></div><p>Si YouTube no permite reproducirlo aquí, usá el enlace «Abrir en YouTube».</p></dialog>
+  <dialog id="video-dialog" closedby="any" aria-label="Reproductor de video"><button type="button" commandfor="video-dialog" command="close" class="dialog-close" aria-label="Cerrar video">Cerrar ✕</button><div id="video-container"></div><p>Si YouTube no permite reproducirlo aquí, usá el enlace «Abrir en YouTube».</p></dialog>
 </Layout>

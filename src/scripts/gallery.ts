@@ -1,3 +1,4 @@
+import { prepararCierreDialogo } from './cierreDialogo';
 export {};
 let cleanup: (() => void) | undefined;
 function setupGallery() {
@@ -43,14 +44,14 @@ function setupGallery() {
     reset();
   };
   photos.forEach((button, index) => button.addEventListener('click', () => { trigger = button; show(index); }, { signal }));
-  dialog?.querySelector('[data-close-photo]')?.addEventListener('click', () => dialog.close(), { signal });
+  if (dialog) prepararCierreDialogo(dialog, signal);
   dialog?.querySelectorAll<HTMLButtonElement>('[data-photo-step]').forEach(button => button.addEventListener('click', () => show(current + Number(button.dataset.photoStep)), { signal }));
   dialog?.addEventListener('keydown', event => {
     if (event.key === '+' || event.key === '=') { event.preventDefault(); change(.5); }
     if (event.key === '-') { event.preventDefault(); change(-.5); }
     if (zoom === 1 && (event.key === 'ArrowLeft' || event.key === 'ArrowRight')) { event.preventDefault(); show(current + (event.key === 'ArrowLeft' ? -1 : 1)); }
   }, { signal });
-  dialog?.addEventListener('click', event => { if (event.target === dialog) dialog.close(); }, { signal });
+
   dialog?.addEventListener('close', () => trigger?.focus(), { signal });
   cleanup = () => { controller.abort(); if (dialog?.open) dialog.close(); };
 }
