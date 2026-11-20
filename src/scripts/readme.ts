@@ -59,6 +59,8 @@ async function cargarReadme() {
     template.innerHTML = data.html;
     // Defensa adicional sobre el HTML que GitHub ya entrega sanitizado.
     template.content.querySelectorAll('script,style,iframe,object,embed,form,input,button,link,meta,base').forEach(node => node.remove());
+    // GitHub usa lang en estos bloques para indicar el lenguaje de programación.
+    template.content.querySelectorAll('.snippet-clipboard-content > pre[lang]').forEach(bloque => bloque.removeAttribute('lang'));
     template.content.querySelectorAll('*').forEach(node => {
       for (const attribute of [...node.attributes]) {
         if (/^on/i.test(attribute.name) || ['srcdoc', 'srcset', 'style'].includes(attribute.name)) node.removeAttribute(attribute.name);

@@ -1,5 +1,6 @@
 export interface Project {
   slug: string;
+  repositorio?: string;
   title: string;
   category: 'Extensiones' | 'Web' | 'Software';
   year: number;
@@ -259,6 +260,8 @@ export const projects: Project[] = [
   },
   {
     slug: 'Bitsion-Fictitious-SA',
+    repositorio: 'Fictitious-SA',
+    privateRepo: true,
     title: 'Empresa Ficticia S.A.',
     category: 'Software',
     year: 2022,
@@ -268,6 +271,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'Da-Vinci-Code-Manager',
+    privateRepo: true,
     title: 'Da Vinci Code Manager',
     category: 'Software',
     year: 2022,
