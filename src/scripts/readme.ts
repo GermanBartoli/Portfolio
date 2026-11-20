@@ -31,8 +31,6 @@ function prepararTablas(raiz: ParentNode) {
 }
 async function cargarReadme() {
   active?.abort();
-  observadorTablas.disconnect();
-  prepararTablas(document);
   const section = document.querySelector<HTMLElement>('[data-project-readme]');
   if (!section) return;
   const content = section.querySelector<HTMLElement>('[data-readme-content]')!;
@@ -40,8 +38,11 @@ async function cargarReadme() {
   const retry = section.querySelector<HTMLButtonElement>('[data-readme-retry]')!;
   const controller = new AbortController();
   active = controller;
-  retry.hidden = true;
-  retry.onclick = cargarReadme;
+  const reintento = !retry.hidden && document.activeElement === retry;
+  retry.setAttribute('aria-disabled', 'true');
+  retry.onclick = () => {
+    if (section.getAttribute('aria-busy') !== 'true') void cargarReadme();
+  };
   status.textContent = 'Cargando documentación desde GitHub…';
   section.setAttribute('aria-busy', 'true');
   try {
@@ -49,6 +50,7 @@ async function cargarReadme() {
     const data = await response.json();
     if (!response.ok) {
       status.textContent = response.status === 404 ? 'Este proyecto no tiene un README público disponible.' : 'No pudimos consultar GitHub. Podés reintentar o abrir el README original.';
+      if (response.status === 404 && reintento && document.activeElement === retry) status.focus({ preventScroll: true });
       retry.hidden = response.status === 404;
       return;
     }
@@ -69,6 +71,8 @@ async function cargarReadme() {
     prepararTablas(section);
     void prepararZoom(section, controller.signal);
     status.textContent = 'README de GitHub · Se actualiza automáticamente (caché de 5 minutos).';
+    if (reintento && document.activeElement === retry) status.focus({ preventScroll: true });
+    retry.hidden = true;
     const anchor = decodeURIComponent(location.hash.slice(1));
     if (anchor.startsWith('user-content-')) document.getElementById(anchor)?.scrollIntoView();
   } catch {
@@ -76,10 +80,17 @@ async function cargarReadme() {
     status.textContent = 'No pudimos cargar la documentación. Podés reintentar o verla en GitHub.';
     retry.hidden = false;
   } finally {
-    if (!controller.signal.aborted) section.removeAttribute('aria-busy');
+    if (!controller.signal.aborted) {
+      section.removeAttribute('aria-busy');
+      retry.removeAttribute('aria-disabled');
+    }
   }
 }
-document.addEventListener('astro:page-load', cargarReadme);
+document.addEventListener('astro:page-load', () => {
+  observadorTablas.disconnect();
+  prepararTablas(document);
+  void cargarReadme();
+});
 document.addEventListener('astro:before-swap', () => {
   active?.abort();
   observadorTablas.disconnect();
