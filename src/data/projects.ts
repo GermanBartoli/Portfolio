@@ -23,7 +23,7 @@ export const projects: Project[] = [
     description: 'La crónica de la partida en la que Franco llegó a Platino IV con Leona en League of Legends. Reúne el marcador final, la pantalla de victoria y las capturas del ascenso.',
     stack: ['HTML', 'CSS', 'JavaScript', 'Cloudflare Pages'],
     image: '/images/franco-a-platino.png',
-    imageNote: 'Pantalla de victoria de Franco en la partida del ascenso',
+    imageNote: 'Portada de Franco a Platino con Leona de fondo, el título del ascenso y los once participantes de Discord',
     website: 'https://franco-a-platino.pages.dev/',
     featured: true,
     privateRepo: true,
