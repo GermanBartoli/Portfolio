@@ -16,6 +16,31 @@ export interface Project {
 // Orden editorial: proyectos recientes primero; el archivo conserva el recorrido anterior.
 export const projects: Project[] = [
   {
+    slug: 'franco-a-platino',
+    title: 'Franco a Platino',
+    category: 'Web',
+    year: 2026,
+    description: 'La crónica de la partida en la que Franco llegó a Platino IV con Leona en League of Legends. Reúne el marcador final, la pantalla de victoria y las capturas del ascenso.',
+    stack: ['HTML', 'CSS', 'JavaScript', 'Cloudflare Pages'],
+    image: '/images/franco-a-platino.png',
+    imageNote: 'Pantalla de victoria de Franco en la partida del ascenso',
+    website: 'https://franco-a-platino.pages.dev/',
+    featured: true,
+    privateRepo: true,
+  },
+  {
+    slug: 'marco-rifa',
+    title: 'Rifa a beneficio de Marco',
+    category: 'Web',
+    year: 2026,
+    description: 'Una rifa para ayudar a Marco Bartoli a competir. El sitio presenta los premios y los comercios que los aportaron, y permite elegir un número para participar.',
+    stack: ['TypeScript', 'Cloudflare Workers', 'D1'],
+    image: '/images/marco-rifa.png',
+    imageNote: 'Retrato de Marco Bartoli utilizado en la portada de la rifa',
+    website: 'https://marco-sorteo.bartoligerman497.workers.dev/',
+    featured: true,
+  },
+  {
     slug: 'CodexPulse',
     title: 'Codex Pulse',
     category: 'Software',
