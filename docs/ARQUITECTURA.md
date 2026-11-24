@@ -12,7 +12,7 @@ Navegador → FormSubmit AJAX con identificador anónimo → buzón configurado 
 
 El identificador público permite enviar al formulario sin mostrar el correo. Las respuestas de error o activación pendiente nunca se presentan como entrega exitosa. Los datos se procesan por FormSubmit; no hay almacenamiento de mensajes en el sitio.
 
-La API alternativa `/api/contact` conserva un secreto solo en Cloudflare. El Worker limita la lectura a 12 KB, verifica el origen cuando está presente, valida campos y evita confirmar respuestas ambiguas del proveedor. Los datos del mensaje no se almacenan en KV; solo un hash de IP y un contador con vencimiento. No se registran cuerpos ni credenciales. El formulario público no usa esta ruta porque el proveedor limitó los envíos desde la infraestructura del servidor.
+La API alternativa `/api/contact` conserva un secreto solo en Cloudflare. El Worker limita la lectura a 12 KB, verifica el origen cuando está presente, valida campos y evita confirmar respuestas ambiguas del proveedor. Los datos del mensaje no se almacenan en D1; solo un hash de IP y un contador con vencimiento. No se registran cuerpos ni credenciales. El formulario público no usa esta ruta porque el proveedor limitó los envíos desde la infraestructura del servidor.
 
 ## Presencia
 

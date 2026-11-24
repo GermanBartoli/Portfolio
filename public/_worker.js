@@ -78,7 +78,7 @@ export async function onRequestPost({ request, env }) {
   if (!allowed.includes(servicio))
     return json({ ok: false, error: 'Elegí un servicio válido.' }, 400);
 
-  if (!env.CONTACT_LIMITS)
+  if (!env.CUPO_CONTACTO)
     return json(
       { ok: false, error: 'El formulario todavía no está configurado.' },
       503,
@@ -91,15 +91,19 @@ export async function onRequestPost({ request, env }) {
   );
   const key = `contact:${Array.from(new Uint8Array(hash), (byte) => byte.toString(16).padStart(2, '0')).join('')}`;
   try {
-    const attempts = Number(await env.CONTACT_LIMITS.get(key)) || 0;
-    if (attempts >= 2)
+    const reserva = await env.CUPO_CONTACTO.prepare(`
+      INSERT INTO cupo_contacto(huella, intentos, vence) VALUES (?, 1, unixepoch()+60)
+      ON CONFLICT(huella) DO UPDATE SET
+        intentos = CASE WHEN vence <= unixepoch() THEN 1 ELSE intentos+1 END,
+        vence = unixepoch()+60
+      WHERE vence <= unixepoch() OR intentos < 2
+      RETURNING intentos
+    `).bind(key).first();
+    if (!reserva)
       return json(
         { ok: false, error: 'Esperá un minuto antes de enviar otro mensaje.' },
         429,
       );
-    await env.CONTACT_LIMITS.put(key, String(attempts + 1), {
-      expirationTtl: 60,
-    });
   } catch {
     return json({ ok: false, error: 'Intentá nuevamente más tarde.' }, 503);
   }

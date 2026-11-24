@@ -85,9 +85,9 @@ El usuario debe permanecer en el servidor de Lanyard y compartir su actividad. I
 
 El formulario público envía directamente por AJAX a FormSubmit, igual que el sitio de Marco Bartoli Fit. Usa un identificador anónimo activado por el propietario, validación del navegador, campo trampa y las protecciones del proveedor. El correo real no aparece en HTML, JavaScript cliente ni documentación pública. Si no hay JavaScript, el formulario usa el envío HTML convencional.
 
-Se conserva `POST /api/contact` como API alternativa: valida origen, tamaño, campos y un límite orientativo por IP con KV. El destinatario de esa API es el secreto `CONTACT_RECIPIENT` de Cloudflare. Esta ruta encontró limitaciones del proveedor al enviar desde el servidor y **no es la ruta del formulario público**.
+Se conserva `POST /api/contact` como API alternativa: valida origen, tamaño, campos y un límite atómico de dos intentos por IP con D1. El destinatario de esa API es el secreto `CONTACT_RECIPIENT` de Cloudflare. Esta ruta encontró limitaciones del proveedor al enviar desde el servidor y **no es la ruta del formulario público**.
 
-KV tiene consistencia eventual: el límite reduce abuso ordinario, pero no garantiza un contador atómico frente a peticiones concurrentes. Para tráfico mayor se puede añadir Turnstile y un limitador atómico.
+D1 reserva cada intento antes de enviar el mensaje. Las solicitudes concurrentes comparten el mismo contador.
 
 ## Publicación
 
@@ -102,7 +102,7 @@ pnpm run deploy
 
 Cada push a `main` ejecuta las pruebas, genera el sitio y publica en Cloudflare Pages mediante GitHub Actions. Los pull requests y las demás ramas ejecutan las validaciones sin modificar producción. También se puede iniciar el workflow manualmente desde Actions.
 
-El repositorio requiere el secreto de Actions `CLOUDFLARE_API_TOKEN`, con permiso **Account → Cloudflare Pages → Edit**, limitado a la cuenta del proyecto. Nunca guardarlo en el código. Si falta, el workflow falla con un mensaje explícito y conserva el sitio publicado. Configurar `CONTACT_RECIPIENT` como secreto de Cloudflare y conservar el binding `CONTACT_LIMITS` de la API alternativa.
+El repositorio requiere el secreto de Actions `CLOUDFLARE_API_TOKEN`, con permiso **Account → Cloudflare Pages → Edit**, limitado a la cuenta del proyecto. Nunca guardarlo en el código. Si falta, el workflow falla con un mensaje explícito y conserva el sitio publicado. Configurar `CONTACT_RECIPIENT` como secreto de Cloudflare y conservar el binding D1 `CUPO_CONTACTO` de la API alternativa.
 
 La implementación sigue la [guía oficial de publicación continua con carga directa](https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/).
 

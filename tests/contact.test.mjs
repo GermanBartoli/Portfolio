@@ -1,3 +1,5 @@
+import { DatabaseSync } from "node:sqlite";
+import { readFileSync } from "node:fs";
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { onRequestPost } from '../public/_worker.js';
@@ -63,12 +65,15 @@ test('una respuesta ambigua del proveedor no confirma el envío', async (context
   assert.equal(response.status, 502);
 });
 
-function environment(store = new Map()) {
+function environment() {
+  const db = new DatabaseSync(":memory:");
+  db.exec(readFileSync(new URL("../migrations/0001_cupo_contacto.sql", import.meta.url), "utf8"));
   return {
     CONTACT_RECIPIENT: 'destino@example.com',
-    CONTACT_LIMITS: {
-      get: async (key) => store.get(key) || null,
-      put: async (key, value) => store.set(key, value),
+    CUPO_CONTACTO: {
+      prepare(sql) {
+        return { bind: (clave) => ({ first: async () => db.prepare(sql).get(clave) }) };
+      },
     },
   };
 }
@@ -190,4 +195,17 @@ test('limita a dos envíos por IP durante un minuto', async (context) => {
   const limited = await onRequestPost({ request: request(valid), env });
   assert.equal(limited.status, 429);
   assert.match((await limited.json()).error, /Esperá un minuto/);
+});
+
+test("dos reservas simultáneas ocupan los dos lugares disponibles", async (t) => {
+  let enviados = 0;
+  t.mock.method(globalThis, "fetch", async () => {
+    enviados++;
+    return Response.json({ success: "true" });
+  });
+  const env = environment();
+  const solicitudes = Array.from({ length: 4 }, () => onRequestPost({ request: request(valid), env }));
+  const respuestas = await Promise.all(solicitudes);
+  assert.deepEqual(respuestas.map(r => r.status).sort(), [200, 200, 429, 429]);
+  assert.equal(enviados, 2);
 });

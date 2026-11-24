@@ -3,5 +3,5 @@
   "name": "germanbartoli",
   "pages_build_output_dir": "dist",
   "compatibility_date": "2026-10-21",
-  "kv_namespaces": [{ "binding": "CONTACT_LIMITS", "id": "77ad6c88e80b4843b290bcdb9ec5a753" }]
+  "d1_databases": [{ "binding": "CUPO_CONTACTO", "database_name": "portfolio-contacto", "database_id": "8ed6f4cb-8ec0-431d-85ea-9bf4fae83894" }]
 }
