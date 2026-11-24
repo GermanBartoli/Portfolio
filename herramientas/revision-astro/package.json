@@ -1,9 +1,0 @@
-{
-  "name": "revision-astro-portfolio",
-  "private": true,
-  "description": "Verifica los componentes Astro con la versión de TypeScript compatible con su analizador.",
-  "devDependencies": {
-    "@astrojs/check": "^0.9.12",
-    "typescript": "^6.0.3"
-  }
-}

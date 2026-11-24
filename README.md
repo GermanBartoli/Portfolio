@@ -156,7 +156,7 @@ Los commits de esta revisión incluyen `Co-authored-by: Codex <noreply@openai.co
 
 ## Actualizar dependencias
 
-Ejecutar `pnpm dlx npm-check-updates -u --target latest` y `pnpm install`. El portfolio compila con TypeScript 7. La herramienta de análisis de componentes en `herramientas/revision-astro` mantiene TypeScript 6 para conservar la compatibilidad con `@astrojs/check`. Su archivo `.ncurc.json` limita la excepción a esa herramienta.
+Ejecutar `pnpm outdated` para revisar las dependencias. El build usa TypeScript 7.1 beta y el adaptador oficial `@astrojs/ts-content-mapper` para verificar los componentes Astro y los archivos TypeScript en una sola pasada. Al actualizar TypeScript, conservar la versión 7.1 o superior.
 
 ## Guías y comunidad
 
