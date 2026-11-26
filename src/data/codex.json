@@ -29,6 +29,7 @@
   "plugins": [
     "Google Calendar",
     "Gmail",
+    "Codex Security",
     "Google Drive",
     "Trello",
     "GitHub",
