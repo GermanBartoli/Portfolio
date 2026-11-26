@@ -16,6 +16,16 @@ export interface Project {
 // Orden editorial: proyectos recientes primero; el archivo conserva el recorrido anterior.
 export const projects: Project[] = [
   {
+    slug: 'german-opgg-refresh',
+    title: 'German OPGG Refresh',
+    category: 'Extensiones',
+    year: 2026,
+    description: 'Pulsa Actualizar al visitar un perfil de League of Legends en OP.GG. Reconoce los cambios de jugador en la misma pestaña y respeta el tiempo de espera del sitio.',
+    stack: ['JavaScript', 'Manifest V3'],
+    website: 'https://github.com/GermanBartoli/german-opgg-refresh/releases/latest',
+    featured: true,
+  },
+  {
     slug: 'franco-a-platino',
     title: 'Franco a Platino',
     category: 'Web',
